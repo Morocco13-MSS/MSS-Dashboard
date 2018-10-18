@@ -55,10 +55,10 @@ knitr::kable(my_data)
 
 my_limits   <- fundata(input=my_data, 
                         benchmark=0.50, 
-                        alpha=0.80, 
-                        alpha2=0.95, 
+                        alpha=0.95, 
+                        alpha2=0.98, 
                         method='exact', 
-                        step=1)
+                        step=10)
 
 my_plot     <- funplot(input=my_data, 
                        fundata=my_limits)
