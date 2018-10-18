@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../node_modules/react-vis/dist/style.css';
 
 import {XYPlot, VerticalBarSeries, VerticalGridLines, HorizontalGridLines, XAxis,
     YAxis} from 'react-vis';

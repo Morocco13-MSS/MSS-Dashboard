@@ -9,44 +9,44 @@ class Patients extends Component {
     constructor () {
         super();
         this.state = {
-            asa: [],
-            data2: [],
-            data3: []
+            // asa: [],
+            // data2: [],
+            // data3: [],
+            age: []
         }
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
+        this.handleClick();
       }
     
       handleClick () {
         axios.get('http://localhost:8080/patients')
         .then(response => {
             this.setState((state, props) => ({
-                asa: [{angle: response.data.asa.gt2, name: 'asa>2'}, {angle: response.data.asa.others, name: 'others'}, {angle: response.data.asa.missing, name: 'missing'}],
-                data2: response.data.data2,
-                data3: response.data.data3
+                // asa: [{angle: response.data.asa.gt2, name: 'asa>2'}, {angle: response.data.asa.others, name: 'others'}, {angle: response.data.asa.missing, name: 'missing'}],
+                // data2: response.data.data2,
+                // data3: response.data.data3
+                age: [{angle: response.data.gte70, name: 'age>=70'}, {angle: response.data.lt70, name: 'age<70'}, {angle: response.data.missing, name: 'missing'}],
+
               }));   
         });
       }
-
       render() {
 
         return (
             <div>
-                <h6>Data is retrived from api .../patients and displayed in the chart</h6>
-                <h5>make sure your local node server was started</h5>
-                <h6>you can check api response from http://localhost:8080/patients</h6>
-                <Button bsStyle="primary" onClick={this.handleClick}>Show Patients Data</Button>
+                {/* <Button bsStyle="primary" onClick={this.handleClick}>Show Patients Data</Button> */}
 
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={4} md={4}>
-                            <Pie data={this.state.asa}></Pie>
+                            <Pie data={this.state.age}></Pie>
                         </Col>
-                        <Col xs={4} md={4}>
+                        {/* <Col xs={4} md={4}>
                             <Line data={this.state.data2}/>
                         </Col>
                         <Col xs={4} md={4}>
                             <Bar data={this.state.data3}/>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Grid>
             </div>
