@@ -1,3 +1,66 @@
-install.packages("RJDBC")
-library(RJDBC)
-ordrv7 <- JDBC("oracle.jdbc.OracleDriver","/Library/Java/Extensions/ojdbc7.jar")
+# install.packages("RJDBC")
+# library(RJDBC)
+# ordrv7 <- JDBC("oracle.jdbc.OracleDriver","/Library/Java/Extensions/ojdbc7.jar")
+# 17102018 funnel test
+install.packages("RMariaDB")
+#n
+#install.packages("RMySQL") they are phasing out RMySQL
+#install.packages("devtools")
+#install.packages("DBI")
+#install.packages("odbc")
+
+#test
+# library(DBI)
+# # Connect to my-db as defined in ~/.my.cnf
+# con <- dbConnect(RMariaDB::MariaDB(), group = "my-db")
+# 
+# dbListTables(con)
+# dbWriteTable(con, "mtcars", mtcars)
+# dbListTables(con)
+# 
+# dbListFields(con, "mtcars")
+# dbReadTable(con, "mtcars")
+# 
+# # You can fetch all results:
+# res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
+# dbFetch(res)
+# dbClearResult(res)
+# 
+# # Or a chunk at a time
+# res <- dbSendQuery(con, "SELECT * FROM mtcars WHERE cyl = 4")
+# while(!dbHasCompleted(res)){
+#   chunk <- dbFetch(res, n = 5)
+#   print(nrow(chunk))
+# }
+# # Clear the result
+# dbClearResult(res)
+# 
+# # Disconnect from the database
+# dbDisconnect(con)
+# 
+# 
+# 
+# 
+
+###Funnel Plot###
+install.packages("funnelR")
+library(funnelR)
+
+my_data  <- data.frame(id=c(1,2,3,4,5,6,7,8,9,10),
+                       sex=c('M','F','M','F','F','M','F','M','F','M'), 
+                       n=c(130,65,155,125,19,185,82,77,50,80), 
+                       d=c(150,200,300,250,50,220,100,90,400,425)
+)
+knitr::kable(my_data)
+
+my_limits   <- fundata(input=my_data, 
+                        benchmark=0.50, 
+                        alpha=0.80, 
+                        alpha2=0.95, 
+                        method='exact', 
+                        step=1)
+
+my_plot     <- funplot(input=my_data, 
+                       fundata=my_limits)
+
+my_plot
