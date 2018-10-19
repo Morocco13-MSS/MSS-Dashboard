@@ -9,10 +9,10 @@ class Dashboard extends Component {
       return (
         <Grid>
             <Row className="show-grid">
-                <Col xs={4} md={4}>
+                <Col xs={3} md={3}>
                     <NavSide/>
                 </Col>
-                <Col xs={8} md={8}>
+                <Col xs={9} md={9}>
                     <Charts/>
                 </Col>
             </Row>

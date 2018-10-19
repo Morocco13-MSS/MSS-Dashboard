@@ -6,16 +6,16 @@ class Pie extends Component {
     render() {
         return (
             <RadialChart
-            innerRadius={60}
-            radius={140}
+            innerRadius={80}
+            radius={120}
             getLabel={d => d.name}
             data={this.props.data}
             labelsRadiusMultiplier={0.8}
             labelsStyle={{fontSize: 18, fill: '#fff'}}
             showLabels
             style={{stroke: '#fff', strokeWidth: 2}}
-            width={300}
-            height={300}
+            width={250}
+            height={250}
             />
         );
     }
