@@ -12,8 +12,8 @@ class Line extends Component {
           <HorizontalGridLines />
           <XAxis />
           <YAxis />
-          <LineSeries data={this.props.data} />
-          {/* <VerticalBarSeries data={data} /> */} 
+          <LineSeries
+          data={[{x: 1, y: 3}, {x: 2, y: 5}, {x: 3, y: 15}, {x: 4, y: 12}, {x: 5, y: 4}, {x: 6, y: 9}]} />
         </XYPlot>
       );
     }

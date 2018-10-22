@@ -20,13 +20,13 @@ class NavHeader extends Component {
                     Rectum
                 </NavItem>
                 <NavItem eventKey={3} href="#">
-                    Rectum et du colon
+                    Oesophage Cardia
                 </NavItem>
                 <NavItem eventKey={4} href="#">
                     L'Estomac
                 </NavItem>
                 <NavItem eventKey={5} href="#">
-                    L'intestin grêle
+                    Grêle
                 </NavItem>
                 </Nav>
 

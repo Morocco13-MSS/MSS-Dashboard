@@ -2157,10 +2157,10 @@ var testData = [
 {"x":425,"y":0.444705882352941}
           ];
 
-class Line extends Component {
+class PlotChart extends Component {
     render() {
       return (
-        <XYPlot height={300} width= {300}>
+        <XYPlot height={300} width= {700}>
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
@@ -2180,4 +2180,4 @@ class Line extends Component {
 
 
 
-export default Line;
+export default PlotChart;
