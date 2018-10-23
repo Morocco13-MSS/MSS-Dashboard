@@ -9,8 +9,7 @@ class Global extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            global: {},
-            someVar: null
+            global: {}
         }
         this.params = {
             startDate: '2018-01-01',
