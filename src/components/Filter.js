@@ -41,8 +41,7 @@ class Filter extends React.Component {
   }
 
   handleUserLevel(level) {
-    // this.props.updateFilter({userLevel: level})
-    console.log(level);
+    this.props.updateFilter({userLevel: level})
   }
  
   render() {
@@ -67,8 +66,8 @@ class Filter extends React.Component {
                 <Col xs={2} md={2}>
                     <div>compaire to: </div>
                     <ButtonToolbar>
-                        <Button bsSize="xsmall" onClick={this.handleUserLevel}>Unit</Button>
-                        <Button bsSize="xsmall" onClick={this.handleUserLevel}>All Units</Button>
+                        <Button bsSize="xsmall" onClick={() => this.handleUserLevel(1)}>Unit</Button>
+                        <Button bsSize="xsmall" onClick={() => this.handleUserLevel(2)}>All Units</Button>
                     </ButtonToolbar>
                 </Col>
                 <Col xs={4} md={4}>

@@ -19,7 +19,6 @@ class Global extends Component {
             userLevel: 0,       //0-doc, 1-unit, 2-all
             userId: '38'       //doc-ID from 36, unit-ID "1,2,3,4"
         }
-
         this.getPatientsGlobal();
         this.updateFilter = this.updateFilter.bind(this)
     }
@@ -31,7 +30,10 @@ class Global extends Component {
                     this.params.startDate = update.startDate;
                     break;
                 case 'endDate':
-                    this.params.endDate = update.endDate
+                    this.params.endDate = update.endDate;
+                    break;
+                case 'userLevel':
+                    this.params.userLevel = update.userLevel;
                     break;
                 default:        
             }
