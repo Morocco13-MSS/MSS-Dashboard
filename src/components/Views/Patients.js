@@ -21,7 +21,6 @@ class Patients extends Component {
             <div>
                 <Grid>
                     <Row className="show-grid">
-
                         <p>Patients View</p>
                     </Row>
                 </Grid>
