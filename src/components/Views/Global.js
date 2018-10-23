@@ -48,7 +48,7 @@ class Global extends Component {
         .then(response => {
             this.setState((state, props) => ({
                 global: {
-                    name: 'Patients',
+                    name: 'Patients: ' + response.data.totalPatients,
                     children: [
                         {
                             name: 'Curative: ' + response.data.curativeCount,
