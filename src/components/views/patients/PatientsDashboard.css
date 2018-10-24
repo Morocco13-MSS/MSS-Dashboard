@@ -1,4 +1,8 @@
-.tile{
-    height: 300px;
+.patient_tile{
+    height: 250px;
     width: 350px;
+}
+
+.patient_grid{
+    padding-top: 20px;
 }

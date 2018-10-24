@@ -38,24 +38,22 @@ class Filter extends Component {
     render() {
         return (
             <Grid>
-                <Row className="show-grid">
-                    <Col xs={2} md={2}>
+                <Row>
+                    <Col xs={3} md={3}>
                         from:
                         <DatePicker
                             selected={this.state.startDate}
                             onChange={this.handleStartDateChange}
                         />
                     </Col>
-
-                    <Col xs={2} md={2}>
+                    <Col xs={3} md={3}>
                         to:
                         <DatePicker
                             selected={this.state.endDate}
                             onChange={this.handleEndDateChange}
                         />
                     </Col>
-
-                    <Col xs={2} md={2}>
+                    <Col xs={4} md={4}>
                         <div>compaire to: </div>
                         <ButtonToolbar>
                             <Button bsSize="xsmall" onClick={() => this.handleUserLevel(1)}>Unit</Button>

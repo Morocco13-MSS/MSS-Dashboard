@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import {Grid, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-import TreeChart from '../charts/Tree';
-import Filter from '../Filter';
+import Filter from '../../Filter';
+import PatientTypes from './PatientTypes';
 
 class Global extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            global: {}
+            global: {},
         }
         this.params = {
             startDate: '2018-01-01',
@@ -17,6 +18,8 @@ class Global extends Component {
             userId: '38'       //doc-ID from 36, unit-ID "1,2,3,4"
         }
         this.getPatientsGlobal();
+
+
         this.updateFilter = this.updateFilter.bind(this)
     }
     
@@ -81,7 +84,14 @@ class Global extends Component {
         return (
             <div>
                 <Filter updateFilter = {this.updateFilter}/>
-                <TreeChart data={this.state.global}/>
+
+                <Grid className ='patient_grid'>
+                    <Row>
+                        <Col xs={10} md={10}>
+                            <PatientTypes data={this.state.global}/>
+                        </Col>
+                    </Row>
+                </Grid>
             </div>
         );
       }

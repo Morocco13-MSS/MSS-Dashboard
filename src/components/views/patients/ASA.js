@@ -9,13 +9,13 @@ class Patients extends Component {
         this.state = {
             data: 
             [
-                {name: '≥70', value: 430},
-                {name: '<70', value: 390},
-                {name: 'missing', value: 300}
+                {name: 'ASA2', value: 79},
+                {name: 'ASA1', value: 25},
+                {name: 'Missing', value: 10}
             ],
-            colors: ['#0088FE', '#999', '#999'],
-            centerText: '430',
-            centerText2: '/1120',
+            colors: ['#00C49F', '#999', '#999'],
+            centerText: '79',
+            centerText2: '/114',
         }
         // this.getPatientsAge();
       }

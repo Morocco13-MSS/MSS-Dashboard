@@ -121,6 +121,7 @@ class MSSPie extends Component {
                     outerRadius={70} 
                     fill="#8884d8"
                     onMouseEnter={this.onPieEnter}
+                    animationBegin={10}
                 >
                     {this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]}/>)}
                 </Pie>
