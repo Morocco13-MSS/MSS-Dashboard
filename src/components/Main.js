@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import Patients from './Views/Patients'
-import Global from './Views/Global'
+import Patients from './views/patients/PatientsDashboard'
+import Global from './views/Global'
 
 
 class Charts extends Component {

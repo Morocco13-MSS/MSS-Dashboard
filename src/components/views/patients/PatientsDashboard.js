@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Grid, Row, Col, Button} from 'react-bootstrap';
+import TwoLevelPieChart from '../../charts/MSSPie'
+import Age from './Age'
 
 class Patients extends Component {
     constructor () {
@@ -21,7 +23,7 @@ class Patients extends Component {
             <div>
                 <Grid>
                     <Row className="show-grid">
-                        <p>Patients View</p>
+                        <Age/>
                     </Row>
                 </Grid>
             </div>

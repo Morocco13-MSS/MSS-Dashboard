@@ -7,7 +7,7 @@ class NavHeader extends Component {
             <Navbar staticTop inverse>
             <Navbar.Header>
                 <Navbar.Brand>
-                    Obwervatoire de Cancer Digestif
+                Obwervatoire de Cancer Digestif
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>

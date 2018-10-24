@@ -5,7 +5,7 @@ import { Grid, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
  
 import 'react-datepicker/dist/react-datepicker.css';
  
-class Filter extends React.Component {
+class Filter extends Component {
     constructor (props) {
         super(props)
         this.state = {

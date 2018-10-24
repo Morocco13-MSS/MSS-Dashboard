@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Pie from '../Charts/Pie';
-import TreeChart from '../Charts/Tree';
+import TreeChart from '../charts/Tree';
 import Filter from '../Filter';
-// import '../Charts/Tree.css';
 
 class Global extends Component {
     constructor (props) {
