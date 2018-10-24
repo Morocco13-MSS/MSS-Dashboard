@@ -29,14 +29,11 @@
 
 
 import React, { Component } from 'react';
-import {PieChart, Pie, Sector, Cell} from 'recharts';
-
-var CENTER_TEXT = 'CENTER_TEXT', 
-    CENTER_TEXT_2 ='CENTER_TEXT_2';
+import {PieChart, Pie, Sector, Cell, Label} from 'recharts';
 
 function renderActiveShape (props) {
     const RADIAN = Math.PI / 180;
-    const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
+    const {cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
     fill, percent, value, name} = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
@@ -50,14 +47,6 @@ function renderActiveShape (props) {
 
     return (
         <g>
-            <text x={cx} y={cy} textAnchor="middle" fill="#333">
-                <tspan x={cx} y={cy} dy={10} font-size="40">
-                    {CENTER_TEXT}
-                </tspan>
-                <tspan x={cx} y={cy} dy={35} font-size="16" fill="#999">
-                    {CENTER_TEXT_2}
-                </tspan>       
-            </text>
             <Sector
                 cx={cx}
                 cy={cy}
@@ -88,6 +77,16 @@ function renderActiveShape (props) {
     );
 }
 
+function CustomizedLabel({viewBox, value1, value2}){
+    const {cx, cy} = viewBox;
+    return (
+        <text x={cx} y={cy} fill="#3d405c" className="recharts-text recharts-label" textAnchor="middle" dominantBaseline="central">
+        <tspan alignmentBaseline="middle" fontSize="36">{value1}</tspan>
+        <tspan x={cx} y={cy+25} fontSize="20">{value2}</tspan>
+        </text>
+    )
+}
+
 class MSSPie extends Component {
 
     constructor (props) {
@@ -96,10 +95,6 @@ class MSSPie extends Component {
             activeIndex: 0
         }
         this.onPieEnter = this.onPieEnter.bind(this);
-        
-        // used in renderActiveShape function
-        CENTER_TEXT = this.props.centerText; 
-        CENTER_TEXT_2 = this.props.centerText2;
     }
 
     onPieEnter(data, index) {
@@ -122,7 +117,10 @@ class MSSPie extends Component {
                     fill="#8884d8"
                     onMouseEnter={this.onPieEnter}
                     animationBegin={10}
-                >
+                > 
+                    <Label width={30} position="center"
+                        content={<CustomizedLabel value1={this.props.centerText} value2={this.props.centerText2}/>}>
+                    </Label>
                     {this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]}/>)}
                 </Pie>
         </PieChart>

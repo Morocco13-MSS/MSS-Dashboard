@@ -50,7 +50,7 @@ class Patients extends Component {
                 </Row>
                 <Row>
                     <Col xs={5} md={5}>
-                        <Age/>
+                        <ASA/>
                     </Col>
                     <Col xs={5} md={5}>
                         <Age/>
