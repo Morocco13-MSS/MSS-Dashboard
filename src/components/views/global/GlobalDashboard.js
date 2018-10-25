@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-import axios from 'axios';
 import Filter from '../../Filter';
 import PatientTypes from './PatientTypes';
+import GlobalApi from '../../../apis/globalApi';
 
 class Global extends Component {
     constructor (props) {
@@ -15,16 +15,15 @@ class Global extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: '38'       //doc-ID from 36, unit-ID "1,2,3,4"
+            userId: '38'        //doc-ID from 36, unit-ID "1,2,3,4"
         }
-        this.getPatientsGlobal();
-
-
+        this.globalApi = new GlobalApi();
         this.updateFilter = this.updateFilter.bind(this)
+        this.updateFilter();
     }
     
-    updateFilter(update) {
-        if(Object.keys(update)[0] !== null){
+    async updateFilter(update) {
+        if(update && Object.keys(update)[0] !== null){
             switch(Object.keys(update)[0]) {
                 case 'startDate':
                     this.params.startDate = update.startDate;
@@ -38,48 +37,13 @@ class Global extends Component {
                 default:        
             }
         }
-        this.getPatientsGlobal();
+
+        var _global = await this.globalApi.getPatientsGlobal(this.params);
+        this.setState({
+            global: _global
+        });
     }
 
-    getPatientsGlobal () {
-        console.log(this.params);
-        axios.get('http://localhost:8080/global', {
-            params: this.params
-          })
-        .then(response => {
-            this.setState((state, props) => ({
-                global: {
-                    name: 'Patients: ' + response.data.totalPatients,
-                    children: [
-                        {
-                            name: 'Curative: ' + response.data.curativeCount,
-                            gProps: {
-                                className: 'red-node',
-                                onClick: node => {
-                                    // alert(`Clicked ${node}!`);
-                                }       
-                            }
-                        },
-                        {
-                            name: 'Other',
-                            children: [ 
-                                {
-                                    name: 'Palli: ' + response.data.palliCount
-                                },
-                                {
-                                    name: 'Missing Data: ' + response.data.missCount
-                                },
-                                {
-                                    name: 'N/A: ' + response.data.nACount
-                                }
-                                
-                            ]
-                        }
-                    ]   
-                }
-              }));   
-        });
-      }
     render() {
         return (
             <div>

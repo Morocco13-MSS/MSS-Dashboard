@@ -5,22 +5,6 @@ import './Tree.css';
 
 class TreeChart extends Component {
     render() {
-        // let data = {
-        //     name: 'Parent',
-        //     children: [{
-        //         name: 'Child One'
-        //     }, {
-        //         name: 'Child Two'
-        //     },
-        //     {
-        //         name: 'Child Three',
-        //         gProps: {
-        //             className: 'red-node',
-        //             onClick: node =>
-        //                 alert(`Clicked ${node}!`)
-        //         }
-        //     }]
-        // };
         return (
             <div className="custom-container">
                 <Tree
