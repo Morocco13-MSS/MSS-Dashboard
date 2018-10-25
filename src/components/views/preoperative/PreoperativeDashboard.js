@@ -21,10 +21,10 @@ class PreoperativeDashboard extends Component {
     }
 
     componentDidMount() {
-        const self = this;
-        self.setState({
-            global: self.globalApi.getPatientsGlobal(self.params)
-        })
+        // const self = this;
+        // self.setState({
+        //     global: self.globalApi.getPatientsGlobal(self.params)
+        // })
     }
 
     async updateFilter(update) {
