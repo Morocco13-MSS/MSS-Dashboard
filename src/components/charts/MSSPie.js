@@ -37,11 +37,11 @@ function renderActiveShape (props) {
     fill, percent, value, name} = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
-    const sx = cx + (outerRadius + 5) * cos;
-    const sy = cy + (outerRadius + 5) * sin;
-    const mx = cx + (outerRadius + 15) * cos;
-    const my = cy + (outerRadius + 15) * sin;
-    const ex = mx + (cos >= 0 ? 1 : -1) * 11;
+    const sx = cx + (outerRadius + 15) * cos;
+    const sy = cy + (outerRadius + 15) * sin;
+    const mx = cx + (outerRadius + 20) * cos;
+    const my = cy + (outerRadius + 20) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? 'start' : 'end';
 
@@ -92,7 +92,11 @@ class MSSPie extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            activeIndex: 0
+            activeIndex: 0,
+            data: this.props.data,
+            colors: this.props.colors,
+            centerText: this.props.centerText,
+            centerText2: this.props.centerText2,
         }
         this.onPieEnter = this.onPieEnter.bind(this);
     }
@@ -105,12 +109,12 @@ class MSSPie extends Component {
     
 	render () {
         return (
-            <PieChart width={350} height={300}>
+            <PieChart width={400} height={300}>
                 <Pie 
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape} 
-                    data={this.props.data} 
-                    cx={160} 
+                    data={this.state.data} 
+                    cx={180} 
                     cy={100} 
                     innerRadius={60}
                     outerRadius={70} 
@@ -119,9 +123,11 @@ class MSSPie extends Component {
                     animationBegin={10}
                 > 
                     <Label width={30} position="center"
-                        content={<CustomizedLabel value1={this.props.centerText} value2={this.props.centerText2}/>}>
+                        content={<CustomizedLabel value1={this.state.centerText} value2={this.state.centerText2}/>}>
                     </Label>
-                    {this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]}/>)}
+                    {
+                        this.state.data.map((entry, index) => <Cell fill={this.state.colors[index % this.state.colors.length]}/>)
+                    }
                 </Pie>
         </PieChart>
         );

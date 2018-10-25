@@ -21,6 +21,13 @@ class Global extends Component {
         this.updateFilter = this.updateFilter.bind(this)
         this.updateFilter();
     }
+
+    componentDidMount() {
+        const self = this;
+        self.setState({
+            global: self.globalApi.getPatientsGlobal(self.params)
+        })
+    }
     
     async updateFilter(update) {
         if(update && Object.keys(update)[0] !== null){
@@ -52,7 +59,12 @@ class Global extends Component {
                 <Grid className ='patient_grid'>
                     <Row>
                         <Col xs={10} md={10}>
-                            <PatientTypes data={this.state.global}/>
+
+                            <div>
+                                { this.state && this.state.global &&
+                                    <PatientTypes data={this.state.global}/>
+                                }
+                            </div>
                         </Col>
                     </Row>
                 </Grid>

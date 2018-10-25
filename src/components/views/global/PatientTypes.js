@@ -11,6 +11,6 @@ class PatientTypes extends Component {
                 <TreeChart className ='global_tree'  data={this.props.data}/> 
             </Panel>
         );
-      }
+    }
   }
   export default PatientTypes;
