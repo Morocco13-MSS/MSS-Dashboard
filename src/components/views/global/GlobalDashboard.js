@@ -15,7 +15,7 @@ class Global extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: '38'        //doc-ID from 36, unit-ID "1,2,3,4"
+            userId: '8'        //doc-ID from 36, unit-ID "1,2,3,4"
         }
         this.globalApi = new GlobalApi();
         this.updateFilter = this.updateFilter.bind(this)
@@ -39,6 +39,11 @@ class Global extends Component {
                     this.params.endDate = update.endDate;
                     break;
                 case 'userLevel':
+                if(update.userLevel === 0){
+                    this.params.userId = 8;
+                    }else if(update.userLevel === 1){
+                        this.params.userId = 3;
+                    }
                     this.params.userLevel = update.userLevel;
                     break;
                 default:        

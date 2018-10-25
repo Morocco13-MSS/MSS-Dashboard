@@ -4,18 +4,20 @@ import axios from 'axios';
 class PatientsAgeApi extends Component {
 
     async getPatientsAge(params) {
-        const response = await axios.get('http://localhost:8080/global', {
+        const response = await axios.get('http://localhost:8080/patients/curative/agegt70', {
             params,
         });
 
+        console.log(response);
+
         const age = {
-                    data:         [
-                        {name: '≥70', value: 430},
-                        {name: '<70', value: 390},
-                        {name: 'missing', value: 300}
+                    data: [
+                        {name: '≥70', value: response.data.gtAge70},
+                        {name: '<70', value: response.data.ltAge70},
+                        {name: 'missing', value: response.data.missing}
                     ],
-                    gt70: 430,
-                    total: 430+390+300
+                    gt70: response.data.gtAge70,
+                    total: '/' + response.data.totalPatients
                 }
         return age;
     }

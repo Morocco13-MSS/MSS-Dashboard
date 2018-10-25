@@ -56,8 +56,9 @@ class Filter extends Component {
                     <Col xs={4} md={4}>
                         <div>compaire to: </div>
                         <ButtonToolbar>
-                            <Button bsSize="xsmall" onClick={() => this.handleUserLevel(1)}>Unit</Button>
-                            <Button bsSize="xsmall" onClick={() => this.handleUserLevel(2)}>All Units</Button>
+                            <Button bsSize="xsmall" bsStyle="info" onClick={() => this.handleUserLevel(0)}>Myself</Button>
+                            <Button bsSize="xsmall" bsStyle="primary" onClick={() => this.handleUserLevel(1)}>Unit</Button>
+                            <Button bsSize="xsmall" bsStyle="success" onClick={() => this.handleUserLevel(2)}>All Units</Button>
                         </ButtonToolbar>
                     </Col>
                 </Row>

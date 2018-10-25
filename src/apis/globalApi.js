@@ -7,7 +7,7 @@ class GlobalApi extends Component {
         const response = await axios.get('http://localhost:8080/global', {
             params,
         });
-
+        
         const global = {
             name: 'Patients: ' + response.data.totalPatients,
             children: [

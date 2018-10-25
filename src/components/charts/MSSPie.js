@@ -27,7 +27,6 @@
 /* ***************************************************************** */
 
 
-
 import React, { Component } from 'react';
 import {PieChart, Pie, Sector, Cell, Label} from 'recharts';
 
@@ -92,11 +91,7 @@ class MSSPie extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            activeIndex: 0,
-            data: this.props.data,
-            colors: this.props.colors,
-            centerText: this.props.centerText,
-            centerText2: this.props.centerText2,
+            activeIndex: 0
         }
         this.onPieEnter = this.onPieEnter.bind(this);
     }
@@ -113,7 +108,7 @@ class MSSPie extends Component {
                 <Pie 
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape} 
-                    data={this.state.data} 
+                    data={this.props.data} 
                     cx={180} 
                     cy={100} 
                     innerRadius={60}
@@ -123,10 +118,10 @@ class MSSPie extends Component {
                     animationBegin={10}
                 > 
                     <Label width={30} position="center"
-                        content={<CustomizedLabel value1={this.state.centerText} value2={this.state.centerText2}/>}>
+                        content={<CustomizedLabel value1={this.props.centerText} value2={this.props.centerText2}/>}>
                     </Label>
                     {
-                        this.state.data.map((entry, index) => <Cell fill={this.state.colors[index % this.state.colors.length]}/>)
+                        this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]}/>)
                     }
                 </Pie>
         </PieChart>

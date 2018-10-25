@@ -7,7 +7,7 @@ class ASA extends Component {
     constructor () {
         super();
         this.state = {
-            colors: ['#00C49F', '#999', '#999'],
+            colors: ['#FFBB28', '#999', '#999'],
         }
       }
 
@@ -15,7 +15,7 @@ class ASA extends Component {
         return (
             <Panel className ='patient_tile'>
                 <Panel.Body>
-                    <h5>Patients ASA > 2</h5>
+                    <h5>Patients OMS > 1</h5>
                     <MSSPie data={this.props.data} 
                     colors={this.state.colors} 
                     centerText={this.props.centerText} 
