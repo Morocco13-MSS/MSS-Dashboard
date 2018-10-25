@@ -15,7 +15,9 @@ class PatientsOMSApi extends Component {
                         {name: 'missing', value: response.data.missing}
                     ],
                     gt1: response.data.omsgrt1,
-                    total: '/' + response.data.totalPatients
+                    total: response.data.totalPatients,
+                    lt1: response.data.omslest1,
+                    missing: response.data.missing
                 }
         return oms;
     }

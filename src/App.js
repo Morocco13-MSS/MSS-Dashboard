@@ -10,9 +10,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <NavHeader/>
-        <Grid>
+        <Grid fluid = {true}>
             <Row className="show-grid">
                 <Col xs={2} md={2}>
                     <NavSide/>

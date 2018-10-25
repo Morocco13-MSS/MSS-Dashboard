@@ -64,7 +64,6 @@ class Global extends Component {
                 <Grid className ='patient_grid'>
                     <Row>
                         <Col xs={10} md={10}>
-
                             <div>
                                 { this.state && this.state.global &&
                                     <PatientTypes data={this.state.global}/>

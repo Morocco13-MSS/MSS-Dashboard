@@ -15,7 +15,9 @@ class PatientsASAApi extends Component {
                 {name: 'missing', value: response.data.missing}
             ],
             gt2: response.data.asagt2,
-            total: '/' + response.data.totalPatients
+            total: response.data.totalPatients,
+            lt2: response.data.asalt2,
+            missing: response.data.missing
         }
         return asa;
     }

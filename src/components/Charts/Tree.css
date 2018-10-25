@@ -26,7 +26,7 @@ svg.custom path.link {
 
 .red-node {
     font-size: 16px;
-	fill: rgb(255, 152, 51);
-    stroke: rgb(255, 152, 51);
+	fill: #9999996b;
+    stroke: #ff9833;
     cursor: pointer;
 }

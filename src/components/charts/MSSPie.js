@@ -64,24 +64,30 @@ function renderActiveShape (props) {
                 outerRadius={outerRadius + 10}
                 fill={fill}
             />
-            <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
-            <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">
-                {`${name}: ${value}`}
+            {/* <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/> */}
+            {/* <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/> */}
+            {/* <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" fontSize="14">
+                {`${(percent * 100).toFixed(2)}%`}
+            </text> */}
+            {/* <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333" fontSize="20">
+                {`${(percent * 100).toFixed(2)}%`}
             </text>
             <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
                 {`${(percent * 100).toFixed(2)}%`}
-            </text>
+            </text> */}
         </g>
     );
 }
 
 function CustomizedLabel({viewBox, value1, value2}){
     const {cx, cy} = viewBox;
+    let percent = (value1/value2 * 100).toFixed(0)+'%';
+
     return (
         <text x={cx} y={cy} fill="#3d405c" className="recharts-text recharts-label" textAnchor="middle" dominantBaseline="central">
-        <tspan alignmentBaseline="middle" fontSize="36">{value1}</tspan>
-        <tspan x={cx} y={cy+25} fontSize="20">{value2}</tspan>
+        <tspan x={cx} alignmentBaseline="middle" fontSize="50">{value1}</tspan>
+        <tspan fontSize="20">/{value2}</tspan>
+        <tspan x={cx} fontSize="20" dy="30">{percent}</tspan>
         </text>
     )
 }
@@ -104,21 +110,21 @@ class MSSPie extends Component {
     
 	render () {
         return (
-            <PieChart width={400} height={300}>
+            <PieChart width={300} height={200}>
                 <Pie 
                     activeIndex={this.state.activeIndex}
                     activeShape={renderActiveShape} 
                     data={this.props.data} 
-                    cx={180} 
+                    cx={150} 
                     cy={100} 
                     innerRadius={60}
                     outerRadius={70} 
                     fill="#8884d8"
-                    onMouseEnter={this.onPieEnter}
+                    // onMouseEnter={this.onPieEnter}
                     animationBegin={10}
                 > 
                     <Label width={30} position="center"
-                        content={<CustomizedLabel value1={this.props.centerText} value2={this.props.centerText2}/>}>
+                        content={<CustomizedLabel value1={this.props.centerText} value2={this.props.centerText2} />}>
                     </Label>
                     {
                         this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]}/>)

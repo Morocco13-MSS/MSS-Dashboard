@@ -5,4 +5,56 @@
 
 .patient_grid{
     padding-top: 20px;
+    color: #333333;
+
 }
+.squareLeft {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareRight {
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.name{
+    color: #555;
+    text-align: center;
+    font-size: 18px;
+}
+
+.value{
+    color: #555;
+    text-align: center;
+    font-size: 16px;
+}
+
+.age_value{
+    color: #036fce;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.asa_value{
+    color: #02997d;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.oms_value{
+    color: #f5ac0e;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+

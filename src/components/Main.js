@@ -4,7 +4,7 @@ import Patients from './views/patients/PatientsDashboard'
 import Global from './views/global/GlobalDashboard'
 
 
-class Charts extends Component {
+class Main extends Component {
     render() {
         return (
             <main>
@@ -16,4 +16,4 @@ class Charts extends Component {
             </main>
         )};
     }
-export default Charts;
+export default Main;
