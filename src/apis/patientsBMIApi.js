@@ -11,6 +11,12 @@ class PatientsBMIApi extends Component {
         console.log(response)
         const other = response.data.totalPatients-response.data.bmigt30-response.data.bmilt18-response.data.missingbmi;
 
+        var max = 0;
+        if(response.data.wlossgt10per > response.data.bmilt18){
+            max = response.data.wlossgt10per;
+        }else{
+            max = response.data.bmilt18;
+        }
         const bmi = {
                     data1:
                     [
@@ -27,7 +33,11 @@ class PatientsBMIApi extends Component {
                     lt18: response.data.bmilt18,
                     total: response.data.totalPatients,
                     other: other,
-                    missing: response.data.missingbmi
+                    missing: response.data.missingbmi,
+                    missingwloss: response.data.missingwloss,
+                    wlossgt10per: response.data.wlossgt10per,
+                    wlosslt10per: response.data.wlosslt10per,
+                    max,
                 }
         return bmi;
     }

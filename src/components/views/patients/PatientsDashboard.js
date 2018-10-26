@@ -149,9 +149,16 @@ class Patients extends Component {
                         </Col>
                         <Col xs={5} md={5}>
                             <div>
-                       
-                                     <BMI/>
-                           
+                                { this.state && this.state.bmi.data1 && this.state.bmi.data2 &&
+                                    <BMIWL 
+                                        lt10 = {this.state.bmi.wlosslt10per}
+                                        lt18 = {this.state.bmi.lt18}
+                                        gt10 = {this.state.bmi.wlossgt10per}
+                                        total = {this.state.bmi.total}
+                                        missing = {this.state.bmi.missingwloss}
+                                        max = {this.state.bmi.max}
+                                    />
+                                }                  
                             </div>
                            
                         </Col>

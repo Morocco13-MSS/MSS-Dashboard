@@ -5,35 +5,47 @@ import './PatientsDashboard.css'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 const data = [{name: 'Patients', bmilt18: 1, bmiOther: 2, missingbmi: 3, wlosslt10per: 4, wlossOther: 5, missingwloss: 6}];
-class BMIWeight extends Component {
-    // constructor () {
-    //     super();
-    //     this.state = {
-    //         colors: ['#0088FE', '#999', '#999'],
-    //     }
-    //   }
+class BMIWL extends Component {
 
-    componentDidMount() {
-        // fetch the project name, once it retrieves resolve the promsie and update the state. 
-        // this.setState({
-        //     data: this.props.data
-        // });
-      }
 
     render() {
-        // console.log("---------------");
-        // console.log(this.props.data);
-        // data = [{name: 'Patients', bmilt18: 1, bmiOther: 2, missingbmi: 3, wlosslt10per: 4, wlossOther: 5, missingwloss: 6}]
-        return (
-            <Panel className ='patient_tile'>
+               return (
+            <Panel>
                 <Panel.Body>
-                    <h5>Patients Weight Loss > 10% or BMI ≤ 18 </h5>
+                    <h4>Patients Weight Loss > 10% or BMI ≤ 18 </h4>
+                    <div className="square_top_bmiwl">
+                        <div className="bmiw_value">
+                        {
+                            ((this.props.max/this.props.total)*100).toFixed(0)
+                        }{'%'}
+                        </div>
+                        <div className="bmiw_value_2">
+                            {this.props.max}{'/'}{this.props.total}
+                        </div>
+                    </div>
+                    <div className="square_left_bottom_bmiwl">
+                        <div className="bmiw_title_2">{'Patients BMI < 18'} </div>
+                        <div className="bmiw_value_3">
+                        {
+                            ((this.props.lt18/this.props.total)*100).toFixed(0)
+                        }{'%'}
+                        </div>
+                        <div className="bmiw_value_5">
+                            {this.props.lt18}{'/'}{this.props.total}
+                        </div>
+                    </div>
+                    <div className="square_right_bottom_bmiwl">
+                        <div className="bmiw_title_2">{'Patients Weight Loss > 10%'} </div>
+                        <div className="bmiw_value_4">
+                        {
+                            ((this.props.gt10/this.props.total)*100).toFixed(0)
+                        }{'%'}
+                        </div>
+                        <div className="bmiw_value_5">
+                            {this.props.gt10}{'/'}{this.props.total}
+                        </div>
 
-                           {/* <div>
-                                { this.state && this.state.data.name &&
-                                     <div> hhahhhhhhhh {this.state.data.name} </div>
-                                }
-                            </div> */}
+                    </div>
 
 
 
@@ -42,24 +54,4 @@ class BMIWeight extends Component {
         );
     }
   }
-  export default BMIWeight;
-
-
-
-
-                    // <BarChart width={400} height={250} data={this.props.data}
-                    //     margin={{top: 20, right: 100, left: 0, bottom: 5}}
-                    //     barSize={30}
-                    //     barGap = {40}
-                    //     layout="vertical"
-                    //     >
-                    //     <CartesianGrid strokeDasharray="3 3"/>
-                    //     <XAxis type="number"/>
-                    //     <YAxis type="category" />
-                    //     <Bar dataKey="bmilt18" stackId="a" fill="#8884d8" />
-                    //     <Bar dataKey="bmiOther" stackId="a" fill="#9999999f" />
-                    //     <Bar dataKey="missingbmi" stackId="a" fill="#9999996b" />
-                    //     <Bar dataKey="wlosslt10per" stackId="b" fill="#82ca9d" />
-                    //     <Bar dataKey="wlossOther" stackId="b" fill="#9999999f" />
-                    //     <Bar dataKey="missingwloss" stackId="b" fill="#9999996b" />
-                    // </BarChart>
+  export default BMIWL;
