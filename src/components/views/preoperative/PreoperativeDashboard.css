@@ -1,0 +1,43 @@
+.squareLeftPreo {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 220px;
+    height: 80px;
+    display: inline-block;
+}
+
+.squareRightPreo  {
+    border: 1px solid #ddd;
+    width: 220px;
+    height: 80px;
+    display: inline-block;
+}
+
+.namePreo {
+    color: #555;
+    text-align: center;
+    font-size: 16px;  
+}
+
+.mdt_value{
+    color: #1f77b4;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.tmd_thorax_value{
+    color: #ff7f0e;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.tmd_abdomen_value{
+    color: #2ca02c;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}

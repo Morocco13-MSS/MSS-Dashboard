@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import Filter from '../../Filter';
 import BilanManquant from './BilanManquant';
-import GlobalApi from '../../../apis/globalApi';
+import BilanManquantApi from '../../../apis/bilanManquantApi';
 
 class PreoperativeDashboard extends Component {
     constructor (props) {
         super(props);
-        this.state = {
-        }
+
+        // API instances 
+        this.bilanManquantApi = new BilanManquantApi();
+
         this.params = {
             startDate: '2018-01-01',
             endDate: '2019-01-01',
@@ -21,10 +23,10 @@ class PreoperativeDashboard extends Component {
     }
 
     componentDidMount() {
-        // const self = this;
-        // self.setState({
-        //     global: self.globalApi.getPatientsGlobal(self.params)
-        // })
+        const self = this;
+        self.setState({
+            bm: self.bilanManquantApi.getBilanManquant(self.params),
+        })
     }
 
     async updateFilter(update) {
@@ -47,11 +49,9 @@ class PreoperativeDashboard extends Component {
                 default:        
             }
         }
-
-        // var _global = await this.globalApi.getPatientsGlobal(this.params);
-        // this.setState({
-        //     global: _global
-        // });
+        this.setState({
+            bm: await this.bilanManquantApi.getBilanManquant(this.params),
+        });
     }
 
     render() {
@@ -61,8 +61,22 @@ class PreoperativeDashboard extends Component {
 
             <Grid className ='patient_grid'>
                 <Row>
-                    <Col xs={10} md={10}>
-                        <BilanManquant/>
+                    <Col xs={8} md={8}>
+                        <div>
+                        { this.state && this.state.bm.data &&
+                            <BilanManquant data={this.state.bm.data}
+                                key1={this.state.bm.key1}
+                                key2={this.state.bm.key2}
+                                key3={this.state.bm.key3}
+                                mdt_adherent={this.state.bm.mdt_adherent}
+                                mdt_total={this.state.bm.mdt_total}
+                                tmd_thorax_adherent={this.state.bm.tmd_thorax_adherent}
+                                tmd_thorax_total={this.state.bm.tmd_thorax_total}
+                                tmd_abdomen_adherent={this.state.bm.tmd_abdomen_adherent}
+                                tmd_abdomen_total={this.state.bm.tmd_abdomen_total}
+                            />
+                        }
+                        </div>
                     </Col>
                 </Row>
             </Grid>

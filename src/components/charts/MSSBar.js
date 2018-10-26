@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LabelList} from 'recharts';
-const data = [
-    {name: 'MDT', yes: 4000, no: 2400, missing: 2400},
-    {name: 'TDM thorax', yes: 3000, no: 1398, missing: 2210},
-    {name: 'TDM abdomen', yes: 2000, no: 6800, missing: 2290}
-
-];
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, LabelList} from 'recharts';
 
 function CustomizedLabel({viewBox, value1, value2}){
     const {cx, cy} = viewBox;
@@ -25,20 +19,24 @@ function CustomizedLabel({viewBox, value1, value2}){
 class MSSBar extends Component {
     render () {
         return (
-            <BarChart width={600} height={300} data={data}
+            <BarChart width={600} height={300} data={this.props.data}
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="name"/>
         <YAxis/>
         <Tooltip/>
-        <Legend />
-        <Bar dataKey="yes" fill="#8884d8">
-            <LabelList dataKey="yes" position="top"/>
+        <Bar dataKey={this.props.key1}>
+            {
+                this.props.data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={this.props.colors[index % 20]}/>
+                ))
+            }
+            <LabelList dataKey={this.props.key1} position="top"/>
             {/* <LabelList content={<CustomizedLabel external={} />} /> */}
 
         </Bar>
-        <Bar dataKey="no" fill="#999" />
-        <Bar dataKey="missing" fill="#666" />
+        <Bar dataKey={this.props.key2} fill="#999" />
+        <Bar dataKey={this.props.key3} fill="#666" />
         </BarChart>
         )
     }
