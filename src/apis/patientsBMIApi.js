@@ -4,7 +4,7 @@ import axios from 'axios';
 class PatientsBMIApi extends Component {
 
     async getPatientsBMI(params) {
-        const response = await axios.get('http://localhost:8080/patients/curative/bmi', {
+        const response = await axios.get('http://localhost:8080/patients/curative/bmi_wtloss', {
             params,
         });
 
