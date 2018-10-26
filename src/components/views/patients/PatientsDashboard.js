@@ -9,6 +9,7 @@ import Filter from '../../Filter';
 import PatientsAgeApi from '../../../apis/patientsAgeApi';
 import PatientsASAApi from '../../../apis/patientsASAApi';
 import PatientsOMSApi from '../../../apis/patientsOMSApi';
+import PatientsBMIApi from '../../../apis/patientsBMIApi';
 import PatientsBMIWLApi from '../../../apis/patientsBMIWLApi';
 
 class Patients extends Component {
@@ -21,6 +22,7 @@ class Patients extends Component {
         this.patientsASAApi = new PatientsASAApi();
         this.patientsOMSApi = new PatientsOMSApi();
         this.patientsBMIWLApi = new PatientsBMIWLApi();
+        this.patientsBMIApi = new PatientsBMIApi();
 
         // Parameters used for api call
         this.params = {
@@ -42,7 +44,8 @@ class Patients extends Component {
             age: self.patientsAgeApi.getPatientsAge(self.params),
             asa: self.patientsASAApi.getPatientsASA(self.params),
             oms: self.patientsOMSApi.getPatientsOMS(self.params),
-            bmiwl: self.patientsBMIWLApi.getPatientsBMIWL(self.params)
+            bmi: self.patientsBMIApi.getPatientsBMI(self.params),
+            // bmiwl: self.patientsBMIWLApi.getPatientsBMIWL(self.params)
         })
         console.log(self.setState);
     }
@@ -72,6 +75,7 @@ class Patients extends Component {
             age: await this.patientsAgeApi.getPatientsAge(this.params),
             asa: await this.patientsASAApi.getPatientsASA(this.params),
             oms: await this.patientsOMSApi.getPatientsOMS(this.params),
+            bmi: await this.patientsBMIApi.getPatientsBMI(this.params),
             // bmiwl: await this.patientsBMIWLApi.getPatientsBMIWL(this.params)
         });
 
@@ -129,8 +133,17 @@ class Patients extends Component {
                     <Row>
                         <Col xs={5} md={5}>
                             <div>
-                                { this.state && this.state.oms.data && this.state.oms.gt1 && this.state.oms.total &&
-                                    <OMS data={this.state.oms.data} centerText={this.state.oms.gt1} centerText2={this.state.oms.total}/>
+                                { this.state && this.state.bmi.data1 && this.state.bmi.data2 &&
+                                    <BMI data1={this.state.bmi.data1} 
+                                        data2={this.state.bmi.data2} 
+                                        centerText={this.state.bmi.gt30 + this.state.bmi.lt18} 
+                                        centerText2={this.state.bmi.total}
+                                        lt18 = {this.state.bmi.lt18}
+                                        gt30 = {this.state.bmi.gt30}
+                                        other = {this.state.bmi.other}
+                                        total = {this.state.bmi.total}
+                                        missing = {this.state.bmi.missing}
+                                    />
                                 }
                             </div>
                         </Col>

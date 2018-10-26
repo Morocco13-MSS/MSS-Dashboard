@@ -25,6 +25,23 @@
     display: inline-block;
 }
 
+.squareLeft_2 {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 85px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareRight_2 {
+    border: 1px solid #ddd;
+    width: 85px;
+    height: 50px;
+    display: inline-block;
+}
+
 .name{
     color: #555;
     text-align: center;
@@ -53,6 +70,13 @@
 
 .oms_value{
     color: #f5ac0e;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bmi_value{
+    color: #8884d8;
     text-align: center;
     font-size: 16px;
     font-weight: bold;

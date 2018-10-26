@@ -1,32 +1,50 @@
 import React, { Component } from 'react';
-import {PieChart, Pie, Legend, Label} from 'recharts';
+import {PieChart, Pie, Label} from 'recharts';
 
+function CustomizedLabel({viewBox, value1, value2}){
+    const {cx, cy} = viewBox;
+    let percent = (value1/value2 * 100).toFixed(0);
 
-const data01 = [{name: 'Group A', value: 20}, {name: 'Group B', value: 60},
-                  {name: 'Group C', value: 10}, {name: 'Group D', value: 10}]
+    return (
+        <text x={cx} y={cy} fill="#3d405c" className="recharts-text recharts-label" textAnchor="middle" dominantBaseline="central">
+        <tspan x={cx} y={cy-5} fontSize="36">{percent}</tspan>
+        <tspan fontSize="18">%</tspan>
+        <tspan x={cx}  dy="40" alignmentBaseline="middle" fontSize="30"  fill="#999">{value1}</tspan>
+        <tspan fontSize="20" fill="#999">/{value2}</tspan>
 
-const data02 = [{name: 'A1', value: 80}]
-
+        </text>
+    )
+}
 
 class MSSDoublePie extends Component {
 	render () {
-        var end = 360/100*80;
-  	return (
-    	<PieChart width={350} height={250}>
-        <Pie data={data01} cx={180} cy={100} innerRadius={60} outerRadius={70} fill="#8884d8" label>
-            <Label width={30} position="center">777
-                       
-            </Label>
-        
-        </Pie>
-        <Pie 
-            startAngle={end}
-            endAngle={0}
-        
-        data={data02} cx={180} cy={100} innerRadius={80} outerRadius={90} fill="#82ca9d" label/>
-       </PieChart>
-    );
-  }
+        var end = 360/this.props.total*(this.props.lt18+this.props.gt30);
+        return (
+            <PieChart width={350} height={250}>
+            <Pie 
+                data={this.props.data1} 
+                cx={180} cy={100} 
+                innerRadius={60} 
+                outerRadius={70} 
+                fill="#82ca9d">
+                    <Label width={30} position="center"
+                        content={<CustomizedLabel 
+                            value1={this.props.centerText} 
+                            value2={this.props.centerText2} />}>
+                    </Label>
+            </Pie>
+            <Pie 
+                startAngle={end}
+                endAngle={0}
+                data={this.props.data2} 
+                cx={180} 
+                cy={100} 
+                innerRadius={80} 
+                outerRadius={90} 
+                fill="#8884d8" label/>
+        </PieChart>
+        );
+    }
 }
 
 export default MSSDoublePie;
