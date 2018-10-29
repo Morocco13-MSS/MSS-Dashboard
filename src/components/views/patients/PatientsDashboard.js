@@ -10,7 +10,6 @@ import PatientsAgeApi from '../../../apis/patientsAgeApi';
 import PatientsASAApi from '../../../apis/patientsASAApi';
 import PatientsOMSApi from '../../../apis/patientsOMSApi';
 import PatientsBMIApi from '../../../apis/patientsBMIApi';
-import PatientsBMIWLApi from '../../../apis/patientsBMIWLApi';
 
 class Patients extends Component {
 
@@ -21,7 +20,6 @@ class Patients extends Component {
         this.patientsAgeApi = new PatientsAgeApi();
         this.patientsASAApi = new PatientsASAApi();
         this.patientsOMSApi = new PatientsOMSApi();
-        this.patientsBMIWLApi = new PatientsBMIWLApi();
         this.patientsBMIApi = new PatientsBMIApi();
 
         // Parameters used for api call
@@ -45,7 +43,6 @@ class Patients extends Component {
             asa: self.patientsASAApi.getPatientsASA(self.params),
             oms: self.patientsOMSApi.getPatientsOMS(self.params),
             bmi: self.patientsBMIApi.getPatientsBMI(self.params),
-            // bmiwl: self.patientsBMIWLApi.getPatientsBMIWL(self.params)
         })
         console.log(self.setState);
     }
@@ -75,8 +72,7 @@ class Patients extends Component {
             age: await this.patientsAgeApi.getPatientsAge(this.params),
             asa: await this.patientsASAApi.getPatientsASA(this.params),
             oms: await this.patientsOMSApi.getPatientsOMS(this.params),
-            bmi: await this.patientsBMIApi.getPatientsBMI(this.params),
-            // bmiwl: await this.patientsBMIWLApi.getPatientsBMIWL(this.params)
+            bmi: await this.patientsBMIApi.getPatientsBMI(this.params)
         });
 
     }

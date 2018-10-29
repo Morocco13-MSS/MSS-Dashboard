@@ -8,6 +8,7 @@ class PatientTypes extends Component {
     render() {
         return (
             <Panel className ='global_tile global_tree' >
+                <h4>{this.props.title}</h4>
                 <TreeChart className ='global_tree'  data={this.props.data}/> 
             </Panel>
         );

@@ -9,8 +9,9 @@ class TreeChart extends Component {
             <div className="custom-container">
                 <Tree
                     data={this.props.data}
-                    height={400}
+                    height={200}
                     width={600}
+
                     nodeRadius = {8}
                     animated = {true}
                     svgProps={{
@@ -18,13 +19,6 @@ class TreeChart extends Component {
                     }}
                     nodeOffset={-15}
                 >
-                    <text 
-                        dy="15" 
-                        dx="5" 
-                        fill="#000000"
-                    >
-		                Global view
-	                </text>
                 </Tree>
            
             </div>
