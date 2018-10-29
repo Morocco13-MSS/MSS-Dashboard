@@ -16,8 +16,10 @@ class PatientsAgeApi extends Component {
                         {name: '<70', value: response.data.ltAge70},
                         {name: 'missing', value: response.data.missing}
                     ],
+                    missing: response.data.missing,
                     gt70: response.data.gtAge70,
-                    total: '/' + response.data.totalPatients
+                    lt70: response.data.ltAge70,
+                    total: response.data.totalPatients
                 }
         return age;
     }

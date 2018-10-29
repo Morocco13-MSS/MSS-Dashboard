@@ -5,4 +5,142 @@
 
 .patient_grid{
     padding-top: 20px;
+    color: #333333;
+
+}
+.squareLeft {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareRight {
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareLeft_2 {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 85px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareRight_2 {
+    border: 1px solid #ddd;
+    width: 85px;
+    height: 50px;
+    display: inline-block;
+}
+
+.name{
+    color: #555;
+    text-align: center;
+    font-size: 18px;
+}
+
+.value{
+    color: #555;
+    text-align: center;
+    font-size: 16px;
+}
+
+.age_value{
+    color: #036fce;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.asa_value{
+    color: #02997d;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.oms_value{
+    color: #f5ac0e;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.bmi_value{
+    color: #8884d8;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.square_top_bmiwl {
+    /* border: 1px solid #ddd; */
+    width: 420px;
+    height: 200px;
+}
+
+.square_left_bottom_bmiwl {
+    border: 1px solid #ddd;
+    width: 210px;
+    height: 100px;
+    display: inline-block;
+}
+
+.square_right_bottom_bmiwl {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 210px;
+    height: 100px;
+    display: inline-block;
+}
+
+.bmiw_value{
+    padding-top: 20px;
+    color: #1f77b4;
+    text-align: center;
+    font-size: 60px;
+}
+
+.bmiw_value_2{
+    color: #999;
+    text-align: center;
+    font-size: 30px;
+}
+
+.bmiw_title_2{
+    color: #999;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bmiw_value_3{
+    color: #f5ac0e;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bmiw_value_4{
+    color: #02997d;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bmiw_value_5{
+    color: #999;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }

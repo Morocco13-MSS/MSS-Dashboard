@@ -13,13 +13,31 @@ class ASA extends Component {
 
     render() {
         return (
-            <Panel className ='patient_tile'>
+            <Panel>
                 <Panel.Body>
-                    <h5>Patients ASA > 2</h5>
+                    <h4>Patients ASA > 2</h4>
                     <MSSPie data={this.props.data} 
                     colors={this.state.colors} 
                     centerText={this.props.centerText} 
                     centerText2={this.props.centerText2} />
+
+                    <div className="squareLeft">
+                        <div className="name"> {'>2'}</div>
+                        <div className="asa_value">{this.props.gt2}</div>
+                    </div>
+                    <div className="squareLeft">
+                        <div className="name"> {'≤2'}</div>
+                        <div className="value">{this.props.lt2}</div>
+                    </div>
+                    <div className="squareLeft">
+                        <div className="name">{'Missing'}</div>
+                        <div className="value">{this.props.missing}</div>
+                    </div>
+                    <div className="squareRight">
+                        <div className="name">Total</div>
+                        <div className="value">{this.props.total}</div>
+                    </div>
+
                 </Panel.Body>
             </Panel>
         );
