@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import PatientTypes from './PatientTypes';
+import GestTypes from './GestTypes';
 import Filter from '../../Filter';
 import GlobalApi from '../../../apis/globalApi';
 
@@ -54,7 +55,8 @@ class NewGlobalDashboard extends Component {
         self.setState({
             global: self.globalApi.getPatientsGlobal(self.params),
             global_unit: self.globalApi.getPatientsGlobal(self.params_unit),
-            global_all: self.globalApi.getPatientsGlobal(self.params_all)
+            global_all: self.globalApi.getPatientsGlobal(self.params_all),
+            gest: self.globalApi.getPatientsGestType(self.params, self.params_unit, self.params_all)
         })
     }
 
@@ -96,6 +98,7 @@ class NewGlobalDashboard extends Component {
             global: await this.globalApi.getPatientsGlobal(this.params),
             global_unit: await this.globalApi.getPatientsGlobal(this.params_unit),
             global_all: await this.globalApi.getPatientsGlobal(this.params_all),
+            gest: await this.globalApi.getPatientsGestType(this.params, this.params_unit, this.params_all)
         });
     }
 
@@ -123,6 +126,16 @@ class NewGlobalDashboard extends Component {
                                     data_all={this.state.global_all.chartData}
                                     tile_all={this.state.global_all.tileData}
                                     
+                                    hide_unit = {this.state.unitIsHidden}
+                                    hide_all = {this.state.allIsHidden}
+                                />
+                            }
+                        </Col>
+                        <Col xs={8} md={8}>
+                            { this.state && this.state.gest && this.state.gest.data &&
+                                <GestTypes 
+                                    data={this.state.gest.data} 
+                                    tile_data={this.state.gest.tile_data}
                                     hide_unit = {this.state.unitIsHidden}
                                     hide_all = {this.state.allIsHidden}
                                 />
