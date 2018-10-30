@@ -7,11 +7,8 @@ function CustomizedLabel({viewBox, value1, value2}){
 
     return (
         <text x={cx} y={cy} fill="#3d405c" className="recharts-text recharts-label" textAnchor="middle" dominantBaseline="central">
-        <tspan x={cx} y={cy-5} fontSize="36">{percent}</tspan>
-        <tspan fontSize="18">%</tspan>
-        <tspan x={cx}  dy="40" alignmentBaseline="middle" fontSize="30"  fill="#999">{value1}</tspan>
-        <tspan fontSize="20" fill="#999">/{value2}</tspan>
-
+            <tspan fontSize="36">{percent}</tspan>
+            <tspan fontSize="18">%</tspan>
         </text>
     )
 }

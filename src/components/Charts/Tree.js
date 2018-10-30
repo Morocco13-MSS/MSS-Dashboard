@@ -9,18 +9,17 @@ class TreeChart extends Component {
             <div className="custom-container">
                 <Tree
                     data={this.props.data}
-                    height={200}
-                    width={600}
+                    height={100}
+                    width={350}
 
-                    nodeRadius = {8}
+                    nodeRadius = {6}
                     animated = {true}
                     svgProps={{
                         className: 'custom'
                     }}
-                    nodeOffset={-15}
+                    nodeOffset={-8}
                 >
                 </Tree>
-           
             </div>
         );
     }

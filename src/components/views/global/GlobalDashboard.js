@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-import Filter from '../../Filter';
 import PatientTypes from './PatientTypes';
+import GestTypes from './GestTypes';
+import Filter from '../../Filter';
 import GlobalApi from '../../../apis/globalApi';
 
-class Global extends Component {
+class NewGlobalDashboard extends Component {
+
     constructor (props) {
         super(props);
         this.state = {
             unitIsHidden: true,
             allIsHidden: true
         }
+
+        // API instances 
+        this.globalApi = new GlobalApi();
+
+        // Parameters used for api call
         this.params = {
             title: 'My Patients',
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',
-            userLevel: 0,
-            userId: '8'
+            userLevel: 0,       //0-doc, 1-unit, 2-all
+            userId: 8           //doc-ID from 8/12, unit-ID "3", all"""
         }
 
         this.params_unit = {
@@ -30,7 +37,7 @@ class Global extends Component {
         }
 
         this.params_all = {
-            title: 'Unit Patients',
+            title: 'All Unit Patients',
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',
@@ -38,8 +45,8 @@ class Global extends Component {
             userId: '-1'
         }
 
-        this.globalApi = new GlobalApi();
-        this.updateFilter = this.updateFilter.bind(this)
+        // Filter function will be triggered when date or type is changed
+        this.updateFilter = this.updateFilter.bind(this);
         this.updateFilter();
     }
 
@@ -48,10 +55,11 @@ class Global extends Component {
         self.setState({
             global: self.globalApi.getPatientsGlobal(self.params),
             global_unit: self.globalApi.getPatientsGlobal(self.params_unit),
-            global_all: self.globalApi.getPatientsGlobal(self.params_all)
+            global_all: self.globalApi.getPatientsGlobal(self.params_all),
+            gest: self.globalApi.getPatientsGestType(self.params, self.params_unit, self.params_all)
         })
     }
-    
+
     async updateFilter(update) {
         if(update && Object.keys(update)[0] !== null){
             switch(Object.keys(update)[0]) {
@@ -81,61 +89,63 @@ class Global extends Component {
                                 allIsHidden: !this.state.allIsHidden
                             })
                         }
-
                     }
                     break;
                 default:        
             }
         }
-
-        var _global = await this.globalApi.getPatientsGlobal(this.params);
-        var _global_unit =  await this.globalApi.getPatientsGlobal(this.params_unit);
-        var _global_all =  await this.globalApi.getPatientsGlobal(this.params_all);
         this.setState({
-            global: _global,
-            global_unit: _global_unit,
-            global_all: _global_all 
+            global: await this.globalApi.getPatientsGlobal(this.params),
+            global_unit: await this.globalApi.getPatientsGlobal(this.params_unit),
+            global_all: await this.globalApi.getPatientsGlobal(this.params_all),
+            gest: await this.globalApi.getPatientsGestType(this.params, this.params_unit, this.params_all)
         });
     }
 
     render() {
         return (
-            <div>
+            <div> 
                 <Filter updateFilter = {this.updateFilter}/>
-
                 <Grid className ='patient_grid'>
                     <Row>
-                        <Col xs={10} md={10}>
-                            <div>
-                                { this.state && this.state.global &&
-                                    <PatientTypes data={this.state.global} title={this.params.title}/>
-                                }
-                            </div>
+                        <Col xs={4} md={4}>
+                            { this.state && this.state.global && this.state.global.chartData &&
+                               this.state && this.state.global_unit && this.state.global_unit.chartData &&
+                               this.state && this.state.global_all && this.state.global_all.chartData &&
+
+                                <PatientTypes
+                                    title_dr={this.params.title}
+                                    data_dr={this.state.global.chartData}
+                                    tile_dr={this.state.global.tileData}
+
+                                    title_unit={this.params_unit.title}
+                                    data_unit={this.state.global_unit.chartData}
+                                    tile_unit={this.state.global_unit.tileData}
+
+                                    title_all={this.params_all.title}
+                                    data_all={this.state.global_all.chartData}
+                                    tile_all={this.state.global_all.tileData}
+                                    
+                                    hide_unit = {this.state.unitIsHidden}
+                                    hide_all = {this.state.allIsHidden}
+                                />
+                            }
+                        </Col>
+                        <Col xs={8} md={8}>
+                            { this.state && this.state.gest && this.state.gest.data &&
+                                <GestTypes 
+                                    data={this.state.gest.data} 
+                                    tile_data={this.state.gest.tile_data}
+                                    hide_unit = {this.state.unitIsHidden}
+                                    hide_all = {this.state.allIsHidden}
+                                />
+                            }
                         </Col>
                     </Row>
-                    <Row>
-                        <Col xs={10} md={10}>
-                            <div>
-                                {!this.state.unitIsHidden && this.state && this.state.global_unit &&
-                                    <PatientTypes data={this.state.global_unit} title={this.params_unit.title}/>
-                                }
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={10} md={10}>
-                            <div>
-                                {!this.state.allIsHidden && this.state && this.state.global_all &&
-                                    <PatientTypes data={this.state.global_all} title={this.params_all.title}/>
-                                }
-                            </div>
-                        </Col>
-                    </Row>
-                    
                 </Grid>
             </div>
         );
-      }
+    }
   }
 
-  export default Global;
+  export default NewGlobalDashboard;
