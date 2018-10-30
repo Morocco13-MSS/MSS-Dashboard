@@ -41,5 +41,17 @@ class PatientsBMIApi extends Component {
                 }
         return bmi;
     }
+
+    async getDrBMIPercentage(params) {
+        const response = await axios.get('http://localhost:8080/patients/curative/bmi_wtloss', {
+            params,
+        });
+
+        const percentage = ((response.data.bmigt30+response.data.bmilt18)/response.data.totalPatients*100).toFixed(0);
+        const drBMI = {
+            percentageStr: 'Myself: ' + percentage + '%'
+        }
+        return drBMI;
+    }
 }
 export default PatientsBMIApi;

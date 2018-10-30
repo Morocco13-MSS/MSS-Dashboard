@@ -21,5 +21,17 @@ class PatientsASAApi extends Component {
         }
         return asa;
     }
+
+    async getDrASAPercentage(params) {
+        const response = await axios.get('http://localhost:8080/patients/curative/asascoregt2', {
+            params,
+        });
+
+        const percentage = (response.data.asagt2/response.data.totalPatients*100).toFixed(0);
+        const drASA = {
+            percentageStr: 'Myself: ' + percentage + '%'
+        }
+        return drASA;
+    }
 }
 export default PatientsASAApi;

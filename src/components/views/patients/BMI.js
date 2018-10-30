@@ -15,10 +15,13 @@ class BMI extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'BMI <18 or BMI>30'}</h4>
+                    <h4>{'BMI <18 or BMI>30'}
+                        { !this.props.hide_dr && this.props.drBMI &&
+                            <span className='dr_result'>{this.props.drBMI}</span>
+                        }
+                    </h4>
                     <MSSDoublePie data1={this.props.data1} 
-                    data2={this.props.data2} 
-                    // colors={this.state.colors} 
+                    data2={this.props.data2}
                     centerText={this.props.centerText} 
                     centerText2={this.props.centerText2} 
                     total = {this.props.total} 

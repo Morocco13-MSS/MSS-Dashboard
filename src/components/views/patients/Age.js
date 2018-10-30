@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Panel, Grid, Row, Col} from 'react-bootstrap';
+import {Panel} from 'react-bootstrap';
 import MSSPie from '../../charts/MSSPie'
 import './PatientsDashboard.css'
 
@@ -15,7 +15,11 @@ class Age extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Patients age ≥ 70</h4>
+                    <h4>Patients age ≥ 70
+                        { !this.props.hide_dr && this.props.drAGE &&
+                            <span className='dr_result'>{this.props.drAGE}</span>
+                        }
+                    </h4>
                     <MSSPie data={this.props.data} 
                             colors={this.state.colors} 
                             centerText={this.props.centerText} 

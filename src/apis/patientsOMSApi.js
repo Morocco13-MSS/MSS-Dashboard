@@ -21,5 +21,17 @@ class PatientsOMSApi extends Component {
                 }
         return oms;
     }
+
+    async getDrOMSPercentage(params) {
+        const response = await axios.get('http://localhost:8080/patients/curative/omsgt1', {
+            params,
+        });
+
+        const percentage = (response.data.omsgrt1/response.data.totalPatients*100).toFixed(0);
+        const drOMS = {
+            percentageStr: 'Myself: ' + percentage + '%'
+        }
+        return drOMS;
+    }
 }
 export default PatientsOMSApi;

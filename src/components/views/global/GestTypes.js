@@ -7,7 +7,6 @@ import {Panel} from 'react-bootstrap';
 class GestTypes extends Component {
 
     render () {
-
         return (
             <Panel>
                 <Panel.Body>

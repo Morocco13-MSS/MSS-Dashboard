@@ -15,7 +15,11 @@ class ASA extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Patients ASA > 2</h4>
+                    <h4>Patients ASA > 2
+                        { !this.props.hide_dr && this.props.drASA &&
+                            <span className='dr_result'>{this.props.drASA}</span>
+                        }
+                    </h4>
                     <MSSPie data={this.props.data} 
                     colors={this.state.colors} 
                     centerText={this.props.centerText} 

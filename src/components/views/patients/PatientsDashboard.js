@@ -22,8 +22,19 @@ class Patients extends Component {
         this.patientsOMSApi = new PatientsOMSApi();
         this.patientsBMIApi = new PatientsBMIApi();
 
+        // this.drIsHidden = true;
+        this.drOMS='';
+
         // Parameters used for api call
         this.params = {
+            startDate: '2018-01-01',
+            endDate: '2019-01-01',
+            formType: 'E',
+            userLevel: 0,       //0-doc, 1-unit, 2-all
+            userId: 8        //doc-ID from 8/12, unit-ID "3", all"""
+        }
+
+        this.params_dr = {
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',
@@ -43,8 +54,12 @@ class Patients extends Component {
             asa: self.patientsASAApi.getPatientsASA(self.params),
             oms: self.patientsOMSApi.getPatientsOMS(self.params),
             bmi: self.patientsBMIApi.getPatientsBMI(self.params),
+            drIsHidden: true,
+            drAGE: self.patientsAgeApi.getDrAGEPercentage(self.params_dr),
+            drASA: self.patientsASAApi.getDrASAPercentage(self.params_dr),
+            drOMS: self.patientsOMSApi.getDrOMSPercentage(self.params_dr),
+            drBMI: self.patientsBMIApi.getDrBMIPercentage(self.params_dr)
         })
-        console.log(self.setState);
     }
 
     async updateFilter(update) {
@@ -52,15 +67,29 @@ class Patients extends Component {
             switch(Object.keys(update)[0]) {
                 case 'startDate':
                     this.params.startDate = update.startDate;
+                    this.params_dr.startDate = update.startDate;
                     break;
                 case 'endDate':
                     this.params.endDate = update.endDate;
+                    this.params_dr.endDate = update.endDate;
                     break;
                 case 'userLevel':
                     if(update.userLevel === 0){
                         this.params.userId = 8;
-                    }else if(update.userLevel === 1){
-                        this.params.userId = 3;
+                        this.setState({
+                            drIsHidden: true
+                        });
+                    } else {
+                        if(update.userLevel === 1){
+                            this.params.userId = 3;
+                        }
+                        this.setState({
+                            // age: await this.patientsAgeApi.getPatientsAge(this.params),
+                            // asa: await this.patientsASAApi.getPatientsASA(this.params),
+                            // drOMS: await this.patientsOMSApi.getDrOMSPercentage(this.params_dr),
+                            drIsHidden: false
+                            // bmi: await this.patientsBMIApi.getPatientsBMI(this.params)
+                        });
                     }
                     this.params.userLevel = update.userLevel;
                     break;
@@ -72,7 +101,11 @@ class Patients extends Component {
             age: await this.patientsAgeApi.getPatientsAge(this.params),
             asa: await this.patientsASAApi.getPatientsASA(this.params),
             oms: await this.patientsOMSApi.getPatientsOMS(this.params),
-            bmi: await this.patientsBMIApi.getPatientsBMI(this.params)
+            bmi: await this.patientsBMIApi.getPatientsBMI(this.params),
+            drAGE: await this.patientsAgeApi.getDrAGEPercentage(this.params_dr),
+            drASA: await this.patientsASAApi.getDrASAPercentage(this.params_dr),
+            drOMS: await this.patientsOMSApi.getDrOMSPercentage(this.params_dr),
+            drBMI: await this.patientsBMIApi.getDrBMIPercentage(this.params_dr)
         });
 
     }
@@ -93,6 +126,8 @@ class Patients extends Component {
                                         gt70= {this.state.age.gt70}
                                         lt70={this.state.age.lt70}
                                         total={this.state.age.total}
+                                        hide_dr = {this.state.drIsHidden}
+                                        drAGE = {this.state.drAGE.percentageStr}
                                     />
                                 }
                             </div>
@@ -101,12 +136,14 @@ class Patients extends Component {
                             <div>
                                 { this.state && this.state.asa.data && this.state.asa.gt2 && this.state.asa.total &&
                                     <ASA data={this.state.asa.data} 
-                                    centerText={this.state.asa.gt2} 
-                                    centerText2={this.state.asa.total}
-                                    gt2={this.state.asa.gt2} 
-                                    total={this.state.asa.total}
-                                    lt2={this.state.asa.lt2} 
-                                    missing = {this.state.asa.missing} 
+                                        centerText={this.state.asa.gt2} 
+                                        centerText2={this.state.asa.total}
+                                        gt2={this.state.asa.gt2} 
+                                        total={this.state.asa.total}
+                                        lt2={this.state.asa.lt2} 
+                                        missing = {this.state.asa.missing}
+                                        hide_dr = {this.state.drIsHidden}
+                                        drASA = {this.state.drASA.percentageStr}
                                     />
                                 }
                             </div>
@@ -121,6 +158,8 @@ class Patients extends Component {
                                         total={this.state.oms.total}
                                         lt1={this.state.oms.lt1} 
                                         missing={this.state.oms.missing}
+                                        hide_dr = {this.state.drIsHidden}
+                                        drOMS = {this.state.drOMS.percentageStr}
                                     />
                                 }
                             </div>
@@ -139,6 +178,8 @@ class Patients extends Component {
                                         other = {this.state.bmi.other}
                                         total = {this.state.bmi.total}
                                         missing = {this.state.bmi.missing}
+                                        hide_dr = {this.state.drIsHidden}
+                                        drBMI = {this.state.drBMI.percentageStr}
                                     />
                                 }
                             </div>

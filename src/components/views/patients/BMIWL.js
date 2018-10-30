@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import {Panel} from 'react-bootstrap';
-// import MSSBarS from '../../charts/MSSBarStacked'
 import './PatientsDashboard.css'
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
-const data = [{name: 'Patients', bmilt18: 1, bmiOther: 2, missingbmi: 3, wlosslt10per: 4, wlossOther: 5, missingwloss: 6}];
 class BMIWL extends Component {
-
-
     render() {
-               return (
+        return (
             <Panel>
                 <Panel.Body>
                     <h4>Patients Weight Loss > 10% or BMI ≤ 18 </h4>
@@ -46,12 +41,9 @@ class BMIWL extends Component {
                         </div>
 
                     </div>
-
-
-
                 </Panel.Body>
             </Panel>
         );
     }
-  }
-  export default BMIWL;
+}
+export default BMIWL;
