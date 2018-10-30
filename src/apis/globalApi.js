@@ -7,33 +7,42 @@ class GlobalApi extends Component {
         const response = await axios.get('http://localhost:8080/global', {
             params,
         });
-        
-        const global = {
-            name: 'Patients: ' + response.data.totalPatients,
+
+        const _other = response.data.totalPatients - response.data.curativeCount;
+        const chartData = {
+            name: 'Total: ' + response.data.totalPatients,
             children: [
             {
                 name: 'Curative: ' + response.data.curativeCount,
                 gProps: {
-                className: 'red-node',
-                onClick: node => {
-                    // alert(`Clicked ${node}!`);
+                    className: 'red-node',
                 }
-                }
-            }, {
-                name: 'Other',
-                children: [
-                {
-                    name: 'Palli: ' + response.data.palliCount
-                },
-                {
-                    name: 'Missing Data: ' + response.data.missCount
-                },
-                {
-                    name: 'N/A: ' + response.data.nACount
-                }]
+            },
+            {
+                name: 'Other: ' + _other,
             }]
         }
+
+        const tileData = {
+            curative: response.data.curativeCount,
+            palli: response.data.palliCount,
+            missing: response.data.missCount,
+            na: response.data.nACount
+        }
+
+        const global = {
+            chartData,
+            tileData,
+        }
         return global;
+    }
+
+    async getGlobalGestType (params) {
+        const response = await axios.get('http://localhost:8080/global/gestType', {
+            params,
+        });
+
+        return response.data;
     }
 }
 export default GlobalApi;

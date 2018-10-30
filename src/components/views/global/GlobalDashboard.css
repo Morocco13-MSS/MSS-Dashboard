@@ -1,8 +1,32 @@
-.global_tile{
-    height: 200px;
-    width: 700px;
+.global_tree {
+    padding-left: 50px;
+    display: inline-block;
 }
 
-.global_tree {
-    padding-left: 30px
+.global_square_left {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.global_square_right {
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.global_name{
+    color: #555;
+    text-align: center;
+    font-size: 18px;
+}
+
+.global_value{
+    color: #555;
+    text-align: center;
+    font-size: 16px;
 }
