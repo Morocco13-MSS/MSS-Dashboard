@@ -113,3 +113,96 @@
     height: 50px;
     display: inline-block;
 }
+
+
+.perforation_square_left{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 56px;
+    height: 50px;
+    display: inline-block;
+}
+.perforation_square_right{
+    border: 1px solid #ddd;
+    width: 56px;
+    height: 50px;
+    display: inline-block;
+}
+
+.perforation_name{
+    color: #999;
+    text-align: center;
+    font-size: 16px;
+}
+
+.perforation_yes_value{
+    color: #1f77b4;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.perforation_value{
+    color: #999;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contamination_value{
+    padding-top: 50px;
+    color: #8884d8;
+    text-align: center;
+    font-size: 60px;
+}
+
+.contamination_yes_value{
+    color: #8884d8;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.radicality_value{
+    padding-top: 50px;
+    color: #e2a623;
+    text-align: center;
+    font-size: 60px;
+}
+
+.radicality_r1_value{
+    color: #e2a623;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lumphNodeExam_value{
+    padding-top: 50px;
+    color: #00C49F;
+    text-align: center;
+    font-size: 60px;
+}
+
+.lumphNodeExam_gt12_value{
+    color: #00C49F;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lumphNodeExam_square_left{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 72px;
+    height: 50px;
+    display: inline-block;
+}
+.lumphNodeExam_square_right{
+    border: 1px solid #ddd;
+    width: 72px;
+    height: 50px;
+    display: inline-block;
+}

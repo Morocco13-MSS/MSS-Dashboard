@@ -3,6 +3,10 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import Filter from '../../Filter';
 import FirstLook from './FirstLook'
 import ResecAsso from './ResecAsso'
+import Perforation from './Perforation'
+import Contamination from './Contamination'
+import RadicalityR1 from './RadicalityR1'
+import LumphNodeExam from './LumphNodeExam'
 import SurgeryApis from '../../../apis/surgeryApis';
 
 class Surgery extends Component {
@@ -38,7 +42,11 @@ class Surgery extends Component {
             fl: self.surgeryApis.getFirstLook(self.params),
             fl_dr: self.surgeryApis.getFirstLookDr(self.params_dr),
             ra: self.surgeryApis.getResecAsso(self.params),
-            ra_dr: self.surgeryApis.getResecAssoDr(self.params)
+            ra_dr: self.surgeryApis.getResecAssoDr(self.params),
+            pf: self.surgeryApis.getPerforation(self.params),
+            con: self.surgeryApis.getContamination(self.params),
+            r1: self.surgeryApis.getRadicalityR1(self.params),
+            lne: self.surgeryApis.getLumphNodeExam(self.params),
         })
     }
 
@@ -76,7 +84,11 @@ class Surgery extends Component {
             fl: await this.surgeryApis.getFirstLook(this.params),
             fl_dr: await this.surgeryApis.getFirstLookDr(this.params_dr),
             ra: await this.surgeryApis.getResecAsso(this.params),
-            ra_dr: await this.surgeryApis.getResecAssoDr(this.params)
+            ra_dr: await this.surgeryApis.getResecAssoDr(this.params),
+            pf: await this.surgeryApis.getPerforation(this.params),
+            con: await this.surgeryApis.getContamination(this.params),
+            r1: await this.surgeryApis.getRadicalityR1(this.params),
+            lne: await this.surgeryApis.getLumphNodeExam(this.params) 
         });
     }
 
@@ -115,6 +127,48 @@ class Surgery extends Component {
                         />
                         }
                     </Col>
+                    <Col xs={3} md={3}>
+                        { this.state && this.state.pf &&    
+                        <Perforation
+                            total={this.state.pf.total}
+                            noCount={this.state.pf.noCount}
+                            yesCount={this.state.pf.yesCount}
+                            missing={this.state.pf.missing}
+                        />
+                        }
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={3} md={3}>
+                        { this.state && this.state.con &&    
+                        <Contamination
+                            total={this.state.con.total}
+                            noCount={this.state.con.noCount}
+                            yesCount={this.state.con.yesCount}
+                            missing={this.state.con.missing}
+                        />
+                        }
+                    </Col>
+                    <Col xs={3} md={3}>
+                        { this.state && this.state.r1 &&    
+                        <RadicalityR1
+                            total={this.state.r1.total}
+                            radicalityR1={this.state.r1.radicalityR1}
+                            others={this.state.r1.others}
+                            missing={this.state.r1.missing}
+                        />
+                        }
+                    </Col>
+                    <Col xs={3} md={3}>
+                        { this.state && this.state.lne &&    
+                        <LumphNodeExam
+                            total={this.state.lne.total}
+                            examinCountgt12={this.state.lne.examinCountgt12}
+                            others={this.state.lne.others}
+                        />
+                        }
+                    </Col>
+                
                 </Row>
                 </Grid>
             </div>

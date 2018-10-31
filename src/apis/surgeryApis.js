@@ -72,5 +72,60 @@ class preoDaysBeforeSurgeryApi extends Component {
         }
         return dr;
     }
+
+    async getPerforation(params) {
+        const response = await axios.get('http://localhost:8080/surgery/perforation', {
+            params,
+        });
+        const  result = {
+            'total': response.data.totalPatients,
+            'noCount': response.data.noCount,
+            'yesCount': response.data.yesCount,
+            'missing': response.data.missing
+        }
+        return result;
+    }
+
+    async getContamination(params) {
+        const response = await axios.get('http://localhost:8080/surgery/contamination', {
+            params,
+        });
+        const  result = {
+            'total': response.data.totalPatients,
+            'noCount': response.data.noCount,
+            'yesCount': response.data.yesCount,
+            'missing': response.data.missing
+        }
+        return result;
+    }
+
+    async getRadicalityR1(params) {
+        const response = await axios.get('http://localhost:8080/surgery/radicalityR1', {
+            params,
+        });
+        const  result = {
+            'total': response.data.totalPatients,
+            'radicalityR1': response.data.radicalityR1,
+            'others': response.data.others,
+            'missing': response.data.missing
+        }
+        return result;
+    }
+
+    async getLumphNodeExam(params) {
+        const response = await axios.get('http://localhost:8080/surgery/lumphNodeExamCount', {
+            params,
+        });
+        const result = {
+            'total': response.data.totalPatients,
+            'examinCountgt12': response.data.examinCountgt12,
+            'others': (response.data.totalPatients - response.data.examinCountgt12)
+        }
+        return result;
+    }
+
+    
+
+    
 }
 export default preoDaysBeforeSurgeryApi;
