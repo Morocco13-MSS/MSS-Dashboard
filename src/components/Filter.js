@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Grid, Row, Col, Button, ButtonToolbar } from 'react-bootstrap';
- 
 import 'react-datepicker/dist/react-datepicker.css';
+import '../App.css'
  
 class Filter extends Component {
     constructor (props) {
@@ -54,11 +54,10 @@ class Filter extends Component {
                         />
                     </Col>
                     <Col xs={4} md={4}>
-                        <div>compaire to: </div>
-                        <ButtonToolbar>
-                            <Button bsSize="xsmall" bsStyle="info" onClick={() => this.handleUserLevel(0)}>Myself</Button>
-                            <Button bsSize="xsmall" bsStyle="primary" onClick={() => this.handleUserLevel(1)}>Unit</Button>
-                            <Button bsSize="xsmall" bsStyle="success" onClick={() => this.handleUserLevel(2)}>All Units</Button>
+                        <ButtonToolbar className='filterButton'>
+                            <Button bsStyle="info" onClick={() => this.handleUserLevel(0)}>Myself</Button>
+                            <Button bsStyle="primary" onClick={() => this.handleUserLevel(1)}>Unit</Button>
+                            <Button bsStyle="success" onClick={() => this.handleUserLevel(2)}>All Units</Button>
                         </ButtonToolbar>
                     </Col>
                 </Row>
