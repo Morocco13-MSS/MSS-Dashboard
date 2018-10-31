@@ -41,8 +41,8 @@ class NewGlobalDashboard extends Component {
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',
-            userLevel: 3,
-            userId: '-1'
+            userLevel: 2,
+            userId: '0'
         }
 
         // Filter function will be triggered when date or type is changed

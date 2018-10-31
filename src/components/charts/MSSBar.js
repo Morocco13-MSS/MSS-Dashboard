@@ -19,7 +19,7 @@ function CustomizedLabel({viewBox, value1, value2}){
 class MSSBar extends Component {
     render () {
         return (
-            <BarChart width={600} height={300} data={this.props.data}
+            <BarChart width={600} height={250} data={this.props.data}
                 margin={{top: 5, right: 30, left: 20, bottom: 5}}>
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="name"/>

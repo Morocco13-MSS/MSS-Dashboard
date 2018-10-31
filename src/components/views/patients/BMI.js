@@ -9,7 +9,7 @@ class BMI extends Component {
         this.state = {
             colors: ['#00C49F', '#999', '#999'],
         }
-      }
+    }
 
     render() {
         return (
@@ -48,8 +48,6 @@ class BMI extends Component {
                         <div className="name">Total</div>
                         <div className="value">{this.props.total}</div>
                     </div>
-
-
                 </Panel.Body>
             </Panel>
         );

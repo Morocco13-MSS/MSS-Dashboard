@@ -4,14 +4,14 @@
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
     width: 220px;
-    height: 80px;
+    height: 60px;
     display: inline-block;
 }
 
 .squareRightPreo  {
     border: 1px solid #ddd;
     width: 220px;
-    height: 80px;
+    height: 60px;
     display: inline-block;
 }
 
@@ -40,4 +40,118 @@
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+}
+
+.squareLeftPreo_dr {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 45px;
+    height: 40px;
+    display: inline-block;
+}
+
+.squareRightPreo_dr  {
+    border: 1px solid #ddd;
+    width: 45px;
+    height: 40px;
+    display: inline-block;
+}
+
+.preo_dr_name{
+    color: #777;
+    text-align: center;
+    font-size: 13px;
+}
+
+.preo_dr_lt6{
+    color: #0088FE;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preo_dr_6to8{
+    color: #00C49F;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preo_dr_gt8{
+    color: #FFBB28;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preo_dr_value {
+    color: #777;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preo_lt6_value{
+    color: #0088FE;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.preo_6to8_value{
+    color: #00C49F;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.preo_gt8_value{
+    color: #FFBB28;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.preo_value{
+    color: #777;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.preo_name{
+    color: #777;
+    text-align: center;
+    font-size: 16px;
+}
+
+.square_top_pna {
+    width: 250px;
+    height: 200px;
+}
+
+.square_bottom_pna {
+    padding-left: 5px
+}
+
+.pna_value{
+    padding-top: 50px;
+    color: #1f77b4;
+    text-align: center;
+    font-size: 60px;
+}
+
+.squareLeftPreo_na {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 110px;
+    height: 50px;
+    display: inline-block;
+}
+
+.squareRightPreo_na  {
+    border: 1px solid #ddd;
+    width: 110px;
+    height: 50px;
+    display: inline-block;
 }

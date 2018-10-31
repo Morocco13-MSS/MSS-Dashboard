@@ -84,11 +84,7 @@ class Patients extends Component {
                             this.params.userId = 3;
                         }
                         this.setState({
-                            // age: await this.patientsAgeApi.getPatientsAge(this.params),
-                            // asa: await this.patientsASAApi.getPatientsASA(this.params),
-                            // drOMS: await this.patientsOMSApi.getDrOMSPercentage(this.params_dr),
                             drIsHidden: false
-                            // bmi: await this.patientsBMIApi.getPatientsBMI(this.params)
                         });
                     }
                     this.params.userLevel = update.userLevel;
