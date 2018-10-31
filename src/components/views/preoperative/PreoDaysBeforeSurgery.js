@@ -7,7 +7,7 @@ class PreoDaysBeforeSurgery extends Component {
     constructor () {
         super();
         this.state = {
-            colors: ['#0088FE', '#00C49F', '#FFBB28', '#999']
+            colors: ['#0088FE', '#00C49F', '#FFBB28', '#999'],
         }
     }
     render() {
@@ -40,7 +40,13 @@ class PreoDaysBeforeSurgery extends Component {
                             </span>
                         }
                     </h4>
-                    <MSSSimplePie data={this.props.data} colors={this.state.colors} />
+                    <MSSSimplePie 
+                        data={this.props.data} 
+                        colors={this.state.colors}
+                        width={400}
+                        height={200}
+                        cx={220}
+                    />
                     <div className="squareLeft_2">
                         <div className="preo_name"> {'<6'}</div>
                         <div className="preo_lt6_value">{this.props.lt6weeks}</div>

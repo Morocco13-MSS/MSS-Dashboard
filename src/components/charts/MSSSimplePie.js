@@ -5,10 +5,10 @@ import {PieChart, Pie, Cell} from 'recharts';
 class MSSSimplePie extends Component {
 	render () {
   	return (
-    	<PieChart width={400} height={200} >
+    	<PieChart width={this.props.width} height={this.props.height} >
         <Pie
                 data={this.props.data} 
-                cx={220}
+                cx={this.props.cx}
                 outerRadius={80} 
                 fill="#8884d8"
                 animationBegin={10}

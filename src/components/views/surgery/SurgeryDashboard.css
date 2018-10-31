@@ -1,0 +1,55 @@
+.surgery_dr_name{
+
+}
+
+.surgery_dr_name{
+    color: #777;
+    text-align: center;
+    font-size: 13px;
+}
+
+.surgery_dr_lt{
+    color: #0088FE;
+    text-align: center;
+    font-size: 14px;
+}
+
+.surgery_dr_ls{
+    color: #00C49F;
+    text-align: center;
+    font-size: 14px;
+}
+
+.surgery_dr_ltls{
+    color: #FFBB28;
+    text-align: center;
+    font-size: 14px;
+}
+
+.surgery_dr_value {
+    color: #777;
+    text-align: center;
+    font-size: 14px;
+}
+
+.square_surgery_left {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.square_surgery_right {
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.surgery_chart{
+padding-right: 100px
+
+}
