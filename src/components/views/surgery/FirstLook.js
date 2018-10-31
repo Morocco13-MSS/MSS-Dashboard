@@ -36,15 +36,13 @@ class FirstLook extends Component {
                             </span>
                         }
                     </h4>
-                    <div className = "surgery_chart">
-                        <MSSSimplePie 
-                            data={this.props.data} 
-                            colors={this.state.colors} 
-                            width={300}
-                            height={200}
-                            cx={160}
-                        />
-                    </div>
+                    <MSSSimplePie 
+                        data={this.props.data} 
+                        colors={this.state.colors} 
+                        width={300}
+                        height={200}
+                        cx={160}
+                    />
                     
                     <div className="square_surgery_left">
                         <div className="preo_name"> {'LT'}</div>

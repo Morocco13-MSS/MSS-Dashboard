@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import Filter from '../../Filter';
 import FirstLook from './FirstLook'
+import ResecAsso from './ResecAsso'
 import SurgeryApis from '../../../apis/surgeryApis';
 
 class Surgery extends Component {
@@ -35,7 +36,9 @@ class Surgery extends Component {
         self.setState({
             drIsHidden: true,
             fl: self.surgeryApis.getFirstLook(self.params),
-            fl_dr: self.surgeryApis.getFirstLookDr(self.params_dr)
+            fl_dr: self.surgeryApis.getFirstLookDr(self.params_dr),
+            ra: self.surgeryApis.getResecAsso(self.params),
+            ra_dr: self.surgeryApis.getResecAssoDr(self.params)
         })
     }
 
@@ -71,7 +74,9 @@ class Surgery extends Component {
         }
         this.setState({
             fl: await this.surgeryApis.getFirstLook(this.params),
-            fl_dr: await this.surgeryApis.getFirstLookDr(this.params_dr)
+            fl_dr: await this.surgeryApis.getFirstLookDr(this.params_dr),
+            ra: await this.surgeryApis.getResecAsso(this.params),
+            ra_dr: await this.surgeryApis.getResecAssoDr(this.params)
         });
     }
 
@@ -90,6 +95,22 @@ class Surgery extends Component {
                             laparo_scopie_tomie={this.state.fl.laparo_scopie_tomie}
                             data={this.state.fl.data}
                             dr={this.state.fl_dr}
+                            hide_dr = {this.state.drIsHidden}
+                        />
+                        }
+                    </Col>
+                    <Col xs={5} md={5}>
+                        { this.state && this.state.ra.data && this.state.ra_dr &&
+                        <ResecAsso
+                            total={this.state.ra.total}
+                            localResec={this.state.ra.localResec}
+                            RemoteResec={this.state.ra.RemoteResec}
+                            localRemoteCnt={this.state.ra.localRemoteCnt}
+                            noResecCount={this.state.ra.noResecCount}
+                            missing={this.state.ra.missing}
+                            na={this.state.ra.na}
+                            data={this.state.ra.data}
+                            dr={this.state.ra_dr}
                             hide_dr = {this.state.drIsHidden}
                         />
                         }

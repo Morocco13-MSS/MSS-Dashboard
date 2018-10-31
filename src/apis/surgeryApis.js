@@ -33,5 +33,44 @@ class preoDaysBeforeSurgeryApi extends Component {
         }
         return dr;
     }
+
+    async getResecAsso(params) {
+        const response = await axios.get('http://localhost:8080/surgery/resecAsso', {
+            params,
+        });
+        const  result = {
+            data: [
+                {name: 'localResec', value: response.data.localResec},
+                {name: 'RemoteResec', value: response.data.RemoteResec}, 
+                {name: 'localRemoteCnt', value: response.data.localRemoteCnt},
+                {name: 'noResecCount', value: response.data.noResecCount},
+                {name: 'missing', value: response.data.missing}
+            ],
+            'total': response.data.totalPatients,
+            'localResec': response.data.localResec,
+            'RemoteResec': response.data.RemoteResec,
+            'localRemoteCnt': response.data.localRemoteCnt,
+            'noResecCount': response.data.noResecCount,
+            'missing': response.data.missing,
+            'na': response.data.naCount
+        }
+        return result;
+    }
+
+    async getResecAssoDr(params) {
+        const response = await axios.get('http://localhost:8080/surgery/resecAsso', {
+            params,
+        });
+        const  dr = {
+            'total': response.data.totalPatients,
+            'localResec': response.data.localResec,
+            'RemoteResec': response.data.RemoteResec,
+            'localRemoteCnt': response.data.localRemoteCnt,
+            'noResecCount': response.data.noResecCount,
+            'missing': response.data.missing,
+            'na': response.data.naCount
+        }
+        return dr;
+    }
 }
 export default preoDaysBeforeSurgeryApi;

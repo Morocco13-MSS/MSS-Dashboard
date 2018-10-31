@@ -1,8 +1,4 @@
 .surgery_dr_name{
-
-}
-
-.surgery_dr_name{
     color: #777;
     text-align: center;
     font-size: 13px;
@@ -32,6 +28,58 @@
     font-size: 14px;
 }
 
+.sur_lr_value {
+    color: #0088FE;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.sur_rr_value {
+    color: #FFBB28;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.sur_lrr_value {
+    color: #f52549;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.sur_nr_value {
+    color: #00C49F;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.sur_value {
+    color: #999;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sur_lr_value_dr {
+    color: #0088FE;
+    text-align: center;
+    font-size: 14px;
+}
+.sur_rr_value_dr {
+    color: #FFBB28;
+    text-align: center;
+    font-size: 14px;
+}
+.sur_lrr_value_dr {
+    color: #f52549;
+    text-align: center;
+    font-size: 14px;
+}
+.sur_nr_value_dr {
+    color: #00C49F;
+    text-align: center;
+    font-size: 14px;
+}
+
 .square_surgery_left {
     /* background: #000; */
     border-left: 1px solid #ddd;
@@ -49,7 +97,19 @@
     display: inline-block;
 }
 
-.surgery_chart{
-padding-right: 100px
+.square_surgery_ra_left {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 60px;
+    height: 50px;
+    display: inline-block;
+}
 
+.square_surgery_ra_right {
+    border: 1px solid #ddd;
+    width: 60px;
+    height: 50px;
+    display: inline-block;
 }
