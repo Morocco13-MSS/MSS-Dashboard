@@ -43,6 +43,22 @@ class Hello extends Component {
                             <Link to="/preoperative">Preoperative</Link>
                         </NavText>
                     </NavItem>
+                    <NavItem eventKey="surgery">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            <Link to="/surgery">Chirurgie</Link>
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="morbiMrtalite">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            <Link to="/morbi-mortalite">Morbi-Mortality</Link>
+                        </NavText>
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
         )
