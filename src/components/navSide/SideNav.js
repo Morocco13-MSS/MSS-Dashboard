@@ -59,6 +59,14 @@ class Hello extends Component {
                             <Link to="/morbi-mortalite">Morbi-Mortality</Link>
                         </NavText>
                     </NavItem>
+                    <NavItem eventKey="traitementAdjuvant">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            <Link to="/traitementAdjuvant">Traitement-Adjuvant</Link>
+                        </NavText>
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
         )

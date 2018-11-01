@@ -5,6 +5,7 @@ import Global from './views/global/GlobalDashboard'
 import Preoperative from './views/preoperative/PreoperativeDashboard'
 import MorbiMortality from './views/morbi-mortality/MorbiMortalityDashboard'
 import Surgery from './views/surgery/SurgeryDashboard'
+import TraitementAdjuvant from './views/histologie/TraitementAdjuvantDashboard'
 
 class Main extends Component {
     render() {
@@ -17,6 +18,7 @@ class Main extends Component {
                     <Route path='/preoperative' component={Preoperative}/>
                     <Route path='/morbi-mortalite' component={MorbiMortality}/>
                     <Route path='/surgery' component={Surgery}/>
+                    <Route path='/traitementAdjuvant' component={TraitementAdjuvant}/>
                 </Switch>
             </main>
         )};
