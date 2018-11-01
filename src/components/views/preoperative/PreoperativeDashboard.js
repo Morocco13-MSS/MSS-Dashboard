@@ -91,7 +91,7 @@ class PreoperativeDashboard extends Component {
             <Filter updateFilter = {this.updateFilter}/>
             <Grid className ='patient_grid'>
                 <Row>
-                    <Col xs={5} md={5}>
+                    <Col xs={6} md={6}>
                         { this.state && this.state.pbs.data && this.state.pbs_dr &&
                             <PreoDaysBeforeSurgery 
                                 data={this.state.pbs.data}
@@ -112,7 +112,7 @@ class PreoperativeDashboard extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={8} md={8}>
+                    <Col xs={9} md={9}>
                         <div>
                         { this.state && this.state.bm.data &&
                             <BilanManquant data={this.state.bm.data}

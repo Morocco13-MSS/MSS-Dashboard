@@ -8,7 +8,7 @@ class MSSRadar extends Component {
             <RadarChart cx={350} cy={230} outerRadius={180} width={700} height={500} data={this.props.data}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" />
-            <PolarRadiusAxis angle={36} domain={[0, 100]}/>
+            <PolarRadiusAxis angle={36} domain={[0, 40]}/>
             <Radar name="Moi" dataKey="dr" stroke="#8884d8" fill="#8884d8" fillOpacity={0.2}/>
 
             {!this.props.hide_unit &&

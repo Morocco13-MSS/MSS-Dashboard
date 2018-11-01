@@ -114,7 +114,6 @@
     display: inline-block;
 }
 
-
 .perforation_square_left{
     border-left: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -206,3 +205,31 @@
     height: 50px;
     display: inline-block;
 }
+
+.bloodLoss_value{
+    padding-top: 50px;
+    color: #FF8042;
+    text-align: center;
+    font-size: 60px;
+}
+
+.square_bloodLoss_left{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.square_bloodLoss_right{
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 50px;
+    display: inline-block;
+}
+
+.square_bottom_bloodLoss{
+    padding-left: 35px
+}
+

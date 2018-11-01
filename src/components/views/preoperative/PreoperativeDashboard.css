@@ -155,3 +155,11 @@
     height: 50px;
     display: inline-block;
 }
+
+.square_bottom_bar{
+    padding-left: 80px
+}
+
+.square_bottom_days{
+    padding-left: 50px
+}

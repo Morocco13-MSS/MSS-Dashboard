@@ -3,7 +3,8 @@ import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, MarkSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, LineSeries, DiscreteColorLegend} from 'react-vis';
 
 const ITEMS = [
-    'Scatter',
+    'Myself',
+    'Other Drs',
     'Benchmark',
     'Up',
     'Up2',
@@ -12,6 +13,7 @@ const ITEMS = [
   ];
   
   const COLORS = [
+    '#8884d8',
     '#f7aa04',
     '#6ba225',
     '#f52549',
@@ -34,13 +36,13 @@ class MSSMortalityPlot extends Component {
  
                 <MarkSeries 
                     data={this.props.scatter} 
-                    size="5" 
+                    size="6" 
                     color="#f7aa04"
                     opacity="0.8"
                 />
                 <MarkSeries 
                     data={this.props.dot} 
-                    size="6" 
+                    size="7" 
                     color="#8884d8"
                 />
                 <LineSeries
@@ -87,7 +89,7 @@ class MSSMortalityPlot extends Component {
             <DiscreteColorLegend
                 colors={COLORS}
                 orientation="horizontal"
-                width={300}
+                width={700}
                 items={ITEMS}
             />
             </div>

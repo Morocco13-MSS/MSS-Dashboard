@@ -45,27 +45,29 @@ class PreoDaysBeforeSurgery extends Component {
                         colors={this.state.colors}
                         width={400}
                         height={200}
-                        cx={220}
+                        cx={250}
                     />
-                    <div className="squareLeft_2">
-                        <div className="preo_name"> {'<6'}</div>
-                        <div className="preo_lt6_value">{this.props.lt6weeks}</div>
-                    </div>
-                    <div className="squareLeft_2">
-                        <div className="preo_name">{'6~8'}</div>
-                        <div className="preo_6to8_value">{this.props.six2etweeks}</div>
-                    </div>
-                    <div className="squareLeft_2">
-                        <div className="preo_name"> {'>8'}</div>
-                        <div className="preo_gt8_value">{this.props.gt8weeks}</div>
-                    </div>
-                    <div className="squareLeft_2">
-                        <div className="preo_name">{'Missing'}</div>
-                        <div className="preo_value">{this.props.missing}</div>
-                    </div>
-                    <div className="squareRight_2">
-                        <div className="preo_name">Total</div>
-                        <div className="preo_value">{this.props.total}</div>
+                    <div className="square_bottom_days">
+                        <div className="squareLeft_2">
+                            <div className="preo_name"> {'<6'}</div>
+                            <div className="preo_lt6_value">{this.props.lt6weeks}</div>
+                        </div>
+                        <div className="squareLeft_2">
+                            <div className="preo_name">{'6~8'}</div>
+                            <div className="preo_6to8_value">{this.props.six2etweeks}</div>
+                        </div>
+                        <div className="squareLeft_2">
+                            <div className="preo_name"> {'>8'}</div>
+                            <div className="preo_gt8_value">{this.props.gt8weeks}</div>
+                        </div>
+                        <div className="squareLeft_2">
+                            <div className="preo_name">{'Missing'}</div>
+                            <div className="preo_value">{this.props.missing}</div>
+                        </div>
+                        <div className="squareRight_2">
+                            <div className="preo_name">Total</div>
+                            <div className="preo_value">{this.props.total}</div>
+                        </div>
                     </div>
                 </Panel.Body>
             </Panel>
