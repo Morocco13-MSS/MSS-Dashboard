@@ -11,7 +11,6 @@ class TreeChart extends Component {
                     data={this.props.data}
                     height={100}
                     width={350}
-
                     nodeRadius = {6}
                     animated = {true}
                     svgProps={{
