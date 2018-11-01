@@ -7,6 +7,7 @@ import Perforation from './Perforation'
 import Contamination from './Contamination'
 import RadicalityR1 from './RadicalityR1'
 import LumphNodeExam from './LumphNodeExam'
+import AverageBloodLoss from './AverageBloodLoss'
 import SurgeryApis from '../../../apis/surgeryApis';
 
 class Surgery extends Component {
@@ -47,6 +48,7 @@ class Surgery extends Component {
             con: self.surgeryApis.getContamination(self.params),
             r1: self.surgeryApis.getRadicalityR1(self.params),
             lne: self.surgeryApis.getLumphNodeExam(self.params),
+            abl: self.surgeryApis.getAverageBloodLoss(self.params),
         })
     }
 
@@ -88,7 +90,8 @@ class Surgery extends Component {
             pf: await this.surgeryApis.getPerforation(this.params),
             con: await this.surgeryApis.getContamination(this.params),
             r1: await this.surgeryApis.getRadicalityR1(this.params),
-            lne: await this.surgeryApis.getLumphNodeExam(this.params) 
+            lne: await this.surgeryApis.getLumphNodeExam(this.params),
+            abl: await this.surgeryApis.getAverageBloodLoss(this.params),
         });
     }
 
@@ -168,6 +171,15 @@ class Surgery extends Component {
                         />
                         }
                     </Col>
+                    <Col xs={3} md={3}>
+                        { this.state && this.state.abl &&    
+                        <AverageBloodLoss
+                            total={this.state.abl.total}
+                            averageBLoss={this.state.abl.averageBloodLoss}
+                            missing={this.state.abl.missing}
+                        />
+                        }
+                    </Col>                    
                 
                 </Row>
                 </Grid>

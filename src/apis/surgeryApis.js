@@ -124,6 +124,17 @@ class preoDaysBeforeSurgeryApi extends Component {
         return result;
     }
 
+    async getAverageBloodLoss(params) {
+        const response = await axios.get('http://localhost:8080/surgery/averageBloodLoss', {
+            params,
+        });
+        const result = {
+            'total': response.data.totalPatients,
+            'averageBloodLoss': response.data.averageBLoss,
+            'missing': response.data.missing
+        }
+        return result;
+    }
     
 
     

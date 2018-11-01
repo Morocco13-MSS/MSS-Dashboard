@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
 import {Panel} from 'react-bootstrap';
 
-class LumphNodeExam extends Component {
+class AverageBloodLoss extends Component {
     render() {
+        
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'Ganglions Examinés > 12'}</h4>
+                    <h4>{'Perte de sang moyenne'}</h4>
                     <div className="square_top_pna">
                         <div className="lumphNodeExam_value">
                         {
-                            ((this.props.examinCountgt12/this.props.total)*100).toFixed(0)
-                        }{'%'}
+                            Math.round(this.props.averageBLoss)                            
+                        }
                         </div>
                     </div>
                     <div className="square_bottom_pna">
                         <div className="lumphNodeExam_square_left">
-                            <div className="perforation_name"> {'>12'}</div>
-                            <div className="lumphNodeExam_gt12_value">{this.props.examinCountgt12}</div>
-                        </div>
-                        <div className="lumphNodeExam_square_left">
-                            <div className="perforation_name"> {'Autres'}</div>
-                            <div className="perforation_value">{this.props.others}</div>
+                            <div className="perforation_name"> {'Missing'}</div>
+                            <div className="perforation_value">{this.props.missing}</div>
                         </div>
                         <div className="lumphNodeExam_square_right">
                             <div className="perforation_name">{'Total'}</div>
@@ -34,4 +31,4 @@ class LumphNodeExam extends Component {
         );
     }
 }
-export default LumphNodeExam;
+export default AverageBloodLoss;
