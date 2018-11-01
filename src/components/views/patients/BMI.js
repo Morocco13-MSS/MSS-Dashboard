@@ -15,7 +15,7 @@ class BMI extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'BMI <18 or BMI>30'}
+                    <h4>{'IMC <18 or IMC>30'}
                         { !this.props.hide_dr && this.props.drBMI &&
                             <span className='dr_result'>{this.props.drBMI}</span>
                         }
@@ -37,7 +37,7 @@ class BMI extends Component {
                         <div className="bmi_value">{this.props.gt30}</div>
                     </div>
                     <div className="squareLeft_2">
-                        <div className="name">{'Other'}</div>
+                        <div className="name">{'Autres'}</div>
                         <div className="value">{this.props.other}</div>
                     </div>
                     <div className="squareLeft_2">

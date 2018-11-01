@@ -7,7 +7,7 @@ class BMIWL extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Patients Weight Loss > 10% or BMI ≤ 18 </h4>
+                    <h4>GN4 (% weight loss > 10% or IMC ≤ 18) </h4>
                     <div className="square_top_bmiwl">
                         <div className="bmiw_value">
                         {
@@ -19,7 +19,7 @@ class BMIWL extends Component {
                         </div>
                     </div>
                     <div className="square_left_bottom_bmiwl">
-                        <div className="bmiw_title_2">{'Patients BMI < 18'} </div>
+                        <div className="bmiw_title_2">{'Patients IMC < 18'} </div>
                         <div className="bmiw_value_3">
                         {
                             ((this.props.lt18/this.props.total)*100).toFixed(0)

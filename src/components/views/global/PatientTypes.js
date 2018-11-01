@@ -17,11 +17,11 @@ class PatientTypes extends Component {
                     </div>
                     <div className='global_panel'>
                         <div className="global_square_left">
-                            <div className="global_name"> {'Curative'}</div>
+                            <div className="global_name"> {'Curatif'}</div>
                             <div className="global_value">{this.props.tile_dr.curative}</div>
                         </div>
                         <div className="global_square_left">
-                            <div className="global_name"> {'Palli'}</div>
+                            <div className="global_name"> {'palliatif'}</div>
                             <div className="global_value">{this.props.tile_dr.palli}</div>
                         </div>
                         <div className="global_square_left">
@@ -45,11 +45,11 @@ class PatientTypes extends Component {
                             </div>
                             <div className='global_panel'>
                                 <div className="global_square_left">
-                                    <div className="global_name"> {'Curative'}</div>
+                                    <div className="global_name"> {'Curatif'}</div>
                                     <div className="global_value">{this.props.tile_unit.curative}</div>
                                 </div>
                                 <div className="global_square_left">
-                                    <div className="global_name"> {'Palli'}</div>
+                                    <div className="global_name"> {'palliatif'}</div>
                                     <div className="global_value">{this.props.tile_unit.palli}</div>
                                 </div>
                                 <div className="global_square_left">
@@ -74,11 +74,11 @@ class PatientTypes extends Component {
                             </div>
                             <div className='global_panel'>
                                 <div className="global_square_left">
-                                    <div className="global_name"> {'Curative'}</div>
+                                    <div className="global_name"> {'Curatif'}</div>
                                     <div className="global_value">{this.props.tile_all.curative}</div>
                                 </div>
                                 <div className="global_square_left">
-                                    <div className="global_name"> {'Palli'}</div>
+                                    <div className="global_name"> {'palliatif'}</div>
                                     <div className="global_value">{this.props.tile_all.palli}</div>
                                 </div>
                                 <div className="global_square_left">

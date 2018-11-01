@@ -10,7 +10,7 @@ class GestTypes extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'Gestation Types'}</h4>
+                    <h4>{'Type De Geste'}</h4>
                     <MSSRadar 
                         data={this.props.data}
                         hide_unit = {this.props.hide_unit}

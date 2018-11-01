@@ -29,7 +29,7 @@ class PatientsASAApi extends Component {
 
         const percentage = (response.data.asagt2/response.data.totalPatients*100).toFixed(0);
         const drASA = {
-            percentageStr: 'Myself: ' + percentage + '%'
+            percentageStr: 'Moi: ' + percentage + '%'
         }
         return drASA;
     }

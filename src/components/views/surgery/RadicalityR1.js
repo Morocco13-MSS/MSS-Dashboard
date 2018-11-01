@@ -6,7 +6,7 @@ class RadicalityR1 extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Radicality R1</h4>
+                    <h4> Radicalité = "R1" </h4>
                     <div className="square_top_pna">
                         <div className="radicality_value">
                         {
@@ -20,7 +20,7 @@ class RadicalityR1 extends Component {
                             <div className="radicality_r1_value">{this.props.radicalityR1}</div>
                         </div>
                         <div className="perforation_square_left">
-                            <div className="perforation_name"> {'Others'}</div>
+                            <div className="perforation_name"> {'Autres'}</div>
                             <div className="perforation_value">{this.props.others}</div>
                         </div>
                         <div className="perforation_square_left">

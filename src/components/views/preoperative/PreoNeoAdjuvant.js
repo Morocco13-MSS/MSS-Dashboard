@@ -6,7 +6,7 @@ class PreoNeoAdjuvant extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Patients have Neo Adjuvant </h4>
+                    <h4>Patients néo-adjuvants</h4>
                     <div className="square_top_pna">
                         <div className="pna_value">
                         {
@@ -16,7 +16,7 @@ class PreoNeoAdjuvant extends Component {
                     </div>
                     <div className="square_bottom_pna">
                         <div className="squareLeftPreo_na">
-                            <div className="preo_name"> {'Neo Adjuvant'}</div>
+                            <div className="preo_name"> {'néo-adjuvant'}</div>
                             <div className="preo_lt6_value">{this.props.pna.neoAdjuvant}</div>
                         </div>
                         <div className="squareRightPreo_na">
