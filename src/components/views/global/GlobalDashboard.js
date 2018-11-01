@@ -19,7 +19,7 @@ class NewGlobalDashboard extends Component {
 
         // Parameters used for api call
         this.params = {
-            title: 'My Patients',
+            title: 'Mes Patients',
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',

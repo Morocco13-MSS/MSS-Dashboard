@@ -49,7 +49,7 @@ class PatientsBMIApi extends Component {
 
         const percentage = ((response.data.bmigt30+response.data.bmilt18)/response.data.totalPatients*100).toFixed(0);
         const drBMI = {
-            percentageStr: 'Myself: ' + percentage + '%'
+            percentageStr: 'Moi: ' + percentage + '%'
         }
         return drBMI;
     }

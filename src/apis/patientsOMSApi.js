@@ -29,7 +29,7 @@ class PatientsOMSApi extends Component {
 
         const percentage = (response.data.omsgrt1/response.data.totalPatients*100).toFixed(0);
         const drOMS = {
-            percentageStr: 'Myself: ' + percentage + '%'
+            percentageStr: 'Moi: ' + percentage + '%'
         }
         return drOMS;
     }

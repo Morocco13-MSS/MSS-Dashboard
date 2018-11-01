@@ -13,13 +13,13 @@ class GlobalApi extends Component {
             name: 'Total: ' + response.data.totalPatients,
             children: [
             {
-                name: 'Curative: ' + response.data.curativeCount,
+                name: 'Curatif: ' + response.data.curativeCount,
                 gProps: {
                     className: 'red-node',
                 }
             },
             {
-                name: 'Other: ' + _other,
+                name: 'Autres: ' + _other,
             }]
         }
 
@@ -56,70 +56,70 @@ class GlobalApi extends Component {
 
         const data = [
             {
-                subject: 'colectomyRight', 
+                subject: 'Colectomie Droite', 
                 dr: (data_dr.colectomyRight/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.colectomyRight/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.colectomyRight/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'colectomieTrans', 
+                subject: 'Colectomie Transverse', 
                 dr: (data_dr.colectomieTrans/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.colectomieTrans/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.colectomieTrans/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'colectomy_left_high', 
+                subject: 'Colectomie Gauche Haute', 
                 dr: (data_dr.colectomy_left_high/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.colectomy_left_high/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.colectomy_left_high/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'sigmoidectomy', 
+                subject: 'Sigmoïdectomie', 
                 dr: (data_dr.sigmoidectomy/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.sigmoidectomy/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.sigmoidectomy/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'hemicolectomy_left', 
+                subject: 'Hémicolectomie Gauche', 
                 dr: (data_dr.hemicolectomy_left/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.hemicolectomy_left/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.hemicolectomy_left/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'colectomy_total', 
+                subject: 'Colectomie Totale', 
                 dr: (data_dr.colectomy_total/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.colectomy_total/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.colectomy_total/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'coloproctectomy', 
+                subject: 'Coloproctectomie', 
                 dr: (data_dr.coloproctectomy/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.coloproctectomy/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.coloproctectomy/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'internal_deri', 
+                subject: 'Dérivation Interne', 
                 dr: (data_dr.internal_deri/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.internal_deri/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.internal_deri/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'ostomy_alone', 
+                subject: 'Stomie Seule', 
                 dr: (data_dr.ostomy_alone/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.ostomy_alone/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.ostomy_alone/data_all.totalPatients * 100).toFixed(0), 
                 full: 100 
             },
             { 
-                subject: 'explorer', 
+                subject: 'Exploratrice', 
                 dr: (data_dr.explorer/data_dr.totalPatients * 100).toFixed(0), 
                 unit:(data_unit.explorer/data_unit.totalPatients * 100).toFixed(0),  
                 all:(data_all.explorer/data_all.totalPatients * 100).toFixed(0), 

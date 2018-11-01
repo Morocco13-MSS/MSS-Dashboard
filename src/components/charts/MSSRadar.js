@@ -9,12 +9,13 @@ class MSSRadar extends Component {
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" />
             <PolarRadiusAxis angle={36} domain={[0, 100]}/>
-            <Radar name="Myself" dataKey="dr" stroke="#8884d8" fill="#8884d8" fillOpacity={0.2}/>
+            <Radar name="Moi" dataKey="dr" stroke="#8884d8" fill="#8884d8" fillOpacity={0.2}/>
+
             {!this.props.hide_unit &&
-                <Radar name="Unit" dataKey="unit" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.2}/>
+                <Radar name="Unité" dataKey="unit" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.2}/>
             }
             {!this.props.hide_all &&
-                <Radar name="All Units" dataKey="all" stroke="#ff7f0e" fill="#ff7f0e" fillOpacity={0.2}/>
+                <Radar name="Unités" dataKey="all" stroke="#ff7f0e" fill="#ff7f0e" fillOpacity={0.2}/>
             }
             <Legend />
             </RadarChart>

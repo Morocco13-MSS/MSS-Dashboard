@@ -31,7 +31,7 @@ class PatientsAgeApi extends Component {
 
         const percentage = (response.data.gtAge70/response.data.totalPatients*100).toFixed(0);
         const drAge = {
-            percentageStr: 'Myself: ' + percentage + '%'
+            percentageStr: 'Moi: ' + percentage + '%'
         }
         return drAge;
     }
