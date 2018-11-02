@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import {Glyphicon} from 'react-bootstrap';
+import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
  
 // Be sure to include styles at some point, probably during your bootstraping
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
@@ -12,16 +12,15 @@ class Hello extends Component {
 
     render() {
         return (
-            <SideNav className ='sideNav'
-                onSelect={(selected) => {
-                    // Add your code here
-                }}
+            <SideNav 
+                className ='sideNav'
             >
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="home">
                     <NavItem eventKey="global">
                         <NavIcon>
                             <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <Link to="/global"><Glyphicon bsClass="glyphicon" glyph="globe"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/global">Global</Link>
@@ -30,6 +29,7 @@ class Hello extends Component {
                     <NavItem eventKey="patients">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <Link to="/patients"><Glyphicon bsClass="glyphicon" glyph="user"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/patients">Patients</Link>
@@ -38,6 +38,7 @@ class Hello extends Component {
                     <NavItem eventKey="preoperative">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <Link to="/preoperative"><Glyphicon bsClass="glyphicon" glyph="check"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/preoperative">Préopératoire</Link>
@@ -46,6 +47,7 @@ class Hello extends Component {
                     <NavItem eventKey="surgery">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <Link to="/surgery"><Glyphicon bsClass="glyphicon" glyph="eye-open"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/surgery">Chirurgie</Link>
@@ -54,6 +56,7 @@ class Hello extends Component {
                     <NavItem eventKey="traitementAdjuvant">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <Link to="/traitementAdjuvant"><Glyphicon bsClass="glyphicon" glyph="leaf"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/traitementAdjuvant">Traitement-Adjuvant</Link>
@@ -62,6 +65,7 @@ class Hello extends Component {
                     <NavItem eventKey="morbiMrtalite">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                            <Link to="/morbi-mortalite"><Glyphicon bsClass="glyphicon" glyph="stats"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/morbi-mortalite">Morbi-Mortality</Link>
