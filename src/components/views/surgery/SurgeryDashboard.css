@@ -233,3 +233,68 @@
     padding-left: 35px
 }
 
+.squarePefCon{
+    padding-left: 100px;
+}
+
+.squareLeftPefCon {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 150px;
+    height: 60px;
+    display: inline-block;
+}
+
+.squareRightPefCon  {
+    border: 1px solid #ddd;
+    width: 150px;
+    height: 60px;
+    display: inline-block;
+}
+
+.PefCon_Pef_value{
+    color: #1f77b4;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.PefCon_Con_value{
+    color: #8884d8;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.RadGan_Rad_value{
+    color: #e2a623;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.RadGan_Gan_value{
+    color: #00C49F;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.squareLeftRadGan{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+}
+
+.squareRightRadGan{
+    border: 1px solid #ddd;
+    width: 165px;
+    height: 60px;
+    display: inline-block;
+}
+
+

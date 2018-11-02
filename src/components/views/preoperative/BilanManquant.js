@@ -22,12 +22,9 @@ class BilanManquant extends Component {
                     key1={this.props.key1} 
                     key2={this.props.key2} 
                     key3={this.props.key3}
-                    mdt_adherent={this.props.mdt_adherent}
-                    mdt_total={this.props.mdt_total}
-                    tmd_thorax_adherent={this.props.tmd_thorax_adherent}
-                    tmd_thorax_total={this.props.tmd_thorax_total}
-                    tmd_abdomen_adherent={this.props.tmd_abdomen_adherent}
-                    tmd_abdomen_total={this.props.tmd_abdomen_total}
+                    width={600}
+                    height={250}
+                    margin={{top: 5, right: 30, left: 20, bottom: 5}}
                     />
 
                     <div className="squareLeftPreo">

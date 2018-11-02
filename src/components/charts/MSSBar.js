@@ -19,25 +19,32 @@ function CustomizedLabel({viewBox, value1, value2}){
 class MSSBar extends Component {
     render () {
         return (
-            <BarChart width={600} height={250} data={this.props.data}
-                margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-        <CartesianGrid strokeDasharray="3 3"/>
-        <XAxis dataKey="name"/>
-        <YAxis/>
-        <Tooltip/>
-        <Bar dataKey={this.props.key1}>
-            {
-                this.props.data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={this.props.colors[index % 20]}/>
-                ))
-            }
-            <LabelList dataKey={this.props.key1} position="top"/>
-            {/* <LabelList content={<CustomizedLabel external={} />} /> */}
+            <BarChart 
+                width={this.props.width} 
+                height={this.props.height} 
+                data={this.props.data}
+                margin={this.props.margin}>
+                <CartesianGrid strokeDasharray="3 3"/>
+                <XAxis dataKey="name"/>
+                <YAxis/>
+                <Tooltip/>
+                <Bar dataKey={this.props.key1}>
+                    {
+                        this.props.data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={this.props.colors[index % 20]}/>
+                        ))
+                    }
+                    <LabelList dataKey={this.props.key1} position="top"/>
+                    {/* <LabelList content={<CustomizedLabel external={} />} /> */}
 
-        </Bar>
-        <Bar dataKey={this.props.key2} fill="#999" />
-        <Bar dataKey={this.props.key3} fill="#666" />
-        </BarChart>
+                </Bar>
+                <Bar dataKey={this.props.key2} fill="#ccc">
+                    <LabelList dataKey={this.props.key2} position="top"/>
+                </Bar>
+                <Bar dataKey={this.props.key3} fill="#ccc">
+                    <LabelList dataKey={this.props.key3} position="top"/>
+                </Bar>
+            </BarChart>
         )
     }
 }

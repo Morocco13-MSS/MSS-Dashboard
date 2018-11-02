@@ -3,12 +3,10 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import Filter from '../../Filter';
 import FirstLook from './FirstLook'
 import ResecAsso from './ResecAsso'
-import Perforation from './Perforation'
-import Contamination from './Contamination'
-import RadicalityR1 from './RadicalityR1'
-import LumphNodeExam from './LumphNodeExam'
 import AverageBloodLoss from './AverageBloodLoss'
 import SurgeryApis from '../../../apis/surgeryApis';
+import PeforationContamination from './PeforationContamination';
+import RadicaliteGanglions from './RadicaliteGanglions';
 
 class Surgery extends Component {
     constructor (props) {
@@ -44,11 +42,9 @@ class Surgery extends Component {
             fl_dr: self.surgeryApis.getFirstLookDr(self.params_dr),
             ra: self.surgeryApis.getResecAsso(self.params),
             ra_dr: self.surgeryApis.getResecAssoDr(self.params),
-            pf: self.surgeryApis.getPerforation(self.params),
-            con: self.surgeryApis.getContamination(self.params),
-            r1: self.surgeryApis.getRadicalityR1(self.params),
-            lne: self.surgeryApis.getLumphNodeExam(self.params),
             abl: self.surgeryApis.getAverageBloodLoss(self.params),
+            pf_con: self.surgeryApis.getPerforationContamination(self.params),
+            rad_gan: self.surgeryApis.getRadicaliteGanglions(self.params),
         })
     }
 
@@ -87,11 +83,9 @@ class Surgery extends Component {
             fl_dr: await this.surgeryApis.getFirstLookDr(this.params_dr),
             ra: await this.surgeryApis.getResecAsso(this.params),
             ra_dr: await this.surgeryApis.getResecAssoDr(this.params),
-            pf: await this.surgeryApis.getPerforation(this.params),
-            con: await this.surgeryApis.getContamination(this.params),
-            r1: await this.surgeryApis.getRadicalityR1(this.params),
-            lne: await this.surgeryApis.getLumphNodeExam(this.params),
             abl: await this.surgeryApis.getAverageBloodLoss(this.params),
+            pf_con: await this.surgeryApis.getPerforationContamination(this.params),
+            rad_gan: await this.surgeryApis.getRadicaliteGanglions(this.params),
         });
     }
 
@@ -131,47 +125,6 @@ class Surgery extends Component {
                         }
                     </Col>
                     <Col xs={3} md={3}>
-                        { this.state && this.state.pf &&    
-                        <Perforation
-                            total={this.state.pf.total}
-                            noCount={this.state.pf.noCount}
-                            yesCount={this.state.pf.yesCount}
-                            missing={this.state.pf.missing}
-                        />
-                        }
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={3} md={3}>
-                        { this.state && this.state.con &&    
-                        <Contamination
-                            total={this.state.con.total}
-                            noCount={this.state.con.noCount}
-                            yesCount={this.state.con.yesCount}
-                            missing={this.state.con.missing}
-                        />
-                        }
-                    </Col>
-                    <Col xs={3} md={3}>
-                        { this.state && this.state.r1 &&    
-                        <RadicalityR1
-                            total={this.state.r1.total}
-                            radicalityR1={this.state.r1.radicalityR1}
-                            others={this.state.r1.others}
-                            missing={this.state.r1.missing}
-                        />
-                        }
-                    </Col>
-                    <Col xs={3} md={3}>
-                        { this.state && this.state.lne &&    
-                        <LumphNodeExam
-                            total={this.state.lne.total}
-                            examinCountgt12={this.state.lne.examinCountgt12}
-                            others={this.state.lne.others}
-                        />
-                        }
-                    </Col>
-                    <Col xs={3} md={3}>
                         { this.state && this.state.abl &&    
                         <AverageBloodLoss
                             total={this.state.abl.total}
@@ -179,8 +132,38 @@ class Surgery extends Component {
                             missing={this.state.abl.missing}
                         />
                         }
-                    </Col>                    
-                
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6} md={6}>
+                        { this.state && this.state.pf_con && this.state.pf_con.perforation_adherent &&  
+                        <PeforationContamination
+                            data={this.state.pf_con.data}
+                            key1={this.state.pf_con.key1}
+                            key2={this.state.pf_con.key2}
+                            key3={this.state.pf_con.key3}
+                            perforation_adherent={this.state.pf_con.perforation_adherent}
+                            perforation_total={this.state.pf_con.perforation_total}
+                            contamination_adherent={this.state.pf_con.contamination_adherent}
+                            contamination_total={this.state.pf_con.contamination_total}
+                        />
+                        }
+                    </Col>
+  
+                    <Col xs={6} md={6}>
+                        { this.state && this.state.rad_gan && this.state.rad_gan.data &&  
+                        <RadicaliteGanglions
+                            data={this.state.rad_gan.data}
+                            key1={this.state.rad_gan.key1}
+                            key2={this.state.rad_gan.key2}
+                            key3={this.state.rad_gan.key3}
+                            radicalityR1={this.state.rad_gan.radicalityR1}
+                            rad_total={this.state.rad_gan.rad_total}
+                            countgt12={this.state.rad_gan.countgt12}
+                            con_total={this.state.rad_gan.con_total}
+                        />
+                        }
+                    </Col>
                 </Row>
                 </Grid>
             </div>

@@ -73,56 +73,77 @@ class preoDaysBeforeSurgeryApi extends Component {
         return dr;
     }
 
-    async getPerforation(params) {
-        const response = await axios.get('http://localhost:8080/surgery/perforation', {
+    async getPerforationContamination(params) {
+        const responsePerforation = await axios.get('http://localhost:8080/surgery/perforation', {
             params,
         });
-        const  result = {
-            'total': response.data.totalPatients,
-            'noCount': response.data.noCount,
-            'yesCount': response.data.yesCount,
-            'missing': response.data.missing
-        }
-        return result;
-    }
 
-    async getContamination(params) {
-        const response = await axios.get('http://localhost:8080/surgery/contamination', {
-            params,
-        });
-        const  result = {
-            'total': response.data.totalPatients,
-            'noCount': response.data.noCount,
-            'yesCount': response.data.yesCount,
-            'missing': response.data.missing
-        }
-        return result;
-    }
-
-    async getRadicalityR1(params) {
-        const response = await axios.get('http://localhost:8080/surgery/radicalityR1', {
-            params,
-        });
-        const  result = {
-            'total': response.data.totalPatients,
-            'radicalityR1': response.data.radicalityR1,
-            'others': response.data.others,
-            'missing': response.data.missing
-        }
-        return result;
-    }
-
-    async getLumphNodeExam(params) {
-        const response = await axios.get('http://localhost:8080/surgery/lumphNodeExamCount', {
+        const responseContamination = await axios.get('http://localhost:8080/surgery/contamination', {
             params,
         });
         const result = {
-            'total': response.data.totalPatients,
-            'examinCountgt12': response.data.examinCountgt12,
-            'others': (response.data.totalPatients - response.data.examinCountgt12)
+            data: [
+                {
+                    name: 'Perforation', 
+                    adherent: responsePerforation.data.yesCount, 
+                    nonAdherent: responsePerforation.data.noCount, 
+                    missing: responsePerforation.data.missing
+                },
+                {
+                    name: 'Contamination', 
+                    adherent: responseContamination.data.yesCount,
+                    nonAdherent: responseContamination.data.noCount,
+                    missing: responseContamination.data.missing,
+                }
+            ],
+            key1: 'adherent',    // the value has to be the same as above data's keys
+            key2: 'nonAdherent',
+            key3: 'missing',
+            perforation_adherent:responsePerforation.data.yesCount,
+            perforation_total:responsePerforation.data.totalPatients,
+            contamination_adherent:responseContamination.data.yesCount,
+            contamination_total:responseContamination.data.totalPatients
+        }
+
+        console.log(result);
+        return result;
+    }
+
+    async getRadicaliteGanglions(params) {
+        const rad_response = await axios.get('http://localhost:8080/surgery/radicalityR1', {
+            params,
+        });
+
+        const gan_response = await axios.get('http://localhost:8080/surgery/lumphNodeExamCount', {
+            params,
+        });
+
+        const result = {
+            data: [
+                {
+                    name: 'Radicalite', 
+                    score: rad_response.data.radicalityR1, 
+                    others: rad_response.data.others, 
+                    missing: rad_response.data.missing
+                },
+                {
+                    name: 'Ganglions', 
+                    score: gan_response.data.examinCountgt12,
+                    others: (gan_response.data.totalPatients - gan_response.data.examinCountgt12),
+                    missing: 0,
+                }
+            ],
+            key1: 'score',    // the value has to be the same as above data's keys
+            key2: 'others',
+            key3: 'missing',
+            radicalityR1:rad_response.data.radicalityR1,
+            rad_total:rad_response.data.totalPatients,
+            countgt12:gan_response.data.examinCountgt12,
+            con_total:gan_response.data.totalPatients
         }
         return result;
     }
+    
 
     async getAverageBloodLoss(params) {
         const response = await axios.get('http://localhost:8080/surgery/averageBloodLoss', {

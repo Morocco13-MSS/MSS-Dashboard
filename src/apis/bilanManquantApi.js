@@ -46,8 +46,6 @@ class BilanManquantApi extends Component {
             tmd_abdomen_adherent:response_abdominale.data.adherentCount,
             tmd_abdomen_total:response_abdominale.data.totalPatients
         }
-
-        console.log(bilanManquant)
         return bilanManquant;
     }
 }
