@@ -9,7 +9,7 @@ class Filter extends Component {
     constructor (props) {
         super(props)
         this.state = {
-            startDate: moment('01-01-2018'),
+            startDate: moment(new Date('2018', '00', '01')),
             endDate: moment()
         };
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
