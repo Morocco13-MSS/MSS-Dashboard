@@ -166,8 +166,7 @@ class Surgery extends Component {
                     </Col>
                 </Row>
                 </Grid>
-            </div>
-            
+            </div>   
         )
     }    
 }
