@@ -41,6 +41,24 @@ class PatientsBMIApi extends Component {
         return bmi;
     }
 
+    async getPatientsBMIWlDr(params) {
+        const response = await axios.get('http://localhost:8080/patients/curative/bmi_wtloss', {
+            params,
+        });
+
+        var max = 0;
+        if(response.data.wlossgt10per > response.data.bmilt18){
+            max = response.data.wlossgt10per;
+        }else{
+            max = response.data.bmilt18;
+        }
+        const bmiWlDr = {
+                    total: response.data.totalPatients,
+                    max,
+                }
+        return bmiWlDr;
+    }
+
     async getDrBMIPercentage(params) {
         const response = await axios.get('http://localhost:8080/patients/curative/bmi_wtloss', {
             params,

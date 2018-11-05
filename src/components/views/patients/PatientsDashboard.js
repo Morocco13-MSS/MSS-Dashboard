@@ -59,7 +59,8 @@ class Patients extends Component {
             drAGE: self.patientsAgeApi.getDrAGEPercentage(self.params_dr),
             drASA: self.patientsASAApi.getDrASAPercentage(self.params_dr),
             drOMS: self.patientsOMSApi.getDrOMSPercentage(self.params_dr),
-            drBMI: self.patientsBMIApi.getDrBMIPercentage(self.params_dr)
+            drBMI: self.patientsBMIApi.getDrBMIPercentage(self.params_dr),
+            drBMILW: self.patientsBMIApi.getPatientsBMIWlDr(self.params_dr),
         })
     }
 
@@ -102,7 +103,8 @@ class Patients extends Component {
             drAGE: await this.patientsAgeApi.getDrAGEPercentage(this.params_dr),
             drASA: await this.patientsASAApi.getDrASAPercentage(this.params_dr),
             drOMS: await this.patientsOMSApi.getDrOMSPercentage(this.params_dr),
-            drBMI: await this.patientsBMIApi.getDrBMIPercentage(this.params_dr)
+            drBMI: await this.patientsBMIApi.getDrBMIPercentage(this.params_dr),
+            drBMILW: await this.patientsBMIApi.getPatientsBMIWlDr(this.params_dr),
         });
 
     }
@@ -183,7 +185,7 @@ class Patients extends Component {
                         </Col>
                         <Col xs={5} md={5}>
                             <div>
-                                { this.state && this.state.bmi.data1 && this.state.bmi.data2 &&
+                                { this.state && this.state.bmi.data1 && this.state.bmi.data2 && this.state.drBMILW &&
                                     <BMIWL 
                                         lt10 = {this.state.bmi.wlosslt10per}
                                         lt18 = {this.state.bmi.lt18}
@@ -191,6 +193,8 @@ class Patients extends Component {
                                         total = {this.state.bmi.total}
                                         missing = {this.state.bmi.missingwloss}
                                         max = {this.state.bmi.max}
+                                        hide_dr = {this.state.drIsHidden}
+                                        dr = {this.state.drBMILW}
                                     />
                                 }                  
                             </div>

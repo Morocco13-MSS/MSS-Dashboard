@@ -7,7 +7,16 @@ class BMIWL extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>GN4 (% weight loss > 10% or IMC ≤ 18) </h4>
+                    <h4>GN4 (% weight loss > 10% or IMC ≤ 18) 
+                    { !this.props.hide_dr && this.props.dr &&
+                        <span className='dr_result'>
+                        Moi:
+                        {
+                            ((this.props.dr.max/this.props.dr.total)*100).toFixed(0)
+                        }{'%'}
+                        </span>
+                    }
+                    </h4>
                     <div className="square_top_bmiwl">
                         <div className="bmiw_value">
                         {
