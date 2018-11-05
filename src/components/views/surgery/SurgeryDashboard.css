@@ -253,6 +253,57 @@
     display: inline-block;
 }
 
+.squareLeftPefConDr{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 80px;
+    height: 40px;
+    display: inline-block;
+}
+
+.squareRightPefConDr{
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 40px;
+    display: inline-block; 
+}
+
+.PefCon_Pef_name_dr{
+    color: #999;
+    text-align: center;
+    font-size: 14px;
+}
+
+.PefCon_Pef_value_dr{
+    color: #1f77b4;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.PefCon_Con_value_dr{
+    color: #8884d8;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.RadGan_Rad_value_dr{
+    color: #e2a623;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.RadGan_Gan_value_dr{
+    color: #00C49F;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
 .PefCon_Pef_value{
     color: #1f77b4;
     text-align: center;
@@ -297,4 +348,7 @@
     display: inline-block;
 }
 
+.chartTitle{
+    height: 40px;
+}
 

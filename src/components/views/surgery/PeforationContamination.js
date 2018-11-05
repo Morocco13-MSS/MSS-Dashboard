@@ -15,7 +15,26 @@ class PeforationContamination extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4>{'Peforation & Contamination'}</h4>
+                <h4 className="chartTitle">{'Peforation & Contamination'}
+                { !this.props.hide_dr &&
+                    <span className='dr_result'>
+                        <div className="squarePefCon">
+                            <div className="squareLeftPefConDr">
+                                <div className="PefCon_Pef_name_dr"> {'Per(%)'}</div>
+                                <div className="PefCon_Pef_value_dr">
+                                    {((this.props.dr.perforation_adherent/this.props.dr.perforation_total)*100).toFixed(0)}
+                                </div>
+                            </div>
+                            <div className="squareRightPefConDr">
+                                <div className="PefCon_Pef_name_dr"> {'Con(%)'}</div>
+                                <div className="PefCon_Con_value_dr">
+                                    {((this.props.dr.contamination_adherent/this.props.dr.contamination_total)*100).toFixed(0)}
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                }
+                </h4>
          
                 <MSSBar
                 data={this.props.data}
@@ -24,7 +43,7 @@ class PeforationContamination extends Component {
                 key2={this.props.key2} 
                 key3={this.props.key3}
                 width={450}
-                height={250}
+                height={200}
                 />
                 <div className="squarePefCon">
                     <div className="squareLeftPefCon">

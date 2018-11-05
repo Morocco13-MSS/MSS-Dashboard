@@ -7,7 +7,15 @@ class AverageBloodLoss extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'Perte de sang moyenne'}</h4>
+                    <h4 className='chartTitle'>{'Perte de sang moyenne'}</h4>
+                    <h5>{ !this.props.hide_dr && 
+                        <span className='dr_result'>
+                        Moi:
+                        {
+                            Math.round(this.props.dr.averageBloodLoss)
+                        }
+                        </span>
+                    }</h5>
                     <div className="square_top_pna">
                         <div className="bloodLoss_value">
                         {

@@ -14,7 +14,7 @@ class PreoDaysBeforeSurgery extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>{'Des Semaines Avant La Chirurgie'}
+                    <h4 className='chartTitle'>{'Des Semaines Avant La Chirurgie'}
                         { !this.props.hide_dr && this.props.dr &&
                             <span className='dr_result'>
                                 <div className="squareLeftPreo_dr">

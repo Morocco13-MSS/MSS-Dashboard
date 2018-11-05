@@ -15,7 +15,26 @@ class RadGan extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4>{'Radicalite & Ganglions'}</h4>
+                <h4 className='chartTitle'>{'Radicalite & Ganglions'}
+                { !this.props.hide_dr &&
+                    <span className='dr_result'>
+                        <div className="squarePefCon">
+                            <div className="squareLeftPefConDr">
+                                <div className="PefCon_Pef_name_dr"> {'Perf R1(%)'}</div>
+                                <div className="RadGan_Rad_value_dr">
+                                    {((this.props.dr.radicalityR1/this.props.dr.rad_total)*100).toFixed(0)}
+                                </div>
+                            </div>
+                            <div className="squareRightPefConDr">
+                                <div className="PefCon_Pef_name_dr"> {'Cont 12(%)'}</div>
+                                <div className="RadGan_Gan_value_dr">
+                                    {((this.props.dr.countgt12/this.props.dr.con_total)*100).toFixed(0)}
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                }
+                </h4>
          
                 <MSSBar
                 data={this.props.data}
@@ -24,7 +43,7 @@ class RadGan extends Component {
                 key2={this.props.key2} 
                 key3={this.props.key3}
                 width={450}
-                height={250}
+                height={200}
                 />
                 <div className="squarePefCon">
                     <div className="squareLeftRadGan">

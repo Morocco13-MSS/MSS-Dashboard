@@ -44,8 +44,11 @@ class Surgery extends Component {
             ra: self.surgeryApis.getResecAsso(self.params),
             ra_dr: self.surgeryApis.getResecAssoDr(self.params),
             abl: self.surgeryApis.getAverageBloodLoss(self.params),
+            abl_dr: self.surgeryApis.getAverageBloodLoss(self.params_dr),
             pf_con: self.surgeryApis.getPerforationContamination(self.params),
+            pf_con_dr: self.surgeryApis.getPerforationContamination(self.params_dr),
             rad_gan: self.surgeryApis.getRadicaliteGanglions(self.params),
+            rad_gan_dr: self.surgeryApis.getRadicaliteGanglions(self.params_dr),
         })
     }
 
@@ -85,8 +88,11 @@ class Surgery extends Component {
             ra: await this.surgeryApis.getResecAsso(this.params),
             ra_dr: await this.surgeryApis.getResecAssoDr(this.params),
             abl: await this.surgeryApis.getAverageBloodLoss(this.params),
+            abl_dr: await this.surgeryApis.getAverageBloodLoss(this.params_dr),
             pf_con: await this.surgeryApis.getPerforationContamination(this.params),
+            pf_con_dr: await this.surgeryApis.getPerforationContamination(this.params_dr),
             rad_gan: await this.surgeryApis.getRadicaliteGanglions(this.params),
+            rad_gan_dr:  await this.surgeryApis.getRadicaliteGanglions(this.params_dr),
         });
     }
 
@@ -126,18 +132,22 @@ class Surgery extends Component {
                         }
                     </Col>
                     <Col xs={3} md={3}>
-                        { this.state && this.state.abl &&    
+                        { this.state && this.state.abl &&  this.state.abl_dr &&    
                         <AverageBloodLoss
                             total={this.state.abl.total}
                             averageBLoss={this.state.abl.averageBloodLoss}
                             missing={this.state.abl.missing}
+                            dr={this.state.abl_dr}
+                            hide_dr = {this.state.drIsHidden}
                         />
                         }
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={6} md={6}>
-                        { this.state && this.state.pf_con && this.state.pf_con.perforation_adherent &&  
+                        { this.state && this.state.pf_con && 
+                            this.state.pf_con.perforation_adherent &&  
+                            this.state.pf_con_dr &&
                         <PeforationContamination
                             data={this.state.pf_con.data}
                             key1={this.state.pf_con.key1}
@@ -147,12 +157,15 @@ class Surgery extends Component {
                             perforation_total={this.state.pf_con.perforation_total}
                             contamination_adherent={this.state.pf_con.contamination_adherent}
                             contamination_total={this.state.pf_con.contamination_total}
+                            hide_dr={this.state.drIsHidden}
+                            dr={this.state.pf_con_dr}
                         />
                         }
                     </Col>
   
                     <Col xs={6} md={6}>
                         { this.state && this.state.rad_gan && this.state.rad_gan.data &&  
+                            this.state.rad_gan_dr &&
                         <RadicaliteGanglions
                             data={this.state.rad_gan.data}
                             key1={this.state.rad_gan.key1}
@@ -162,6 +175,8 @@ class Surgery extends Component {
                             rad_total={this.state.rad_gan.rad_total}
                             countgt12={this.state.rad_gan.countgt12}
                             con_total={this.state.rad_gan.con_total}
+                            hide_dr={this.state.drIsHidden}
+                            dr={this.state.rad_gan_dr}
                         />
                         }
                     </Col>

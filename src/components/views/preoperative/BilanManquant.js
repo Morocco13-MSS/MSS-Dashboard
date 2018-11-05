@@ -14,7 +14,7 @@ class BilanManquant extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4>Bilan Manquant Adherent
+                <h4 className='chartTitle'>Bilan Manquant Adherent
                 { !this.props.hide_dr &&
                     <span className='dr_result'>
                         <div className="square_bilan_dr_left">
@@ -40,7 +40,7 @@ class BilanManquant extends Component {
                     key2={this.props.key2} 
                     key3={this.props.key3}
                     width={600}
-                    height={250}
+                    height={200}
                     margin={{top: 5, right: 30, left: 20, bottom: 5}}
                     />
 

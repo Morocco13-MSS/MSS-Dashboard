@@ -6,7 +6,7 @@ class PreoNeoAdjuvant extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Néo-adjuvants
+                    <h4 className='chartTitle'>Néo-adjuvants
                         { !this.props.hide_dr && this.props.dr &&
                             <span className='dr_result'>
                             Moi:
