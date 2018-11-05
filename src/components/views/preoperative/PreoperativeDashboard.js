@@ -42,9 +42,11 @@ class PreoperativeDashboard extends Component {
         self.setState({
             drIsHidden: true,
             bm: self.bilanManquantApi.getBilanManquant(self.params),
+            bm_dr: self.bilanManquantApi.getBilanManquant(self.params_dr),
             pbs: self.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(self.params),
             pbs_dr: self.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(self.params_dr),
-            pna: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params)
+            pna: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params),
+            pna_dr: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params_dr),
         })
     }
 
@@ -80,9 +82,11 @@ class PreoperativeDashboard extends Component {
         }
         this.setState({
             bm: await this.bilanManquantApi.getBilanManquant(this.params),
+            bm_dr: await this.bilanManquantApi.getBilanManquant(this.params_dr),
             pbs: await this.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(this.params),
-            pna: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params),
             pbs_dr: await this.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(this.params_dr),
+            pna: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params),
+            pna_dr: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params_dr),
         });
     }
 
@@ -107,15 +111,19 @@ class PreoperativeDashboard extends Component {
                         }
                     </Col>
                     <Col xs={3} md={3}>
-                        { this.state && this.state.pna &&
-                            <PreoNeoAdjuvant pna={this.state.pna} />
+                        { this.state && this.state.pna && this.state.pna_dr &&
+                            <PreoNeoAdjuvant 
+                                pna={this.state.pna} 
+                                dr={this.state.pna_dr} 
+                                hide_dr = {this.state.drIsHidden}
+                            />
                         }
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={9} md={9}>
                         <div>
-                        { this.state && this.state.bm.data &&
+                        { this.state && this.state.bm.data && this.state.bm_dr.data &&
                             <BilanManquant data={this.state.bm.data}
                                 key1={this.state.bm.key1}
                                 key2={this.state.bm.key2}
@@ -126,6 +134,13 @@ class PreoperativeDashboard extends Component {
                                 tmd_thorax_total={this.state.bm.tmd_thorax_total}
                                 tmd_abdomen_adherent={this.state.bm.tmd_abdomen_adherent}
                                 tmd_abdomen_total={this.state.bm.tmd_abdomen_total}
+                                hide_dr = {this.state.drIsHidden}
+                                mdt_adherent_dr={this.state.bm_dr.mdt_adherent}
+                                mdt_total_dr={this.state.bm_dr.mdt_total}
+                                tmd_thorax_adherent_dr={this.state.bm_dr.tmd_thorax_adherent}
+                                tmd_thorax_total_dr={this.state.bm_dr.tmd_thorax_total}
+                                tmd_abdomen_adherent_dr={this.state.bm_dr.tmd_abdomen_adherent}
+                                tmd_abdomen_total_dr={this.state.bm_dr.tmd_abdomen_total}
                             />
                         }
                         </div>

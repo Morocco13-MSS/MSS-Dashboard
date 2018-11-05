@@ -74,6 +74,11 @@ class TraitementAdjuvant extends Component {
                 <Grid className ='patient_grid'>
                     <Row>
                         <Col xs={4} md={4}>
+                        { this.state && this.state.chemoRCT && this.state.chemoRCT.total &&
+                            <ChemoRCT data={this.state.chemoRCT}/>
+                        }
+                        </Col>
+                        <Col xs={4} md={4}>
                         { this.state && this.state.timebwsurgeryAndAdjuv && 
                             this.state.timebwsurgeryAndAdjuv.data &&
                             <TimeBTSurgeryAndAdjuv 
@@ -83,11 +88,6 @@ class TraitementAdjuvant extends Component {
                             morethan6weeks={this.state.timebwsurgeryAndAdjuv.morethan6weeks}
                             missing={this.state.timebwsurgeryAndAdjuv.missing}
                             />
-                        }
-                        </Col>
-                        <Col xs={4} md={4}>
-                        { this.state && this.state.chemoRCT && this.state.chemoRCT.total &&
-                            <ChemoRCT data={this.state.chemoRCT}/>
                         }
                         </Col>
                         <Col xs={4} md={4}>

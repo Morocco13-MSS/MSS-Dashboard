@@ -14,7 +14,24 @@ class BilanManquant extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4>Bilan Manquant Adherent</h4>
+                <h4>Bilan Manquant Adherent
+                { !this.props.hide_dr &&
+                    <span className='dr_result'>
+                        <div className="square_bilan_dr_left">
+                            <div className="preo_dr_name"> {'Adherent'}</div>
+                            <div className="bilan_dr_adh"> {((this.props.mdt_adherent_dr/this.props.mdt_total_dr)*100).toFixed(0)}</div>
+                        </div>
+                        <div className="square_bilan_dr_left">
+                            <div className="preo_dr_name">{'Thorax'}</div>
+                            <div className="bilan_dr_tho">{((this.props.tmd_thorax_adherent_dr/this.props.tmd_thorax_total_dr)*100).toFixed(0)}</div>
+                        </div>
+                        <div className="square_bilan_dr_right">
+                            <div className="preo_dr_name"> {'Abdomen'}</div>
+                            <div className="bilan_dr_abd">{((this.props.tmd_abdomen_adherent_dr/this.props.tmd_abdomen_total_dr)*100).toFixed(0)}</div>
+                        </div>
+                    </span>
+                }
+                </h4>
                 <div className="square_bottom_bar">
                     <MSSBar
                     data={this.props.data}
