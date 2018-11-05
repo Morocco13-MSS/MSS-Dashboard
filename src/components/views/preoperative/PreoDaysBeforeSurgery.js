@@ -29,7 +29,7 @@ class PreoDaysBeforeSurgery extends Component {
                                     <div className="preo_dr_name"> {'>8'}</div>
                                     <div className="preo_dr_gt8">{this.props.dr.gt8weeks}</div>
                                 </div>
-                                <div className="squareLeftPreo_dr">
+                                <div className="squareLeftPreo_missing_dr">
                                     <div className="preo_dr_name">{'Missing'}</div>
                                     <div className="preo_dr_value">{this.props.dr.missing}</div>
                                 </div>

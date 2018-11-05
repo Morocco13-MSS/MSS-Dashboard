@@ -52,6 +52,15 @@
     display: inline-block;
 }
 
+.squareLeftPreo_missing_dr{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 55px;
+    height: 40px;
+    display: inline-block;
+}
+
 .squareRightPreo_dr  {
     border: 1px solid #ddd;
     width: 45px;
