@@ -1,6 +1,8 @@
-
 export default {
-    userName: 'abc',
-    pwd: '123!',
-    loggedIn: false
-  }
+    loginName: '',
+    loginPWD: '',
+    loggedIn: false,
+    userName: '',
+    userId: '',
+    unitId:''
+}

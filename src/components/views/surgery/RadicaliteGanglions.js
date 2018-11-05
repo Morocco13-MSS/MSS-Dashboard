@@ -11,7 +11,7 @@ class RadGan extends Component {
         }
     }
     render() {
-        console.log(this.props);
+
         return (
             <Panel>
             <Panel.Body>

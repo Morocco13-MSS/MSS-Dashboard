@@ -5,6 +5,7 @@ import MortalityPlot from './MortalityPlot'
 import MortalityPlotApi from '../../../apis/mortalityPlotApi';
 import './MorbiMortalityDashboard.css';
 import loading from '../../imgs/loading1.gif'
+import Config from '../../../config/config'
 
 class MorbiMortality extends Component {
     constructor (props) {
@@ -22,7 +23,7 @@ class MorbiMortality extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 1,       //0-doc, 1-unit, 2-all
-            userId: 8        //doc-ID from 36, unit-ID "1,2,3,4"
+            userId: Config.userId        //doc-ID from 36, unit-ID "1,2,3,4"
         }
 
         this.paramsAll = {
@@ -30,7 +31,7 @@ class MorbiMortality extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 2,       //0-doc, 1-unit, 2-all
-            userId: 8        //doc-ID from 36, unit-ID "1,2,3,4"
+            userId: Config.userId        //doc-ID from 36, unit-ID "1,2,3,4"
         }
 
         // Filter function will be triggered when date or type is changed

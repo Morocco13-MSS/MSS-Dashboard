@@ -1,0 +1,14 @@
+.welcomeHeader{
+    width: 100%;
+    height: 250px;
+    line-height: 250px;
+    font-size: 60px;
+    text-align: center;
+    color: aliceblue;
+    background-color: #333333;
+}
+.welcomeNavbar{
+    margin-bottom: 0px;
+}
+.loginContainer{
+}

@@ -137,9 +137,6 @@ class GlobalApi extends Component {
             data,
             tile_data,
         }
-
-        console.log(tile_data);
-
         return gestType;
     }
 }

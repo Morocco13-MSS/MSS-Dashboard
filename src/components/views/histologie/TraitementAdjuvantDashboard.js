@@ -5,6 +5,7 @@ import TraitementAdjuvantApi from '../../../apis/traitementAdjuvantApi';
 import ChemoRCT from './ChemoRCT';
 import TimeBTSurgeryAndAdjuv from './TimeBTSurgeryAndAdjuv';
 import ChemoRCTWithBlood from './ChemoRCTWithBlood';
+import Config from '../../../config/config'
 
 class TraitementAdjuvant extends Component {
     constructor (props) {
@@ -20,7 +21,7 @@ class TraitementAdjuvant extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: 8           //doc-ID from 8/12, unit-ID "3", all"""
+            userId: Config.userId            //doc-ID from 8/12, unit-ID "3", all"""
         }
         // Filter function will be triggered when date or type is changed
         this.updateFilter = this.updateFilter.bind(this);
@@ -47,11 +48,11 @@ class TraitementAdjuvant extends Component {
                     break;
                 case 'userLevel':
                 if(update.userLevel === 0){
-                    this.params.userId = 8;
+                    this.params.userId = Config.userId;
 
                     }else{
                         if(update.userLevel === 1){
-                            this.params.userId = 3;
+                            this.params.userId = Config.unitId;
                         }
                     }
                     this.params.userLevel = update.userLevel;

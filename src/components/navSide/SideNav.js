@@ -20,7 +20,7 @@ class Hello extends Component {
                     <NavItem eventKey="global">
                         <NavIcon>
                             <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                            <Link to="/global"><Glyphicon bsClass="glyphicon" glyph="globe"/></Link>
+                            <Link to="/global"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="globe"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/global">Global</Link>
@@ -29,7 +29,7 @@ class Hello extends Component {
                     <NavItem eventKey="patients">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/patients"><Glyphicon bsClass="glyphicon" glyph="user"/></Link>
+                            <Link to="/patients"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="user"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/patients">Patients</Link>
@@ -38,7 +38,7 @@ class Hello extends Component {
                     <NavItem eventKey="preoperative">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/preoperative"><Glyphicon bsClass="glyphicon" glyph="check"/></Link>
+                            <Link to="/preoperative"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="check"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/preoperative">Préopératoire</Link>
@@ -47,7 +47,7 @@ class Hello extends Component {
                     <NavItem eventKey="surgery">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/surgery"><Glyphicon bsClass="glyphicon" glyph="eye-open"/></Link>
+                            <Link to="/surgery"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="eye-open"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/surgery">Chirurgie</Link>
@@ -56,7 +56,7 @@ class Hello extends Component {
                     <NavItem eventKey="traitementAdjuvant">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/traitementAdjuvant"><Glyphicon bsClass="glyphicon" glyph="leaf"/></Link>
+                            <Link to="/traitementAdjuvant"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="leaf"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/traitementAdjuvant">Traitement-Adjuvant</Link>
@@ -65,7 +65,7 @@ class Hello extends Component {
                     <NavItem eventKey="morbiMrtalite">
                         <NavIcon>
                             <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/morbi-mortalite"><Glyphicon bsClass="glyphicon" glyph="stats"/></Link>
+                            <Link to="/morbi-mortalite"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="stats"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/morbi-mortalite">Morbi-Mortality</Link>

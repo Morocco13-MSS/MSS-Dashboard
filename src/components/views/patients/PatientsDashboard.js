@@ -10,6 +10,7 @@ import PatientsAgeApi from '../../../apis/patientsAgeApi';
 import PatientsASAApi from '../../../apis/patientsASAApi';
 import PatientsOMSApi from '../../../apis/patientsOMSApi';
 import PatientsBMIApi from '../../../apis/patientsBMIApi';
+import Config from '../../../config/config'
 
 class Patients extends Component {
 
@@ -31,7 +32,7 @@ class Patients extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: 8        //doc-ID from 8/12, unit-ID "3", all"""
+            userId: Config.userId       //doc-ID from 8/12, unit-ID "3", all"""
         }
 
         this.params_dr = {
@@ -39,7 +40,7 @@ class Patients extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: 8        //doc-ID from 8/12, unit-ID "3", all"""
+            userId: Config.userId        //doc-ID from 8/12, unit-ID "3", all"""
         }
 
         // Filter function will be triggered when date or type is changed
@@ -75,13 +76,13 @@ class Patients extends Component {
                     break;
                 case 'userLevel':
                     if(update.userLevel === 0){
-                        this.params.userId = 8;
+                        this.params.userId = Config.userId;
                         this.setState({
                             drIsHidden: true
                         });
                     } else {
                         if(update.userLevel === 1){
-                            this.params.userId = 3;
+                            this.params.userId = Config.unitId;
                         }
                         this.setState({
                             drIsHidden: false

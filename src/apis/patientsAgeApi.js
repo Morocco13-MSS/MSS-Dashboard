@@ -7,9 +7,6 @@ class PatientsAgeApi extends Component {
         const response = await axios.get('http://localhost:8080/patients/curative/agegt70', {
             params,
         });
-
-        console.log(response);
-
         const age = {
             data: [
                 {name: '≥70', value: response.data.gtAge70},

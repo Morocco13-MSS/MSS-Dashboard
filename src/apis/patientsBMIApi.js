@@ -8,7 +8,6 @@ class PatientsBMIApi extends Component {
             params,
         });
 
-        console.log(response)
         const other = response.data.totalPatients-response.data.bmigt30-response.data.bmilt18-response.data.missingbmi;
 
         var max = 0;

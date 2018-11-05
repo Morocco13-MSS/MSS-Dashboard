@@ -105,7 +105,6 @@ class preoDaysBeforeSurgeryApi extends Component {
             contamination_total:responseContamination.data.totalPatients
         }
 
-        console.log(result);
         return result;
     }
 

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import Config from '../../config/config'
 
 class NavHeader extends Component {
+
+    logout(){
+        this.props.logout();
+    }
     render() {
         return (
             <Navbar staticTop inverse>
@@ -28,6 +33,15 @@ class NavHeader extends Component {
                 <NavItem eventKey={5} href="#">
                     Grêle
                 </NavItem>
+                </Nav>
+
+                 <Nav pullRight>
+                    <NavItem>
+                        Hi, Dr. {Config.userName}
+                    </NavItem>
+                    <NavItem onClick={() => this.logout()}>
+                        Logout
+                    </NavItem>
                 </Nav>
 
             </Navbar.Collapse>

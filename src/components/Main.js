@@ -5,7 +5,6 @@ import Global from './views/global/GlobalDashboard'
 import Preoperative from './views/preoperative/PreoperativeDashboard'
 import MorbiMortality from './views/morbi-mortality/MorbiMortalityDashboard'
 import Surgery from './views/surgery/SurgeryDashboard'
-import Welcome from './views/welcome/Welcome'
 import TraitementAdjuvant from './views/histologie/TraitementAdjuvantDashboard'
 
 class Main extends Component {
@@ -13,8 +12,7 @@ class Main extends Component {
         return (
             <main>
                 <Switch>
-                    <Route exact path='/' component={Welcome}/>
-                    <Route path='/welcome' component={Welcome}/>
+                    <Route exact path='/' component={Global}/>
                     <Route path='/global' component={Global}/>
                     <Route path='/patients' component={Patients}/>
                     <Route path='/preoperative' component={Preoperative}/>

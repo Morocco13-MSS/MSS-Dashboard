@@ -25,7 +25,7 @@ const ITEMS = [
 class MSSMortalityPlot extends Component {
 
     render() {
-       console.log(this.props.scatter);
+
         return (
             <div>
             <XYPlot height={300} width= {700}>

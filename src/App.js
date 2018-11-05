@@ -13,12 +13,32 @@ class App extends Component {
             loggedIn: Config.loggedIn
         }
         this.login = this.login.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
-    login(isLoggedIn){
+    login(isLoggedIn, userInfo){
         Config.loggedIn = true;
+        Config.loginName = userInfo.loginName;
+        Config.loginPWD = userInfo.loginPWD;
+        Config.userName = userInfo.userName;
+        Config.userId = userInfo.userId;
+        Config.unitId = userInfo.unitId;
+
         this.setState({
           loggedIn: isLoggedIn
+        })
+    }
+
+    logout(){
+        Config.loggedIn = false;
+        Config.loginName = '';
+        Config.loginPWD = '';
+        Config.userName ='';
+        Config.userId = '';
+        Config.unitId = '';
+    
+        this.setState({
+          loggedIn: false
         })
     }
 
@@ -27,7 +47,7 @@ class App extends Component {
         if(this.state.loggedIn){
             Content =
                 <div>
-                <NavHeader/>
+                <NavHeader logout={this.logout}/>
                 <SideNav/>
                 <Main className="main"/>
                 </div>

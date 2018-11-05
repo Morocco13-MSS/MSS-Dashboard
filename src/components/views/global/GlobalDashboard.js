@@ -4,6 +4,7 @@ import PatientTypes from './PatientTypes';
 import GestTypes from './GestTypes';
 import Filter from '../../Filter';
 import GlobalApi from '../../../apis/globalApi';
+import Config from '../../../config/config'
 
 class NewGlobalDashboard extends Component {
 
@@ -24,7 +25,7 @@ class NewGlobalDashboard extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 0,       //0-doc, 1-unit, 2-all
-            userId: 8           //doc-ID from 8/12, unit-ID "3", all"""
+            userId: Config.userId 
         }
 
         this.params_unit = {
@@ -33,7 +34,7 @@ class NewGlobalDashboard extends Component {
             endDate: '2019-01-01',
             formType: 'E',
             userLevel: 1,
-            userId: '3'
+            userId: Config.unitId
         }
 
         this.params_all = {
@@ -103,6 +104,7 @@ class NewGlobalDashboard extends Component {
     }
 
     render() {
+
         return (
             <div> 
                 <Filter updateFilter = {this.updateFilter}/>
