@@ -57,7 +57,7 @@ class mortalityPlotApi extends Component {
             const result = {
                 dot: response_dot.data,
                 scatter: response_scatter.data,
-                allUnit: [],
+                allUnits: [],
                 benchmark: response_benchmark.data,
                 up: response_up.data,
                 up2: response_up2.data,
