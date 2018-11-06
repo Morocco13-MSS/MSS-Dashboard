@@ -40,7 +40,7 @@ class NavHeader extends Component {
                         Hi, Dr. {Config.userName}
                     </NavItem>
                     <NavItem onClick={() => this.logout()}>
-                        Logout
+                        Se déconnecter
                     </NavItem>
                 </Nav>
 

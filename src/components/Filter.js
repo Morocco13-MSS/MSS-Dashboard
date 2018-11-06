@@ -40,24 +40,25 @@ class Filter extends Component {
             <Grid>
                 <Row>
                     <Col xs={3} md={3}>
-                        from:
-                        <DatePicker
+                        De:
+                        <DatePicker className="form-control"
+                        
                             selected={this.state.startDate}
                             onChange={this.handleStartDateChange}
                         />
                     </Col>
                     <Col xs={3} md={3}>
-                        to:
-                        <DatePicker
+                        Jusqu'à:
+                        <DatePicker className="form-control"
                             selected={this.state.endDate}
                             onChange={this.handleEndDateChange}
                         />
                     </Col>
                     <Col xs={4} md={4}>
                         <ButtonToolbar className='filterButton'>
-                            <Button bsStyle="info" onClick={() => this.handleUserLevel(0)}>Myself</Button>
-                            <Button bsStyle="primary" onClick={() => this.handleUserLevel(1)}>Unit</Button>
-                            <Button bsStyle="success" onClick={() => this.handleUserLevel(2)}>All Units</Button>
+                            <Button bsStyle="info" onClick={() => this.handleUserLevel(0)}>Moi</Button>
+                            <Button bsStyle="primary" onClick={() => this.handleUserLevel(1)}>Mon service</Button>
+                            <Button bsStyle="success" onClick={() => this.handleUserLevel(2)}>Tous</Button>
                         </ButtonToolbar>
                     </Col>
                 </Row>
