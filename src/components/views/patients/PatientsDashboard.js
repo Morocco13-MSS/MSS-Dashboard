@@ -132,7 +132,6 @@ class Patients extends Component {
             drOMS,
             drBMI,
             drBMILW,
-            drIsHidden: true,
             showLoading: false
         })
     }

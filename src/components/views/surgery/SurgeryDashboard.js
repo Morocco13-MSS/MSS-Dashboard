@@ -7,14 +7,21 @@ import AverageBloodLoss from './AverageBloodLoss'
 import SurgeryApis from '../../../apis/surgeryApis';
 import PeforationContamination from './PeforationContamination';
 import RadicaliteGanglions from './RadicaliteGanglions';
-import Config from '../../../config/config'
+import Config from '../../../config/config';
+import loading from '../../imgs/loading.gif';
 
 class Surgery extends Component {
     constructor (props) {
         super(props);
 
+        this.state = {
+            showLoading: true
+        }
+
         // API instances 
         this.surgeryApis = new SurgeryApis();
+
+        // this.showLoading = true;
 
         this.params = {
             startDate: '2018-01-01',
@@ -35,21 +42,35 @@ class Surgery extends Component {
         this.updateFilter();
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const self = this;
+
+        const fl = await self.surgeryApis.getFirstLook(self.params);
+        const fl_dr = await self.surgeryApis.getFirstLookDr(self.params_dr);
+        const ra = await self.surgeryApis.getResecAsso(self.params);
+        const ra_dr = await self.surgeryApis.getResecAssoDr(self.params);
+        const abl = await self.surgeryApis.getAverageBloodLoss(self.params);
+        const abl_dr = await self.surgeryApis.getAverageBloodLoss(self.params_dr);
+        const pf_con = await self.surgeryApis.getPerforationContamination(self.params);
+        const pf_con_dr = await self.surgeryApis.getPerforationContamination(self.params_dr);
+        const rad_gan = await self.surgeryApis.getRadicaliteGanglions(self.params);
+        const rad_gan_dr = await self.surgeryApis.getRadicaliteGanglions(self.params_dr);
+
         self.setState({
+            fl,
+            fl_dr,
+            ra,
+            ra_dr,
+            abl,
+            abl_dr,
+            pf_con,
+            pf_con_dr,
+            rad_gan,
+            rad_gan_dr,
             drIsHidden: true,
-            fl: self.surgeryApis.getFirstLook(self.params),
-            fl_dr: self.surgeryApis.getFirstLookDr(self.params_dr),
-            ra: self.surgeryApis.getResecAsso(self.params),
-            ra_dr: self.surgeryApis.getResecAssoDr(self.params),
-            abl: self.surgeryApis.getAverageBloodLoss(self.params),
-            abl_dr: self.surgeryApis.getAverageBloodLoss(self.params_dr),
-            pf_con: self.surgeryApis.getPerforationContamination(self.params),
-            pf_con_dr: self.surgeryApis.getPerforationContamination(self.params_dr),
-            rad_gan: self.surgeryApis.getRadicaliteGanglions(self.params),
-            rad_gan_dr: self.surgeryApis.getRadicaliteGanglions(self.params_dr),
-        })
+            showLoading: false
+        });
+
     }
 
     async updateFilter(update) {
@@ -82,28 +103,46 @@ class Surgery extends Component {
                 default:        
             }
         }
+
+        const fl = await this.surgeryApis.getFirstLook(this.params);
+        const fl_dr = await this.surgeryApis.getFirstLookDr(this.params_dr);
+        const ra = await this.surgeryApis.getResecAsso(this.params);
+        const ra_dr = await this.surgeryApis.getResecAssoDr(this.params);
+        const abl = await this.surgeryApis.getAverageBloodLoss(this.params);
+        const  abl_dr = await this.surgeryApis.getAverageBloodLoss(this.params_dr);
+        const pf_con = await this.surgeryApis.getPerforationContamination(this.params);
+        const pf_con_dr = await this.surgeryApis.getPerforationContamination(this.params_dr);
+        const rad_gan = await this.surgeryApis.getRadicaliteGanglions(this.params);
+        const rad_gan_dr = await this.surgeryApis.getRadicaliteGanglions(this.params_dr);
+
         this.setState({
-            fl: await this.surgeryApis.getFirstLook(this.params),
-            fl_dr: await this.surgeryApis.getFirstLookDr(this.params_dr),
-            ra: await this.surgeryApis.getResecAsso(this.params),
-            ra_dr: await this.surgeryApis.getResecAssoDr(this.params),
-            abl: await this.surgeryApis.getAverageBloodLoss(this.params),
-            abl_dr: await this.surgeryApis.getAverageBloodLoss(this.params_dr),
-            pf_con: await this.surgeryApis.getPerforationContamination(this.params),
-            pf_con_dr: await this.surgeryApis.getPerforationContamination(this.params_dr),
-            rad_gan: await this.surgeryApis.getRadicaliteGanglions(this.params),
-            rad_gan_dr:  await this.surgeryApis.getRadicaliteGanglions(this.params_dr),
+            fl,
+            fl_dr,
+            ra,
+            ra_dr,
+            abl,
+            abl_dr,
+            pf_con,
+            pf_con_dr,
+            rad_gan,
+            rad_gan_dr,
+            showLoading: false
         });
     }
 
     render() {
-        return ( 
-            <div>
-                <Filter updateFilter = {this.updateFilter}/>
-                <Grid className ='patient_grid'>
+        let Content;
+        if (this.state.showLoading) {
+            Content = 
+            <Grid className ='patient_grid'>
+            <Row><Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col></Row>
+            </Grid>
+        } else {
+            Content = 
+            <Grid className ='patient_grid'>
                 <Row>
                     <Col xs={4} md={4}>
-                        { this.state && this.state.fl.data && this.state.fl_dr &&
+                        { this.state && this.state.fl && this.state.fl.data && this.state.fl_dr &&
                         <FirstLook
                             total={this.state.fl.total}
                             laparotomie={this.state.fl.laparotomie}
@@ -116,7 +155,7 @@ class Surgery extends Component {
                         }
                     </Col>
                     <Col xs={5} md={5}>
-                        { this.state && this.state.ra.data && this.state.ra_dr &&
+                        { this.state  && this.state.ra && this.state.ra.data && this.state.ra_dr &&
                         <ResecAsso
                             total={this.state.ra.total}
                             localResec={this.state.ra.localResec}
@@ -182,6 +221,11 @@ class Surgery extends Component {
                     </Col>
                 </Row>
                 </Grid>
+        }    
+        return ( 
+            <div>
+                <Filter updateFilter = {this.updateFilter}/>
+                {Content}
             </div>   
         )
     }    
