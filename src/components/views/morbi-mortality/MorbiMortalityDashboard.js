@@ -84,12 +84,12 @@ class MorbiMortality extends Component {
         }
     }
     render() {
-        let loadingContent;
+        let Content;
         if (this.state.loading) {
-            loadingContent = 
+            Content = 
             <Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col>
         } else {
-            loadingContent =  
+            Content =  
             <Col xs={8} md={8}>
             { this.state && 
             this.state.data &&
@@ -122,7 +122,7 @@ class MorbiMortality extends Component {
                 
                 <Grid className ='patient_grid'>
                     <Row>
-                        {loadingContent}
+                        {Content}
                     </Row>
                 </Grid>
             </div>

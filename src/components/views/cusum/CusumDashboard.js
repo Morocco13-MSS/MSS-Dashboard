@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import {  Grid, Row, Col, Glyphicon, NavDropdown, MenuItem, Media, Form, FormGroup, FormControl } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import CusumContainer from './CusumContainer'
-import cusumApi from '../../../apis/cusumApi.js';
+import CusumApi from '../../../apis/cusumApi.js';
 import Config from '../../../config/config'
-import './CusumDashboard.css'
+import './CusumDashboard.css';
 import Filter from '../../Filter';
+import loading from '../../imgs/loading.gif';
 
 class CusumDashboard extends Component {
 
@@ -16,22 +17,14 @@ class CusumDashboard extends Component {
         }
     
         // API instances 
-        this.cusumApi = new cusumApi();
+        this.cusumApi = new CusumApi();
 
         this.params = {
             startDate: '2018-01-01',
             endDate: '2019-01-01',
             formType: 'E',
-            userLevel: 1,       //0-doc, 1-unit, 2-all
-            userId: Config.userId        //doc-ID from 36, unit-ID "1,2,3,4"
-        }
-
-        this.paramsAll = {
-            startDate: '2018-01-01',
-            endDate: '2019-01-01',
-            formType: 'E',
-            userLevel: 2,       //0-doc, 1-unit, 2-all
-            userId: Config.userId        //doc-ID from 36, unit-ID "1,2,3,4"
+            userLevel: 0,                  //0-doc, 1-unit, 2-all
+            userId: Config.userId         //doc-ID from 36, unit-ID "1,2,3,4"
         }
 
         // Filter function will be triggered when date or type is changed
@@ -42,10 +35,10 @@ class CusumDashboard extends Component {
 
     async componentDidMount() {
         const self = this;
-        const data = await self.cusumApi.getCusumApiForDrOnly(self.params);
+        const cusum = await self.cusumApi.getCusumData(self.params);
         self.setState({
-            data: data
-            
+            cusum,
+            loading: cusum.loading
         })
     }
 
@@ -63,50 +56,41 @@ class CusumDashboard extends Component {
                     break;
                 case 'userLevel':
                     this.params.userLevel = update.userLevel;
-
-                    if(update.userLevel === 0){
-                        const data = await this.cusumApi.getCusumApiForDrOnly(this.params);
-                        this.setState({
-                            data: data,
-                            loading: data.loading
-                        });
-                    } else {
-                        // }
-                        const data = await this.cusumApi.getCusumApi(this.params);
-                        this.setState({
-                            data: data,
-                            loading: data.loading
-                        });
-                    }
-                   
                     break;
                 default:        
             }
         }
+        const cusum = await this.cusumApi.getCusumData(this.params);
+        this.setState({
+            cusum,
+            loading: cusum.loading
+        })
     }
 
     render() {
-        let loadingContent;
-        
-            loadingContent =  
+        let Content;
+        if (this.state.loading) {
+            Content = 
+            <Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col>
+        } else {   
+            Content =  
             <Col xs={8} md={8}>
             { this.state && 
-            this.state.data &&
-            this.state.data.dot&&
-            this.state.data.masterLine&&
-            this.state.data.up &&
-            this.state.data.bottom &&
+            this.state.cusum &&
+            this.state.cusum.alerts&&
+            this.state.cusum.cusumLine&&
+            this.state.cusum.ucl &&
+            this.state.cusum.lcl &&
         
                 <CusumContainer
-                    dot={this.state.dot}
-                    masterLine={this.state.masterLine}
-                    up={this.state.up}
-                    bottom={this.state.bottom}
-                    
-                    />
+                    alerts={this.state.cusum.alerts}
+                    cusumLine={this.state.cusum.cusumLine}
+                    ucl={this.state.cusum.ucl}
+                    lcl={this.state.cusum.lcl} 
+                />
             }
             </Col>;
-        
+        }
 
         return ( 
 
@@ -115,26 +99,12 @@ class CusumDashboard extends Component {
                 
                 <Grid className ='patient_grid'>
                     <Row>
-                        {loadingContent}
+                        {Content}
                     </Row>
                 </Grid>
             </div>
         )
     }
-/*
-    render() {
-        return (
-            <Grid className='patient_grid'>
-                <Row>
-                    <Col xs={12} md={12}>
-                        <CusumContainer />
-                    </Col>
-                </Row>
-            </Grid>
-           
-        );
-
-    };*/
 }
 
 export default CusumDashboard;

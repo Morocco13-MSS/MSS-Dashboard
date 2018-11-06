@@ -10,18 +10,15 @@ class CusumContainer extends Component {
                     <Panel.Body>
                         <h4>CUSUM Chart</h4>
                         <MSSCusumChart
-                            dot={this.props.dot}
-                              masterLine={this.props.masterLine}
-                              up={this.props.up}
-                              bottom={this.props.bottom}
-                           
+                            dot={this.props.alerts}
+                            masterLine={this.props.cusumLine}
+                            up={this.props.ucl}
+                            bottom={this.props.lcl}
                         />
                     </Panel.Body>
                 </Panel>
             </div>
         )
-
-
     };
 }
 

@@ -74,7 +74,7 @@ class Hello extends Component {
                     <NavItem eventKey="cusum">
                         <NavIcon>
                             <i className="fa fa-area-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/cusum"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="stats"/></Link>
+                            <Link to="/cusum"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="gift"/></Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/cusum">CUSUM</Link>
