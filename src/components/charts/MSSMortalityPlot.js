@@ -5,6 +5,7 @@ import {XYPlot, MarkSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis
 const ITEMS = [
     'Myself',
     'Other Drs',
+    'All Units',
     'Benchmark',
     'Up',
     'Up2',
@@ -15,6 +16,7 @@ const ITEMS = [
   const COLORS = [
     '#8884d8',
     '#f7aa04',
+    '#6fac86',
     '#6ba225',
     '#f52549',
     '#ffccac',
