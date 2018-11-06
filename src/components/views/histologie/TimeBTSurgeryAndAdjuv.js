@@ -16,12 +16,35 @@ class TimeBTSurgeryAndAdjuv extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Time between Surgery and Adjuv</h4>
+                    <h4 className="chartTitle">Time between Surgery and Adjuv
+                    
+                    { !this.props.hide_dr &&
+                       <span className='dr_result'>
+                            <div className="chemoRTC_square_left_a_dr">
+                                <div className="chemoRTC_name_dr"> {'<6'}</div>
+                                <div className="lt6_value_dr">{this.props.dr_lessth6weeks}</div>
+                            </div>
+                            <div className="chemoRTC_square_left_a_dr">
+                                <div className="chemoRTC_name_dr"> {'>6'}</div>
+                                <div className="gt6_value_dr">{this.props.dr_morethan6weeks}</div>
+                            </div>
+                            <div className="chemoRTC_square_left_dr">
+                                <div className="chemoRTC_name_dr"> {'Missing'}</div>
+                                <div className="chemoRTC_value_dr">{this.props.dr_missing}</div>
+                            </div>
+                            <div className="chemoRTC_square_right_a_dr">
+                                <div className="chemoRTC_name_dr">{'Total'}</div>
+                                <div className="chemoRTC_value_dr">{this.props.dr_total}</div>
+                            </div>
+                        </span>
+                    }
+                    </h4>
+
                     <MSSSimplePie 
                         data={this.props.data} 
                         colors={this.state.colors} 
                         width={300}
-                        height={200}
+                        height={250}
                         cx={160}
                     />
                     <div className="square_bottom_pna">
