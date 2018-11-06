@@ -7,8 +7,33 @@
     color: aliceblue;
     background-color: #333333;
 }
+
+.patient_grid{
+    line-height: 25px !important;
+}
+
 .welcomeNavbar{
     margin-bottom: 0px;
 }
-.loginContainer{
+
+.cBlack{
+    color:#000 !important;
+}
+
+
+
+.justify{
+    text-align: justify !important;
+}
+
+.margin5R{
+    margin-right:5px !important;
+}
+
+.noStyleList{
+    list-style:none !important;
+}
+
+.deco1List{
+    list-style-type: square !important;
 }

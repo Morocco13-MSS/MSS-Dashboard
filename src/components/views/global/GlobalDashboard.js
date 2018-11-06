@@ -4,7 +4,8 @@ import PatientTypes from './PatientTypes';
 import GestTypes from './GestTypes';
 import Filter from '../../Filter';
 import GlobalApi from '../../../apis/globalApi';
-import Config from '../../../config/config'
+import Config from '../../../config/config';
+import loading from '../../imgs/loading1.gif';
 
 class NewGlobalDashboard extends Component {
 
@@ -57,7 +58,7 @@ class NewGlobalDashboard extends Component {
             global: self.globalApi.getPatientsGlobal(self.params),
             global_unit: self.globalApi.getPatientsGlobal(self.params_unit),
             global_all: self.globalApi.getPatientsGlobal(self.params_all),
-            gest: self.globalApi.getPatientsGestType(self.params, self.params_unit, self.params_all)
+            gest: self.globalApi.getPatientsGestType(self.params, self.params_unit, self.params_all),
         })
     }
 
@@ -104,12 +105,57 @@ class NewGlobalDashboard extends Component {
     }
 
     render() {
+        let Content;
+        if (this.state.global || this.state.gest || this.state.global_unit || this.state.global_all) {
+            Content =  
+                <Row>
+                    <Col xs={4} md={4}>
+                        { this.state && this.state.global && this.state.global.chartData &&
+                            this.state && this.state.global_unit && this.state.global_unit.chartData &&
+                            this.state && this.state.global_all && this.state.global_all.chartData &&
+
+                            <PatientTypes
+                                title_dr={this.params.title}
+                                data_dr={this.state.global.chartData}
+                                tile_dr={this.state.global.tileData}
+
+                                title_unit={this.params_unit.title}
+                                data_unit={this.state.global_unit.chartData}
+                                tile_unit={this.state.global_unit.tileData}
+
+                                title_all={this.params_all.title}
+                                data_all={this.state.global_all.chartData}
+                                tile_all={this.state.global_all.tileData}
+                                
+                                hide_unit = {this.state.unitIsHidden}
+                                hide_all = {this.state.allIsHidden}
+                            />
+                        }
+                    </Col>
+                    <Col xs={8} md={8}>
+                        { this.state && this.state.gest && this.state.gest.data &&
+                            <GestTypes 
+                                data={this.state.gest.data} 
+                                tile_data={this.state.gest.tile_data}
+                                hide_unit = {this.state.unitIsHidden}
+                                hide_all = {this.state.allIsHidden}
+                            />
+                        }
+                    </Col>
+                </Row>
+        } else {
+            Content = 
+            <Row><Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col></Row>
+        }
+
+
 
         return (
             <div> 
                 <Filter updateFilter = {this.updateFilter}/>
                 <Grid className ='patient_grid'>
-                    <Row>
+                {Content}
+                    {/* <Row>
                         <Col xs={4} md={4}>
                             { this.state && this.state.global && this.state.global.chartData &&
                                this.state && this.state.global_unit && this.state.global_unit.chartData &&
@@ -143,7 +189,7 @@ class NewGlobalDashboard extends Component {
                                 />
                             }
                         </Col>
-                    </Row>
+                    </Row> */}
                 </Grid>
             </div>
         );
