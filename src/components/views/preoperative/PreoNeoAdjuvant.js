@@ -6,7 +6,16 @@ class PreoNeoAdjuvant extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Patients néo-adjuvants</h4>
+                    <h4 className='preopChartTitle'>Néo-adjuvants
+                        { !this.props.hide_dr && this.props.dr &&
+                            <span className='dr_result'>
+                            Moi:
+                            {
+                                ((this.props.dr.neoAdjuvant/this.props.dr.total)*100).toFixed(0)
+                            }{'%'}
+                            </span>
+                        }
+                    </h4>
                     <div className="square_top_pna">
                         <div className="pna_value">
                         {

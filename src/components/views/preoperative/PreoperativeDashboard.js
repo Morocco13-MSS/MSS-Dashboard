@@ -7,11 +7,16 @@ import PreoNeoAdjuvant from './PreoNeoAdjuvant';
 import BilanManquantApi from '../../../apis/bilanManquantApi';
 import PreoDaysBeforeSurgeryApi from '../../../apis/preoDaysBeforeSurgeryApi';
 import PreoNeoAdjuvantApi from '../../../apis/preoNeoAdjuvantApi';
-import Config from '../../../config/config'
+import Config from '../../../config/config';
+import loading from '../../imgs/loading.gif';
 
 class PreoperativeDashboard extends Component {
     constructor (props) {
         super(props);
+
+        this.state = {
+            showLoading: true
+        }
 
         // API instances 
         this.bilanManquantApi = new BilanManquantApi();
@@ -37,14 +42,25 @@ class PreoperativeDashboard extends Component {
         this.updateFilter();
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const self = this;
+
+        const bm = await self.bilanManquantApi.getBilanManquant(self.params);
+        const bm_dr = await self.bilanManquantApi.getBilanManquant(self.params_dr);
+        const pbs = await self.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(self.params);
+        const pbs_dr = await self.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(self.params_dr);
+        const pna = await self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params);
+        const pna_dr = await self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params_dr);
+
         self.setState({
+            bm,
+            bm_dr,
+            pbs,
+            pbs_dr,
+            pna,
+            pna_dr,
+            showLoading: false,
             drIsHidden: true,
-            bm: self.bilanManquantApi.getBilanManquant(self.params),
-            pbs: self.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(self.params),
-            pbs_dr: self.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(self.params_dr),
-            pna: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params)
         })
     }
 
@@ -78,18 +94,35 @@ class PreoperativeDashboard extends Component {
                 default:        
             }
         }
+
+        const bm = await this.bilanManquantApi.getBilanManquant(this.params);
+        const bm_dr = await this.bilanManquantApi.getBilanManquant(this.params_dr);
+        const pbs =  await this.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(this.params);
+        const pbs_dr =  await this.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(this.params_dr);
+        const pna =  await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params);
+        const pna_dr =  await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params_dr);
+
         this.setState({
-            bm: await this.bilanManquantApi.getBilanManquant(this.params),
-            pbs: await this.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(this.params),
-            pna: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params),
-            pbs_dr: await this.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(this.params_dr),
+            bm,
+            bm_dr,
+            pbs,
+            pbs_dr,
+            pna,
+            pna_dr,
+            showLoading: false
         });
     }
 
     render() {
-        return (
-            <div>
-            <Filter updateFilter = {this.updateFilter}/>
+
+        let Content;
+        if (this.state.showLoading) {
+            Content = 
+            <Grid className ='patient_grid'>
+                <Row><Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col></Row>
+            </Grid>
+        } else {
+            Content = 
             <Grid className ='patient_grid'>
                 <Row>
                     <Col xs={6} md={6}>
@@ -107,15 +140,19 @@ class PreoperativeDashboard extends Component {
                         }
                     </Col>
                     <Col xs={3} md={3}>
-                        { this.state && this.state.pna &&
-                            <PreoNeoAdjuvant pna={this.state.pna} />
+                        { this.state && this.state.pna && this.state.pna_dr &&
+                            <PreoNeoAdjuvant 
+                                pna={this.state.pna} 
+                                dr={this.state.pna_dr} 
+                                hide_dr = {this.state.drIsHidden}
+                            />
                         }
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={9} md={9}>
                         <div>
-                        { this.state && this.state.bm.data &&
+                        { this.state && this.state.bm.data && this.state.bm_dr.data &&
                             <BilanManquant data={this.state.bm.data}
                                 key1={this.state.bm.key1}
                                 key2={this.state.bm.key2}
@@ -126,13 +163,26 @@ class PreoperativeDashboard extends Component {
                                 tmd_thorax_total={this.state.bm.tmd_thorax_total}
                                 tmd_abdomen_adherent={this.state.bm.tmd_abdomen_adherent}
                                 tmd_abdomen_total={this.state.bm.tmd_abdomen_total}
+                                hide_dr = {this.state.drIsHidden}
+                                mdt_adherent_dr={this.state.bm_dr.mdt_adherent}
+                                mdt_total_dr={this.state.bm_dr.mdt_total}
+                                tmd_thorax_adherent_dr={this.state.bm_dr.tmd_thorax_adherent}
+                                tmd_thorax_total_dr={this.state.bm_dr.tmd_thorax_total}
+                                tmd_abdomen_adherent_dr={this.state.bm_dr.tmd_abdomen_adherent}
+                                tmd_abdomen_total_dr={this.state.bm_dr.tmd_abdomen_total}
                             />
                         }
                         </div>
                     </Col>
                 </Row>
             </Grid>
-        </div>
+        }
+
+        return (
+            <div>
+                <Filter updateFilter = {this.updateFilter}/>
+                {Content}
+            </div>
         );
       }
   }

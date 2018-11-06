@@ -4,7 +4,7 @@ import Filter from '../../Filter';
 import MortalityPlot from './MortalityPlot'
 import MortalityPlotApi from '../../../apis/mortalityPlotApi';
 import './MorbiMortalityDashboard.css';
-import loading from '../../imgs/loading1.gif'
+import loading from '../../imgs/loading.gif'
 import Config from '../../../config/config'
 
 class MorbiMortality extends Component {
@@ -84,18 +84,19 @@ class MorbiMortality extends Component {
         }
     }
     render() {
-        let loadingContent;
+        let Content;
         if (this.state.loading) {
-            loadingContent = 
+            Content = 
             <Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col>
         } else {
-            loadingContent =  
+            Content =  
             <Col xs={8} md={8}>
             { this.state && 
             this.state.data &&
             this.state.data.dot&&
             this.state.data.scatter&&
             this.state.data.benchmark &&
+            this.state.data.allUnits &&
             this.state.data.up &&
             this.state.data.up2 &&
             this.state.data.lo &&
@@ -104,6 +105,7 @@ class MorbiMortality extends Component {
                     dot={this.state.data.dot}
                     scatter={this.state.data.scatter}
                     benchmark={this.state.data.benchmark}
+                    allUnits={this.state.data.allUnits}
                     up={this.state.data.up}
                     up2={this.state.data.up2}
                     lo={this.state.data.lo}
@@ -120,7 +122,7 @@ class MorbiMortality extends Component {
                 
                 <Grid className ='patient_grid'>
                     <Row>
-                        {loadingContent}
+                        {Content}
                     </Row>
                 </Grid>
             </div>

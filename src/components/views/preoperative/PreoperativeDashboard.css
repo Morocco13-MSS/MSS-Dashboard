@@ -52,6 +52,15 @@
     display: inline-block;
 }
 
+.squareLeftPreo_missing_dr{
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 55px;
+    height: 40px;
+    display: inline-block;
+}
+
 .squareRightPreo_dr  {
     border: 1px solid #ddd;
     width: 45px;
@@ -162,4 +171,43 @@
 
 .square_bottom_days{
     padding-left: 50px
+}
+
+.square_bilan_dr_left {
+    /* background: #000; */
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    width: 65px;
+    height: 40px;
+    display: inline-block;
+}
+
+.square_bilan_dr_right {
+    border: 1px solid #ddd;
+    width: 65px;
+    height: 40px;
+    display: inline-block;
+}
+
+.bilan_dr_adh {
+    color: #1f77b4;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bilan_dr_tho {
+    color: #ff7f0e;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bilan_dr_abd {
+    color: #2ca02c;
+    text-align: center;
+    font-size: 14px;
+}
+
+.preopChartTitle{
+    height: 40px;
 }

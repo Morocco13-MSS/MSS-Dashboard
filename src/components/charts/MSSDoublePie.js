@@ -20,7 +20,7 @@ class MSSDoublePie extends Component {
             <PieChart width={350} height={250}>
             <Pie 
                 data={this.props.data1} 
-                cx={180} cy={100} 
+                cx={180} cy={120} 
                 innerRadius={60} 
                 outerRadius={70} 
                 fill="#82ca9d">
@@ -35,7 +35,7 @@ class MSSDoublePie extends Component {
                 endAngle={0}
                 data={this.props.data2} 
                 cx={180} 
-                cy={100} 
+                cy={120} 
                 innerRadius={80} 
                 outerRadius={90} 
                 fill="#8884d8" label/>

@@ -12,7 +12,7 @@ class NavHeader extends Component {
             <Navbar staticTop inverse>
             <Navbar.Header>
                 <Navbar.Brand>
-                Obwervatoire de Cancer Digestif
+                Observatoire de Cancer Digestif
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
@@ -40,7 +40,7 @@ class NavHeader extends Component {
                         Hi, Dr. {Config.userName}
                     </NavItem>
                     <NavItem onClick={() => this.logout()}>
-                        Logout
+                        Se déconnecter
                     </NavItem>
                 </Nav>
 

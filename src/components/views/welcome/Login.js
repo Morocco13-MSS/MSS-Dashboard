@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {ControlLabel, FormGroup, FormControl, Button, Col, Form} from 'react-bootstrap';
 import './Welcome.css';
-import Config from '../../../config/config';
 import axios from 'axios';
 
 class Login extends Component {
@@ -52,28 +51,28 @@ class Login extends Component {
         return (
             <Form horizontal>
                 <FormGroup controlId="formHorizontalEmail">
-                    <ControlLabel>User ID</ControlLabel>
+                    <ControlLabel>Identifiant</ControlLabel>
                     <FormControl 
                         type="text" 
-                        placeholder="User ID" 
+                        placeholder="Identifiant" 
                         onChange={this.handleUserNameChange}
                     />
                 </FormGroup>
 
                 <FormGroup controlId="formHorizontalPassword">
-                    <ControlLabel>Password</ControlLabel>
+                    <ControlLabel>Mot de passe</ControlLabel>
                     <FormControl 
                         type="password" 
-                        placeholder="Password" 
+                        placeholder="Mot de passe" 
                         onChange={this.handlePWDChange}
                     />
                 </FormGroup>
 
                 <FormGroup>
-                    <Col smOffset={7}>
-                        <Button
+                    <Col >
+                        <Button className="pull-right"
                             onClick={() => this.login()}
-                        >Sign in
+                        >Se connecter
                         </Button>
                     </Col>
                 </FormGroup>

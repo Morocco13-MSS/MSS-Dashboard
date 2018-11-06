@@ -31,18 +31,18 @@ import React, { Component } from 'react';
 import {PieChart, Pie, Sector, Cell, Label} from 'recharts';
 
 function renderActiveShape (props) {
-    const RADIAN = Math.PI / 180;
-    const {cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-    fill, percent, value, name} = props;
-    const sin = Math.sin(-RADIAN * midAngle);
-    const cos = Math.cos(-RADIAN * midAngle);
-    const sx = cx + (outerRadius + 15) * cos;
-    const sy = cy + (outerRadius + 15) * sin;
-    const mx = cx + (outerRadius + 20) * cos;
-    const my = cy + (outerRadius + 20) * sin;
-    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-    const ey = my;
-    const textAnchor = cos >= 0 ? 'start' : 'end';
+    // const RADIAN = Math.PI / 180;
+    const {cx, cy, innerRadius, outerRadius, startAngle, endAngle,
+    fill} = props;
+    // const sin = Math.sin(-RADIAN * midAngle);
+    // const cos = Math.cos(-RADIAN * midAngle);
+    // const sx = cx + (outerRadius + 15) * cos;
+    // const sy = cy + (outerRadius + 15) * sin;
+    // const mx = cx + (outerRadius + 20) * cos;
+    // const my = cy + (outerRadius + 20) * sin;
+    // const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    // const ey = my;
+    // const textAnchor = cos >= 0 ? 'start' : 'end';
 
     return (
         <g>

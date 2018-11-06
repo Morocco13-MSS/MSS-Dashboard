@@ -8,7 +8,17 @@ class ChemoRCTWithBlood extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4>Chemo or RCT with Blood</h4>
+                    <h4>Chemo or RCT with Blood
+                    { !this.props.hide_dr && 
+                        <span className='dr_result'>
+                        Moi:
+                        {
+                            ((this.props.dr.chemoOrRct/this.props.dr.total)*100).toFixed(0)
+                        }{'%'}
+                        </span>
+                    }
+                        
+                    </h4>
                     <div className="chemoRTC_top">
                         <div className="chemoRTCBlood_value_p">
                         {

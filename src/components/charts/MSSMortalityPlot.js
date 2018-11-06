@@ -5,6 +5,7 @@ import {XYPlot, MarkSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis
 const ITEMS = [
     'Myself',
     'Other Drs',
+    'All Units',
     'Benchmark',
     'Up',
     'Up2',
@@ -15,6 +16,7 @@ const ITEMS = [
   const COLORS = [
     '#8884d8',
     '#f7aa04',
+    '#6fac86',
     '#6ba225',
     '#f52549',
     '#ffccac',
@@ -31,8 +33,8 @@ class MSSMortalityPlot extends Component {
             <XYPlot height={300} width= {700}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
-                <XAxis />
-                <YAxis />
+                <XAxis title="Number of Patients" />
+                <YAxis title="Mortality Rate" />
  
                 <MarkSeries 
                     data={this.props.scatter} 
@@ -45,6 +47,13 @@ class MSSMortalityPlot extends Component {
                     size="7" 
                     color="#8884d8"
                 />
+
+                <MarkSeries 
+                    data={this.props.allUnits} 
+                    size="10" 
+                    color="#6fac86"
+                />
+
                 <LineSeries
                     data={this.props.benchmark} 
                     curve={'curveMonotoneX'}
