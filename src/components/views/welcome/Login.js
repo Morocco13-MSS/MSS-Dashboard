@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {ControlLabel, FormGroup, FormControl, Button, Col, Form} from 'react-bootstrap';
 import './Welcome.css';
-import Config from '../../../config/config';
 import axios from 'axios';
 
 class Login extends Component {
