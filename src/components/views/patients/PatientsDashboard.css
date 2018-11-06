@@ -104,13 +104,14 @@
 }
 
 .bmiw_value{
-    padding-top: 20px;
+    padding-top: 80px;
     color: #1f77b4;
     text-align: center;
     font-size: 60px;
 }
 
 .bmiw_value_2{
+    padding-top: 30px;
     color: #999;
     text-align: center;
     font-size: 30px;
