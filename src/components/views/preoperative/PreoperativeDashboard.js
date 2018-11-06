@@ -7,11 +7,16 @@ import PreoNeoAdjuvant from './PreoNeoAdjuvant';
 import BilanManquantApi from '../../../apis/bilanManquantApi';
 import PreoDaysBeforeSurgeryApi from '../../../apis/preoDaysBeforeSurgeryApi';
 import PreoNeoAdjuvantApi from '../../../apis/preoNeoAdjuvantApi';
-import Config from '../../../config/config'
+import Config from '../../../config/config';
+import loading from '../../imgs/loading.gif';
 
 class PreoperativeDashboard extends Component {
     constructor (props) {
         super(props);
+
+        this.state = {
+            showLoading: true
+        }
 
         // API instances 
         this.bilanManquantApi = new BilanManquantApi();
@@ -37,16 +42,25 @@ class PreoperativeDashboard extends Component {
         this.updateFilter();
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const self = this;
+
+        const bm = await self.bilanManquantApi.getBilanManquant(self.params);
+        const bm_dr = await self.bilanManquantApi.getBilanManquant(self.params_dr);
+        const pbs = await self.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(self.params);
+        const pbs_dr = await self.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(self.params_dr);
+        const pna = await self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params);
+        const pna_dr = await self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params_dr);
+
         self.setState({
+            bm,
+            bm_dr,
+            pbs,
+            pbs_dr,
+            pna,
+            pna_dr,
+            showLoading: false,
             drIsHidden: true,
-            bm: self.bilanManquantApi.getBilanManquant(self.params),
-            bm_dr: self.bilanManquantApi.getBilanManquant(self.params_dr),
-            pbs: self.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(self.params),
-            pbs_dr: self.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(self.params_dr),
-            pna: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params),
-            pna_dr: self.preoNeoAdjuvantApi.getNeoAdjuvant(self.params_dr),
         })
     }
 
@@ -80,20 +94,35 @@ class PreoperativeDashboard extends Component {
                 default:        
             }
         }
+
+        const bm = await this.bilanManquantApi.getBilanManquant(this.params);
+        const bm_dr = await this.bilanManquantApi.getBilanManquant(this.params_dr);
+        const pbs =  await this.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(this.params);
+        const pbs_dr =  await this.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(this.params_dr);
+        const pna =  await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params);
+        const pna_dr =  await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params_dr);
+
         this.setState({
-            bm: await this.bilanManquantApi.getBilanManquant(this.params),
-            bm_dr: await this.bilanManquantApi.getBilanManquant(this.params_dr),
-            pbs: await this.preoDaysBeforeSurgeryApi.getDaysBeforeSurgery(this.params),
-            pbs_dr: await this.preoDaysBeforeSurgeryApi.getDrDaysBeforeSurgery(this.params_dr),
-            pna: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params),
-            pna_dr: await this.preoNeoAdjuvantApi.getNeoAdjuvant(this.params_dr),
+            bm,
+            bm_dr,
+            pbs,
+            pbs_dr,
+            pna,
+            pna_dr,
+            showLoading: false
         });
     }
 
     render() {
-        return (
-            <div>
-            <Filter updateFilter = {this.updateFilter}/>
+
+        let Content;
+        if (this.state.showLoading) {
+            Content = 
+            <Grid className ='patient_grid'>
+                <Row><Col xs={10} md={10}><div className="loading"><img src={loading} alt="loading..."/></div></Col></Row>
+            </Grid>
+        } else {
+            Content = 
             <Grid className ='patient_grid'>
                 <Row>
                     <Col xs={6} md={6}>
@@ -147,7 +176,13 @@ class PreoperativeDashboard extends Component {
                     </Col>
                 </Row>
             </Grid>
-        </div>
+        }
+
+        return (
+            <div>
+                <Filter updateFilter = {this.updateFilter}/>
+                {Content}
+            </div>
         );
       }
   }
