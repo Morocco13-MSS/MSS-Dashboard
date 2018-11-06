@@ -132,7 +132,7 @@ class Surgery extends Component {
                         }
                     </Col>
                     <Col xs={3} md={3}>
-                        { this.state && this.state.abl &&  this.state.abl_dr &&    
+                        { this.state && this.state.abl &&  this.state.abl_dr &&  this.state.abl.total &&
                         <AverageBloodLoss
                             total={this.state.abl.total}
                             averageBLoss={this.state.abl.averageBloodLoss}

@@ -7,7 +7,7 @@ class AverageBloodLoss extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4 className='chartTitle'>{'Perte de sang moyenne'}</h4>
+                    <h4 className='surgeryChartTitle'>{'Perte de sang moyenne'}</h4>
                     <h5>{ !this.props.hide_dr && 
                         <span className='dr_result'>
                         Moi:

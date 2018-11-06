@@ -15,7 +15,7 @@ class PeforationContamination extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4 className="chartTitle">{'Peforation & Contamination'}
+                <h4 className="surgeryChartTitle">{'Peforation & Contamination'}
                 { !this.props.hide_dr &&
                     <span className='dr_result'>
                         <div className="squarePefCon">

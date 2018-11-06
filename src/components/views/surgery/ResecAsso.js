@@ -14,7 +14,7 @@ class ResecAsso extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4 className='chartTitle'>{' Résection associée'}
+                    <h4 className='surgeryChartTitle'>{' Résection associée'}
                         { !this.props.hide_dr && this.props.dr &&
                             <span className='dr_result'>
                                 <div className="squareLeftPreo_dr">

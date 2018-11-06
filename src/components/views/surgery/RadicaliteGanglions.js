@@ -15,7 +15,7 @@ class RadGan extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4 className='chartTitle'>{'Radicalite & Ganglions'}
+                <h4 className='surgeryChartTitle'>{'Radicalite & Ganglions'}
                 { !this.props.hide_dr &&
                     <span className='dr_result'>
                         <div className="squarePefCon">

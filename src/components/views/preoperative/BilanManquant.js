@@ -14,7 +14,7 @@ class BilanManquant extends Component {
         return (
             <Panel>
             <Panel.Body>
-                <h4 className='chartTitle'>Bilan Manquant Adherent
+                <h4 className='preopChartTitle'>Bilan Manquant Adherent
                 { !this.props.hide_dr &&
                     <span className='dr_result'>
                         <div className="square_bilan_dr_left">

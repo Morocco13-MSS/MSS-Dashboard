@@ -14,7 +14,7 @@ class FirstLook extends Component {
         return (
             <Panel>
                 <Panel.Body>
-                    <h4 className='chartTitle'>{'Voie d\'abord'}
+                    <h4 className='surgeryChartTitle'>{'Voie d\'abord'}
                         { !this.props.hide_dr && this.props.dr &&
                             <span className='dr_result'>
                                 <div className="squareLeftPreo_dr">
