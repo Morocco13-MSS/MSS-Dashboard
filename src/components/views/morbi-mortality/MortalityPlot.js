@@ -14,6 +14,7 @@ class MortalityPlot extends Component {
                             dot={this.props.dot}
                             scatter={this.props.scatter}
                             benchmark={this.props.benchmark}
+                            allUnits={this.props.allUnits}
                             up={this.props.up}
                             up2={this.props.up2}
                             lo={this.props.lo}

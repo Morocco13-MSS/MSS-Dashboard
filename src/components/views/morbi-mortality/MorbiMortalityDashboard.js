@@ -96,6 +96,7 @@ class MorbiMortality extends Component {
             this.state.data.dot&&
             this.state.data.scatter&&
             this.state.data.benchmark &&
+            this.state.data.allUnits &&
             this.state.data.up &&
             this.state.data.up2 &&
             this.state.data.lo &&
@@ -104,6 +105,7 @@ class MorbiMortality extends Component {
                     dot={this.state.data.dot}
                     scatter={this.state.data.scatter}
                     benchmark={this.state.data.benchmark}
+                    allUnits={this.state.data.allUnits}
                     up={this.state.data.up}
                     up2={this.state.data.up2}
                     lo={this.state.data.lo}

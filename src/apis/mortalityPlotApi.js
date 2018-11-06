@@ -36,18 +36,38 @@ class mortalityPlotApi extends Component {
             params,
         });
 
-        const result = {
-            dot: response_dot.data,
-            scatter: response_scatter.data,
-            benchmark: response_benchmark.data,
-            up: response_up.data,
-            up2: response_up2.data,
-            lo: response_lo.data,
-            lo2: response_lo2.data,
-            missing: response_missing.data,
-            loading: false
+        if(params.userLevel === 2){
+            const allUnitsDots = await axios.get('http://localhost:8080/fpm/allUnitsDots', {
+                params,
+            });
+            const result = {
+                dot: response_dot.data,
+                scatter: response_scatter.data,
+                allUnits: allUnitsDots.data,
+                benchmark: response_benchmark.data,
+                up: response_up.data,
+                up2: response_up2.data,
+                lo: response_lo.data,
+                lo2: response_lo2.data,
+                missing: response_missing.data,
+                loading: false
+            }
+            return result;
+        }else{
+            const result = {
+                dot: response_dot.data,
+                scatter: response_scatter.data,
+                allUnit: [],
+                benchmark: response_benchmark.data,
+                up: response_up.data,
+                up2: response_up2.data,
+                lo: response_lo.data,
+                lo2: response_lo2.data,
+                missing: response_missing.data,
+                loading: false
+            }
+            return result;
         }
-        return result;
     }
 
     async getMortalityPlotForDrOnly(params) {
@@ -83,6 +103,7 @@ class mortalityPlotApi extends Component {
         const result = {
             dot: response_dot.data,
             scatter: [],
+            allUnits:[],
             benchmark: response_benchmark.data,
             up: response_up.data,
             up2: response_up2.data,
@@ -93,9 +114,6 @@ class mortalityPlotApi extends Component {
         }
         return result;
     }
-
-
-
 
     async getBenchmark(params) {
         const response = await axios.get('http://localhost:8080/fpm/benchmark', {
