@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, MarkSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, LineSeries, DiscreteColorLegend} from 'react-vis';
 
+const ITEMS = [
+    'Up',
+    'Lo',
+    'Master Line',
+    'Alert Dots',
+  ];
+  
+  const COLORS = [
+    '#ff2f2f',
+    '#4286f4',
+    '#999',
+    'red'
+  ];
+
+
 class MSSCusumChart extends Component{
     render() {
         return(
@@ -33,7 +48,7 @@ class MSSCusumChart extends Component{
                 <LineSeries 
                     data={this.props.masterLine}
                     curve={'curveBasis'} 
-                    color="#000" 
+                    color="#999" 
                     style={{
                         strokeWidth: 2
                     }}
@@ -41,13 +56,19 @@ class MSSCusumChart extends Component{
                 />
                 
                 <MarkSeries 
-                data={this.props.dot}
-                size="3" 
-                markStyle={{stroke: 'red'}}
-                className="test1"
-                color="#fff"
+                    data={this.props.dot}
+                    size="3" 
+                    style={{stroke: 'red'}}
+                    className="test1"
+                    color="#fff"
                 />
             </XYPlot>
+            <DiscreteColorLegend
+                colors={COLORS}
+                orientation="horizontal"
+                width={700}
+                items={ITEMS}
+            />
             </div>
         );
     }
