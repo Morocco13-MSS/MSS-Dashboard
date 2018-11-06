@@ -4,7 +4,7 @@ import Filter from '../../Filter';
 import MortalityPlot from './MortalityPlot'
 import MortalityPlotApi from '../../../apis/mortalityPlotApi';
 import './MorbiMortalityDashboard.css';
-import loading from '../../imgs/loading1.gif'
+import loading from '../../imgs/loading.gif'
 import Config from '../../../config/config'
 
 class MorbiMortality extends Component {
