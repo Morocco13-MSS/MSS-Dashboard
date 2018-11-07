@@ -20,7 +20,7 @@ class Welcome extends Component {
                         <Nav pullRight>
                             <NavItem eventKey={1} href="#">
                                 Accueil
-                    </NavItem>
+                            </NavItem>
                             <NavDropdown eventKey={3} title="L'Observatoire" id="basic-nav-dropdown">
                                 <MenuItem eventKey={3.1}>Management du projet</MenuItem>
                                 <MenuItem eventKey={3.2}>Process des services</MenuItem>
@@ -52,20 +52,18 @@ class Welcome extends Component {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-                <div className="welcomeHeader"><span>Accueil</span>
+                <div className="welcomeHeader"><div className="welcomeTitle">Accueil</div>
                 </div>
-                <Grid className='patient_grid'>
+                <Grid className="welcome_grid">
                     <Row>
                         <Col xs={9} md={9}>
-
-
                             <div>
                                 <div className="firstTitle">
                                     <h3>Résumé du protocole</h3>
                                 </div>
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>Titre de l’étude</Media.Heading>
+                                        <Media.Heading className="mediaHeading">Titre de l’étude</Media.Heading>
                                         <p>
                                             Observatoire de la qualité des actes de chirurgie pour cancers digestifs: projet pilote (AP201951/16).
                                         </p>
@@ -73,7 +71,7 @@ class Welcome extends Component {
                                 </Media>
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>Numéro de référence</Media.Heading>
+                                        <Media.Heading className="mediaHeading">Numéro de référence</Media.Heading>
                                         <p>
                                             201951/AP2016
                                         </p>
@@ -81,7 +79,7 @@ class Welcome extends Component {
                                 </Media>
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>Promoteur</Media.Heading>
+                                        <Media.Heading className="mediaHeading">Promoteur</Media.Heading>
                                         <p>
                                             <a className="cBlack" href="http://www.somachir.com">Société Marocaine de Chirurgie (www.somachir.com)</a>
                                         </p>
@@ -90,7 +88,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>Centres investigateurs</Media.Heading>
+                                        <Media.Heading className="mediaHeading">Centres investigateurs</Media.Heading>
                                         <ul>
                                             <li>Service de Chirurgie “A”, Hôpital Ibn Sina (Rabat, Maroc)</li>
                                             <li>Service de Chirurgie “C”, Hôpital Ibn Sina (Rabat, Maroc)</li>
@@ -104,7 +102,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                             Période de l’étude
                                         </Media.Heading>
                                         <p>
@@ -115,7 +113,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>Rationnel et justification</Media.Heading>
+                                        <Media.Heading className="mediaHeading">Rationnel et justification</Media.Heading>
                                         <p className="justify">
                                         La chirurgie occupe une place centrale dans les stratégies thérapeutiques curatives des cancers digestifs. Elle se caractérise par une complexité́, une morbidité́ et des coûts importants. Il existe un contraste notable entre l'existence de normes acceptées de qualité́ chirurgicale (référentiels nationaux ou régionaux de bonne pratique en chirurgie cancérologique) et la disparité́ des résultats enregistrés. En complément à une stratégie de concentration des cas complexes dans des centres à haut volume d’activité, la disparité des résultats de la chirurgie a justifié la mise en place par des sociétés savantes européennes de systèmes d’assurance qualité́ dédiés à une ou plusieurs localisations de cancer digestif. L’analyse de ces expériences a montré que l’implémentation de registres d’audit chirurgical sans mesure interventionnelle spécifique initiale avait un impact positif, rapide et coût-efficace sur les taux de complications, les taux de récidive ainsi que sur la survie globale. L’analyse des données recueillies a par ailleurs permis d’améliorer les connaissances et donc la prise en charge de sous-groupes de patients habituellement exclus des essais cliniques.
                                             Au Maroc, l’équité et la qualité sont deux des valeurs retenues par Plan National de Prévention et de Contrôle du Cancer (PNPCC, 2010-2019). Ces valeurs impliquent respectivement le développement «d’une offre de soins identiques pour tous et accessibles» et «d’une prise en charge complète répondant au normes». D’un point de vue opérationnel, les mesures 53 et 54 du PNPCC prévoient la mise en place d’un système d’assurance qualité́ avec l’instauration d’un système de suivi et d’évaluation 
@@ -126,7 +124,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                             Schéma de l'étude
                                         </Media.Heading>
                                         <p className="justify">
@@ -137,7 +135,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                         Nombre de patients 
                                         </Media.Heading>
                                         <p className="justify">
@@ -149,7 +147,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                         Objectifs de l’étude
                                         </Media.Heading>
                                         <p className="justify">
@@ -161,7 +159,7 @@ class Welcome extends Component {
 
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                         Population de patients de l’étude                                        </Media.Heading>
                                         <p className="justify">
                                         Patients de sexes masculin et féminin âgés de 16 ans et plus opérés dans un des centres investigateurs pour un cancer de localisation digestive prouvé ou suspecté, à visée curative ou palliative, en situation élective ou urgente.
@@ -173,7 +171,7 @@ class Welcome extends Component {
                               
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                         Principaux critères d’inclusion 
                                         </Media.Heading>
                                         <ul className="noStyleList">
@@ -191,7 +189,7 @@ class Welcome extends Component {
                             
                                 <Media>
                                     <Media.Body>
-                                        <Media.Heading>
+                                        <Media.Heading className="mediaHeading">
                                         Principaux critères d’exclusion 
                                         </Media.Heading>
                                         <ul className="noStyleList">
@@ -221,11 +219,9 @@ class Welcome extends Component {
                                     <h3>Critères d’évaluation de l’étude clinique</h3>
                                 </div>
                             
-
                                   <Media>
                                     <Media.Body>
-                                        <Media.Heading>
-                                        
+                                        <Media.Heading className="mediaHeading">
                                         Critère d’évaluation principal
                                         </Media.Heading>
                                         <p>
@@ -238,8 +234,7 @@ class Welcome extends Component {
 
                                   <Media>
                                     <Media.Body>
-                                        <Media.Heading>
-                                        
+                                        <Media.Heading className="mediaHeading">
                                         Critères d’évaluation secondaires
                                         </Media.Heading>
                                         <p>
