@@ -14,7 +14,8 @@ class NewGlobalDashboard extends Component {
         this.state = {
             unitIsHidden: true,
             allIsHidden: true,
-            showLoading: true
+            showLoading: true,
+            height_dr:500
         }
 
         // API instances 
@@ -86,16 +87,19 @@ class NewGlobalDashboard extends Component {
                     if(update.userLevel === 0){
                         this.setState({
                             unitIsHidden: true,
-                            allIsHidden: true
+                            allIsHidden: true,
+                            height_dr: 500
                         })
                     } else {
                         if(update.userLevel === 1){
                             this.setState({
-                                unitIsHidden: !this.state.unitIsHidden
+                                unitIsHidden: false,
+                                height_dr: 100
                             })
                         }else{
                             this.setState({
-                                allIsHidden: !this.state.allIsHidden
+                                allIsHidden: false,
+                                height_dr: 100
                             })
                         }
                     }
@@ -135,6 +139,7 @@ class NewGlobalDashboard extends Component {
                             title_dr={this.params.title}
                             data_dr={this.state.global.chartData}
                             tile_dr={this.state.global.tileData}
+                            height_dr={this.state.height_dr}
 
                             title_unit={this.params_unit.title}
                             data_unit={this.state.global_unit.chartData}

@@ -13,7 +13,10 @@ class PatientTypes extends Component {
                     <Panel.Body>
                     <h4>{this.props.title_dr}</h4>
                     <div className='global_tree'>
-                        <TreeChart data={this.props.data_dr}/>
+                        <TreeChart 
+                            data={this.props.data_dr}
+                            height={this.props.height_dr}
+                        />
                     </div>
                     <div className='global_panel'>
                         <div className="global_square_left">
@@ -41,7 +44,10 @@ class PatientTypes extends Component {
                         <Panel.Body>
                             <h4>{this.props.title_unit}</h4>
                             <div className='global_tree'>
-                                <TreeChart data={this.props.data_unit}/> 
+                                <TreeChart 
+                                    data={this.props.data_unit} 
+                                    height={100}
+                                /> 
                             </div>
                             <div className='global_panel'>
                                 <div className="global_square_left">
@@ -70,7 +76,10 @@ class PatientTypes extends Component {
                         <Panel.Body>
                             <h4>{this.props.title_all}</h4>
                             <div className ='global_tree'>
-                                <TreeChart data={this.props.data_all}/>
+                                <TreeChart 
+                                    data={this.props.data_all}
+                                    height={100}
+                                />
                             </div>
                             <div className='global_panel'>
                                 <div className="global_square_left">

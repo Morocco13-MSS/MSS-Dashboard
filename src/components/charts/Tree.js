@@ -9,7 +9,7 @@ class TreeChart extends Component {
             <div className="custom-container">
                 <Tree
                     data={this.props.data}
-                    height={100}
+                    height={this.props.height}
                     width={350}
                     nodeRadius = {6}
                     animated = {true}
