@@ -7,7 +7,6 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { Link } from 'react-router-dom';
 import './SideNav.css';
 
-
 class Hello extends Component {
 
     render() {
@@ -74,7 +73,9 @@ class Hello extends Component {
                     <NavItem eventKey="cusum">
                         <NavIcon>
                             <i className="fa fa-area-chart" style={{ fontSize: '1.75em' }} />
-                            <Link to="/cusum"><Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="gift"/></Link>
+                            <Link to="/cusum">
+                            <Glyphicon className="sideNavIcon" bsClass="glyphicon" glyph="random"/>
+                            </Link>
                         </NavIcon>
                         <NavText>
                             <Link to="/cusum">CUSUM</Link>
