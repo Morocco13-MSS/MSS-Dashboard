@@ -1,26 +1,33 @@
 .welcomeHeader{
     width: 100%;
-    height: 250px;
-    line-height: 250px;
+    height: 300px;
+    line-height: 300px;
     font-size: 60px;
     text-align: center;
-    color: aliceblue;
-    background-color: #333333;
-}
-
-.patient_grid{
-    line-height: 25px !important;
+    color: #f6f8fa;
+    background-image: url("../../imgs/bluesteel-back.jpg");
 }
 
 .welcomeNavbar{
     margin-bottom: 0px;
+    background-image: url("../../imgs/bluesteel-back.jpg");
+}
+
+.welcome_grid{
+    line-height: 25px;
+}
+
+.welcome_grid h3{
+    color: #000033;
+}
+
+.mediaHeading{
+    color: #01013fd7;
 }
 
 .cBlack{
     color:#000 !important;
 }
-
-
 
 .justify{
     text-align: justify !important;

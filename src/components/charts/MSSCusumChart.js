@@ -10,10 +10,10 @@ const ITEMS = [
   ];
   
   const COLORS = [
-    '#ff2f2f',
-    '#4286f4',
-    '#999',
-    'red'
+    '#f98866',
+    '#6ba225',
+    '#2f4961',
+    '#ff420e'
   ];
 
 
@@ -24,43 +24,41 @@ class MSSCusumChart extends Component{
             <XYPlot height={300} width= {700}>
                 <VerticalGridLines />
                 <HorizontalGridLines />
-                <XAxis />
-                <YAxis />
+                <XAxis title="Number of Patients"/>
+                <YAxis title="Cumulative Sum Mortality Rate"/>
     
                 <LineSeries 
                     data={this.props.up} 
                     curve={'curveBasis'} 
-                    color="#ff2f2f" 
+                    color="#f98866" 
                     style={{
-                        strokeWidth: 2
+                        strokeWidth: 1
                     }}
                 />
 
                     <LineSeries 
                     data={this.props.bottom}
                     curve={'curveBasis'} 
-                    color="#4286f4" 
+                    color="#6ba225" 
                     style={{
-                        strokeWidth: 2
+                        strokeWidth: 1
                     }}
                 />
                 
                 <LineSeries 
                     data={this.props.masterLine}
-                    curve={'curveBasis'} 
-                    color="#999" 
+                    curve={'curveMonotoneX'} 
+                    color="#2f4961" 
                     style={{
-                        strokeWidth: 2
+                        strokeWidth: 1
                     }}
-                    strokeDasharray="3 4"
                 />
                 
                 <MarkSeries 
                     data={this.props.dot}
-                    size="3" 
-                    style={{stroke: 'red'}}
-                    className="test1"
-                    color="#fff"
+                    size="2" 
+                    style={{stroke: '#ff420e'}}
+                    color="#ff420e"
                 />
             </XYPlot>
             <DiscreteColorLegend

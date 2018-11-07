@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
-import Config from '../../config/config'
+import Config from '../../config/config';
+import './navHeader.css'
 
 class NavHeader extends Component {
 
@@ -9,7 +10,7 @@ class NavHeader extends Component {
     }
     render() {
         return (
-            <Navbar staticTop inverse>
+            <Navbar staticTop inverse className="headerNav">
             <Navbar.Header>
                 <Navbar.Brand>
                 Observatoire de Cancer Digestif
