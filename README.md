@@ -35,7 +35,7 @@ For more information, please visit: https://react-bootstrap.github.io/getting-st
 #### How to view the dashboard (first time users, assuming previous setup is complete)
 
 1) Open Terminal (Mac) or your Command Prompt (Windows)
-2) Change your directory to the location of mss-server by pasting the following command in your command line from 1).
+2) Change your directory to the location of mss-server by pasting the following command in your command line from step 1.
 
 `cd <pathToFolder>`
 
