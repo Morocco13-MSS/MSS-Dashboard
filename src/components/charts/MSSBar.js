@@ -38,10 +38,10 @@ class MSSBar extends Component {
                     {/* <LabelList content={<CustomizedLabel external={} />} /> */}
 
                 </Bar>
-                <Bar dataKey={this.props.key2} fill="#ccc">
+                <Bar dataKey={this.props.key2} fill="#777">
                     <LabelList dataKey={this.props.key2} position="top"/>
                 </Bar>
-                <Bar dataKey={this.props.key3} fill="#ccc">
+                <Bar dataKey={this.props.key3} fill="#777">
                     <LabelList dataKey={this.props.key3} position="top"/>
                 </Bar>
             </BarChart>
